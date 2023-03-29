@@ -1,0 +1,120 @@
+.table-holder{
+    table{
+        *border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%; 
+    }
+    th, td{
+        position: relative;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: #4b526c;
+        padding: 12px 10px;
+        text-align: left;
+        border-bottom: 1px solid #d7d8d8;
+        vertical-align: top;
+        // &.error{
+        //     &:after{
+        //         position: absolute;
+        //         content: '';
+        //         background: url(../images/icons/error.svg) no-repeat center center;
+        //         width: 20px;
+        //         height: 20px;
+        //         right: 0px;
+        //         top: 0;
+        //         bottom: 0;
+        //         margin: auto;
+        //     }
+        // }
+    }
+    thead{
+        th{
+            position: sticky;
+            height: 40px;
+            top: 0;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 18px;
+            color: $default-col;
+            background-color: $white-col;
+            z-index: 1;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 4px 0px 5px 0 rgba(66, 82, 110, 0.15);
+        }
+    }
+    tr{
+        &:last-child{
+            td{
+                border-bottom: 0;   
+            } 
+        }
+        
+    }
+    
+    .table-data-head{
+        th{
+            font-weight: 500;  
+        }
+    }
+    .act-link{
+        width: 30px;
+        height:30px;
+        @include flexbox;
+        @include justify-content(center);
+        @include align-items(center);
+
+        .menu-icon{
+            img{display: block;}
+        }
+    }
+}
+.row-name-field{ width: 110px;}
+.row-user-name-field{ width: 155px;}
+.row-email-field{width: 160px;}
+.row-phone-field{width: 130px;}
+.row-instructions-field{width: 210px;}
+.row-address-field{width: 120px;}
+.row-status-field{width: 110px;}
+.row-count-field{ width: 120px; text-align: center;}
+.row-state-field{ width: 90px; text-align: center;}
+.row-action-field{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60px;
+    cursor: pointer;
+    img{
+        margin-right: 6px; 
+    }
+    &.flex-align-right{
+        justify-content: flex-end;
+        width: auto;
+    }
+}
+td{
+    .row-name-field{ 
+
+    }
+    .row-email-field{
+
+    }
+    .row-phone-field{
+
+    }
+    .row-instructions-field{
+        font-weight: 600;
+        font-size: 11px;
+        line-height: 14px;
+    }
+    .row-address-field{
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .row-status-field{
+        width: 150px;
+    }
+    .row-action-field{
+    }
+}

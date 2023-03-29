@@ -1,0 +1,85 @@
+.btn {
+  @extend .flex-center;
+  @extend.semi-bold;
+  font-size: 14px;
+  line-height: 18px;
+  color: $white-col;
+  text-align: center;
+  background: $caribbean-green;
+  @include border-radius(10px);
+  border: 1px solid transparent;
+  padding: 15px 35px;
+  transition: all 0.1s ease-in-out;
+  //box-shadow: 10px 10px 40px rgba(24, 218, 160, 0.3);
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    color: $white-col;
+    border-color: #3ab9ad;
+    background-color: #3ab9ad;
+    box-shadow: 10px 10px 50px rgba(24, 218, 160, 0.3);
+
+    // &.progress {
+    //     position: relative;
+    //     background-image: url(/css/images/spinner-orange.svg);
+    //     background-position: center;
+    //     background-repeat: no-repeat;
+    //     background-size: 30px;
+    //     color: transparent !important;
+    //     pointer-events: none;
+    // }
+  }
+  // &.sm-btn{
+  //     font-weight: 600;
+  //     font-size: 16px;
+  //     line-height: 24px;
+  //     padding: 10px 20px;
+  // }
+  &.block-btn {
+    width: 100%;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 18px 35px;
+    @media screen and (max-width: 1023px) {
+      font-size: 14px;
+      line-height: 18px;
+      padding: 10px 15px;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    font-size: 13px;
+    line-height: 17px;
+    padding: 10px 15px;
+    &.sm-btn {
+      font-size: 13px;
+      line-height: 17px;
+      padding: 10px 15px;
+    }
+  }
+  // &.progress {
+  //     position: relative;
+  //     background-image: url(/css/images/spinner-white.svg);
+  //     background-position: center;
+  //     background-repeat: no-repeat;
+  //     background-size: 30px;
+  //     color: transparent !important;
+  //     pointer-events: none;
+  // }
+}
+.btn-block {
+  display: inline-flex;
+  justify-content: flex-start;
+  padding: 8px;
+  margin-bottom: 35px;
+  @include border-radius(8px);
+  background-color: #f9f9f9;
+  .btn {
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    margin-bottom: 20px;
+  }
+}

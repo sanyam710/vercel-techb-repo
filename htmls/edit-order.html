@@ -1,0 +1,248 @@
+<html>
+<head>
+    <title>Edit Order | Noodle Bar Restaurant</title>
+    <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+    <div class="main-wrap">
+        <div class="side-nav">
+            <div class="nav-header">
+                <h3>Noodle Bar Restaurant</h3>
+            </div>
+            <div class="nav">
+                <div class="nav-links">
+                    <ul>
+                        <li title="Dashboard"><a href="dashboard.html"><span class="dashboard-icon"></span>Dashboard</a></li>
+                        <li title="Profile"><a href="profile.html"><span class="profile-icon"></span>Profile</a></li>
+                        <li title="Orders" class="active"><a href="orders.html"><span class="order-icon"></span>Orders</a></li>
+                    </ul>
+                </div>
+                <div class="foot-links">
+                    <ul>
+                        <li title="Log out">
+                            <span class="log-out-btn"><span class="log-out-icon"></span>Log out</span>
+                        </li>
+                    </ul>    
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="container height-100">
+                <div class="con-holder">    
+                    <div class="column-list flex-direction-column overflow-auto pad-20">
+                        <div class="column-list-holder flex-space-between flex-align-top mar-b-20">
+                            <div class="col-6 mar-r-10">
+                                <div class="form-section mar-b-20">
+                                    <div class="form-group-head">
+                                        <h3>Customer Details</h3>
+                                    </div>
+                                    <div class="form-group-body">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <div class="form-field-holder">
+                                                    <div class="form-field width-100 error">
+                                                        <label class="field-label field-user">Customer Name</label>
+                                                        <input type="text" class="form-control" placeholder="Denil Devidson"/>
+                                                    </div>
+                                                </div>
+    
+                                                <div class="form-field-holder">
+                                                    <div class="form-field width-100">
+                                                        <label class="field-label">Email</label>
+                                                        <input type="email" class="form-control" placeholder="Enter Email"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-field-holder">
+                                                    <div class="form-field width-100">
+                                                        <label class="field-label field-user">Status</label>
+                                                        <div class="custom-select-holder">
+                                                            <span class="custom-select-field select">Completed</span>
+                                                            <ul class="custom-select-menu">
+                                                                <li>Pending</li>
+                                                                <li>canceled</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                                <div class="form-field-holder">
+                                                    <div class="form-field width-100">
+                                                        <label class="field-label">Phone</label>
+                                                        <input type="number" class="form-control" placeholder="Enter Number"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-field-holder">
+                                                    <div class="form-field width-100">
+                                                        <label class="field-label field-user">Address Line 1</label>
+                                                        <input type="text" class="form-control" placeholder="Denil Devidson"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-field-holder">
+                                                    <div class="form-field width-100">
+                                                        <label class="field-label field-user">Address Line 2</label>
+                                                        <input type="text" class="form-control" placeholder="Denil Devidson"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-field-holder mar-b-0">
+                                                    <div class="form-field width-100">
+                                                        <button type="button" class="btn primary-btn block-btn"><img src="/images/icons/refresh-icon.svg" alt="">Update</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="form-section">
+                                    <div class="form-group-head">
+                                        <h3>Cooking Instructions</h3>
+                                    </div>
+                                    <div class="form-group-body">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <div class="form-field">
+                                                    <textarea name="" id="" class="form-control" placeholder="Cooking Instructions"></textarea>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mar-l-10">
+                                <div class="form-section order-item-section mar-b-20">
+                                    <div class="form-group-head">
+                                        <h3>Order items</h3>
+                                    </div>
+                                    <div class="form-group-body">
+                                        <div class="order-item-holder">
+                                            <div class="food-menu-listing">
+                                                <div class="flex-space-between">
+                                                    <div class="food-info-dtl flex-space-between col-7">
+                                                        <div class="food-thumbnail">
+                                                            <img src="/images/recipe-category/temp-manchurian.png" alt="">
+                                                        </div>
+                                                        <div class="food-info">
+                                                            <h3 class="mar-b-5">Manchurian</h3>
+                                                            <p>With extra oregano, & black papper</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-space-between food-pricing-dtl col-5">
+                                                        <div class="food-rate-field">
+                                                            <h6>Rate</h6>
+                                                            <h5>₹ 250</h5>
+                                                        </div>
+                                                        <div class="food-quantity-field">
+                                                            <h6>Quantity</h6>
+                                                            <h5>250 ml</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="food-menu-listing">
+                                                <div class="flex-space-between">
+                                                    <div class="food-info-dtl flex-space-between col-7">
+                                                        <div class="food-thumbnail">
+                                                            <img src="/images/recipe-category/temp-manchurian.png" alt="">
+                                                        </div>
+                                                        <div class="food-info">
+                                                            <h3 class="mar-b-5">Manchurian</h3>
+                                                            <p>With extra oregano, & black papper</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-space-between food-pricing-dtl col-5">
+                                                        <div class="food-rate-field">
+                                                            <h6>Rate</h6>
+                                                            <h5>₹ 250</h5>
+                                                        </div>
+                                                        <div class="food-quantity-field">
+                                                            <h6>Quantity</h6>
+                                                            <h5>250 ml</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="food-menu-listing">
+                                                <div class="flex-space-between">
+                                                    <div class="food-info-dtl flex-space-between col-7">
+                                                        <div class="food-thumbnail">
+                                                            <img src="/images/recipe-category/temp-manchurian.png" alt="">
+                                                        </div>
+                                                        <div class="food-info">
+                                                            <h3 class="mar-b-5">Manchurian</h3>
+                                                            <p>With extra oregano, & black papper</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-space-between food-pricing-dtl col-5">
+                                                        <div class="food-rate-field">
+                                                            <h6>Rate</h6>
+                                                            <h5>₹ 250</h5>
+                                                        </div>
+                                                        <div class="food-quantity-field">
+                                                            <h6>Quantity</h6>
+                                                            <h5>250 ml</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="food-menu-listing">
+                                                <div class="flex-space-between">
+                                                    <div class="food-info-dtl flex-space-between col-7">
+                                                        <div class="food-thumbnail">
+                                                            <img src="/images/recipe-category/temp-manchurian.png" alt="">
+                                                        </div>
+                                                        <div class="food-info">
+                                                            <h3 class="mar-b-5">Manchurian</h3>
+                                                            <p>With extra oregano, & black papper</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex-space-between food-pricing-dtl col-5">
+                                                        <div class="food-rate-field">
+                                                            <h6>Rate</h6>
+                                                            <h5>₹ 250</h5>
+                                                        </div>
+                                                        <div class="food-quantity-field">
+                                                            <h6>Quantity</h6>
+                                                            <h5>250 ml</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group-footer">
+                                        <div class="flex-space-between">
+                                            <label>Total Price:</label>
+                                            <strong>&#8377;2410</strong>
+                                        </div>
+                                    </div>
+                                </div>        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Food Category -->
+    <div class="custom-modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-icon"></span>
+                    <h3 class="modal-title">Edit Food Category</h3>
+                    <div class="form-group">
+                        <div class="form-field mar-b-20">
+                            <input type="text" class="form-control" placeholder="Type here"/>
+                        </div>
+                        <div class="form-field flex-align-right">
+                            <button type="button" class="btn primary-btn"><img src="/images/icons/refresh-icon.svg" alt="">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

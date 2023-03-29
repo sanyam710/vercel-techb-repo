@@ -1,0 +1,78 @@
+.icon-center-prop{
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.circle-shape-icon{
+    @extend.flex-center;
+    width: 76px;
+    height: 76px;
+    @include border-radius(50%);
+    margin: 0 auto 15px;
+}
+// .rectangle-shape-icon{
+//     @extend.flex-center;
+//     width: 60px;
+//     height: 60px;
+//     @include border-radius(15px);
+//     margin-bottom: 15px;
+//     &.prepare-offers{
+//         background-color: #FBECE5;
+//     }
+//     &.pepare-documents{
+//         background-color: #ECFEFF;
+//     }
+//     &.lease-with-clients{
+//         background-color: #FFF8EB;
+//     }
+//     &.package-organize-files{
+//         background: rgba(100, 112, 251, 0.16);
+//     }
+
+// }
+// .book-photographer-icon{
+//     @extend.flex-center;
+//     width: 63.66px;
+//     height: 72.6px;
+//     background: url('../images/icons/book-photographer-icon.svg');
+//     @extend.icon-center-prop;    
+// }
+// .book-stagger-icon{
+//     @extend.flex-center;
+//     width: 89.95px;
+//     height: 61.06px;
+//     background: url('../images/icons/book-stagger-icon.svg') no-repeat center; 
+//     @extend.icon-center-prop;    
+// }
+// .conference-icon{
+//     @extend.flex-center;
+//     width: 83px;
+//     height: 83px;
+//     background: url('../images/icons/conference-icon.svg');
+//     @extend.icon-center-prop;    
+// }
+// .prepare-offers-icon{
+//     @extend.flex-center;
+//     width: 39.54px;
+//     height: 40px;
+//     background: url('../images/icons/prepare-offers-icon.svg');
+//     @extend.icon-center-prop;
+// }
+// .pepare-documents-icon{
+//     @extend.flex-center;
+//     width: 31.81px;
+//     height: 43.2px;
+//     background: url('../images/icons/prepare-documents-icon.svg');
+//     @extend.icon-center-prop;
+// }
+// .lease-with-clients-icon{
+//     width: 40.56px;
+//     height: 33.5px;
+//     background: url('../images/icons/lease-with-clients-icon.svg');
+//     @extend.icon-center-prop;
+// }
+// .package-organize-files-icon{
+//     width: 34.54px;
+//     height: 37px;
+//     background: url('../images/icons/package-organize-files-iocn.svg');
+//     @extend.icon-center-prop;
+// }

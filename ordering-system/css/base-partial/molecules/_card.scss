@@ -1,0 +1,679 @@
+.card {
+  background: $white-col;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #ededed;
+  @include border-radius(10px);
+  &.no-pad {
+    padding: 0;
+  }
+  .card-pad {
+    padding: 20px;
+  }
+  &.outlined {
+    box-shadow: none;
+    border-color: #e5e5e5;
+    @include border-radius(10px);
+    .icon {
+      margin-right: 10px;
+    }
+  }
+  &.card-no-radius {
+    @include border-radius(0px);
+  }
+  .col-6 {
+    width: 50%
+  }
+}
+.card-head {
+  @extend.flex-space-between;
+  align-items: center;
+}
+.full-card {
+  background-color: #fff;
+  padding: 20px 0 10px;
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0px;
+  }
+  .card-head {
+    h3 {
+      padding-left: 25px;
+    }
+    .textLink {
+      padding-right: 25px;
+    }
+  }
+  .card-body {
+    padding: 12px 25px 15px;
+  }
+}
+.inline-card-list {
+  display: flex;
+  flex-wrap: unset;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin: 0 0px;
+  padding: 13px 0 0 20px;
+  @media screen and (max-width:768px) {
+    justify-content: space-evenly;
+  }
+}
+.carousel-block {
+  display: flex;
+  position: relative;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  overflow-x: auto;
+  @media screen and (max-width:768px) {
+    justify-content: space-evenly;
+  }
+  &::after {
+    content: "";
+    width: 15px;
+    height: 100%;
+    display: block;
+    flex: none;
+  }
+  .img-holder {
+    width: 233px;
+    @include border-radius(10px);
+    margin-right: 8px;
+    img {
+      display: block;
+      width: 233px;
+      height: 152px;
+      @include border-radius(10px);
+    }
+  }
+  &.no-wrap {
+    overflow: hidden;
+    flex-wrap: wrap;
+    .inline-card-list {
+      flex-wrap: wrap;
+      padding: 13px 20px;
+      .item-card {
+        width: 100%;
+        margin-right: 5px;
+        @media screen and (max-width: 374px) {
+          width: 100%;
+        }
+      }
+    }
+    &::after {
+      display: none;
+    }
+  }
+}
+.item-card {
+  padding: 12px;
+  margin: 5px 10px 5px 5px;
+  width: 174px;
+  box-sizing: border-box;
+  // &:first-child {
+  //   margin-left: 0;
+  // }
+  .card-logo-holder {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    align-items: flex-start;
+    width: 100%;
+    // margin-bottom: 8px;
+  }
+  h4 {
+    margin-bottom: 6px;
+  }
+}
+.card-logo {
+  @include border-radius(50%);
+  img {
+    display: block;
+    @include border-radius(50%);
+  }
+  &.large {
+    width: 210px;
+    height: 210px;
+    img {
+      width: 210px;
+      height: 210px;
+    }
+  }
+  &.medium {
+    width: 90px;
+    height: 90px;
+    @media screen and (max-width: 400px) {
+      width: 78px;
+      height: 78px;
+    }
+    @media screen and (max-width: 374px) {
+      width: 70px;
+      height: 70px;
+    }
+    img {
+      width: 90px;
+      height: 90px;
+      @media screen and (max-width: 400px) {
+        width: 78px;
+        height: 78px;
+      }
+      @media screen and (max-width: 374px) {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+  &.small {
+    width: 64px;
+    height: 64px;
+    @media screen and (max-width: 400px) {
+      width: 56px;
+      height: 56px;
+    }
+    img {
+      width: 64px;
+      height: 64px;
+      @media screen and (max-width: 400px) {
+        width: 56px;
+        height: 56px;
+      }
+    }
+  }
+}
+.card-item-foot {
+  // @extend.flex-space-between;
+  // @extend.flex-align-right;
+  display: flex;
+  justify-content: end;
+  flex-direction: column;
+  align-items: flex-end;
+  strong.val {
+    @extend.bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #181725;
+    @media screen and (max-width: 400px) {
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
+}
+.card-box {
+  @extend .card;
+  padding: 10px;
+  margin-bottom: 20px;
+  @media screen and (max-width: 320px) {
+    padding: 10px 10px;
+  }
+  &.bg {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      left: 0;
+      background-size: cover;
+      background: url("/images/plants.png") center center no-repeat;
+      opacity: 0.4;
+    }
+    img {
+      display: block;
+    }
+    .card-info-detail {
+      padding: 20px;
+    }
+  }
+  &.pad {
+    padding: 25px 22px;
+    @media screen and (max-width: 320px) {
+      padding: 20px 15px;
+    }
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:nth-child(odd) {
+    .two-col-layout {
+      @include flex-direction(row-reverse);
+    }
+  }
+
+  .card-content {
+    padding-top: 30px;
+    display: none;
+
+    .text-link {
+      text-align: left;
+    }
+  }
+  &.open .card-content {
+    display: block;
+  }
+  .down-arrow {
+    transition: all 0.2s;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    @extend .flex-center;
+    @media screen and (max-width: 320px) {
+      right: -5px;
+      top: -2px;
+    }
+  }
+
+  &.open .down-arrow {
+    transform: rotate(180deg);
+  }
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .card-sec-head {
+    font-weight: 500;
+    font-size: 16px;
+    color: #2d3142;
+    letter-spacing: 0.23px;
+    line-height: 24px;
+  }
+  .card-head {
+    @include flexbox;
+    @include align-items(flex-start);
+    @include justify-content(space-between);
+    @extend .pos-rel;
+    .title-mid {
+      margin-bottom: 0;
+    }
+    .card-head-icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+  // .card-body{
+  //     margin-top: 20px;
+  // }
+  .or-txt {
+    font-size: 16px;
+    line-height: 16px;
+    color: #4c5980;
+    letter-spacing: 0.23px;
+    max-width: 175px;
+    text-align: center;
+    margin: 20px 0;
+  }
+  .qr-code-box {
+    @include flexbox;
+    @include align-items(flex-start);
+    @include justify-content(space-between);
+  }
+
+  &.full-card-box {
+    width: unset !important;
+    flex: 1 !important;
+    margin-right: 5px !important;
+    max-width: unset !important;
+  }
+}
+
+.card-box-list {
+  margin-bottom: 0;
+  .card-box {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// .full-card {
+//   @extend .card-box;
+//   border-radius: 0;
+//   //padding: 25px;
+//   padding: 20px;
+//   border-left: 0;
+//   border-right: 0;
+//   margin-bottom: 16px;
+
+//   @media screen and (max-width: 320px) {
+//     padding: 20px;
+//   }
+// }
+
+// .full-card-cover {
+//   padding: 20px;
+//   .full-card-cover-inner {
+//   }
+// }
+
+// .full-card-width {
+//   width: calc(100% - 40px);
+// }
+
+// .card-icon {
+//   @include flexbox;
+//   @include align-items(flex-start);
+//   @include justify-content(space-between);
+// }
+// .two-col-layout {
+//   @include flexbox;
+//   position: relative;
+//   height: 100%;
+//   .l-col {
+//     @include flexbox;
+//     @include align-items(flex-end);
+//     position: relative;
+//   }
+//   .r-col {
+//     @include flexbox;
+//     @include justify-content(center);
+//     @include align-items(flex-start);
+//     @include flex-direction(column);
+//   }
+// }
+// .heading-icon {
+//   @include flexbox;
+//   @include align-items(flex-start);
+//   @include justify-content(space-between);
+//   position: relative;
+
+//   h4 {
+//     font-weight: 500;
+//     font-size: 16px;
+//     letter-spacing: 0.18px;
+//     line-height: 24px;
+//     span {
+//       font-weight: 400;
+//     }
+//   }
+// }
+// .card-info-icon {
+//   width: 70px;
+//   @media screen and (max-width: 320px) {
+//     width: 60;
+//   }
+//   img {
+//     display: block;
+//   }
+// }
+// .card-info-detail {
+//   flex: 1;
+//   @media screen and (max-width: 320px) {
+//     h4 {
+//       font-size: 18px;
+//       line-height: 22px;
+//       margin-bottom: 5;
+//     }
+//   }
+//   h2 {
+//     padding-left: 0px;
+//   }
+
+//   p {
+//     &:last-child {
+//       margin-bottom: 0;
+//     }
+//   }
+//   .card-info-box {
+//     padding: 10px 0 10px 20px;
+//   }
+// }
+
+// #programListPageContainer {
+//   // .card-info-detail{
+//   //     padding: 25px 0;
+//   // }
+//   .two-col-layout {
+//     min-height: 180px;
+//   }
+// }
+// .error-text {
+//   position: absolute;
+//   font-size: 12px;
+//   line-height: 12px;
+//   color: rgba(225, 32, 32, 1);
+//   left: 0;
+// }
+
+// .ref-code-box {
+//   border: 1px solid #e6e9ee;
+//   box-shadow: 0 10px 20px 0 rgba(64, 117, 205, 0.08);
+//   border-radius: 10px;
+//   padding: 5px 5px 5px 15px;
+//   @include flexbox;
+//   input {
+//     font-weight: 400;
+//     font-size: 14px;
+//     line-height: 14px;
+//     color: #6d758e;
+//     letter-spacing: 0.35px;
+//     border: 0;
+//     flex: 1;
+//     @media screen and (max-width: 320px) {
+//       width: 100%;
+//     }
+//   }
+//   &.error {
+//     border: 1px solid rgba(225, 32, 32, 0.3);
+//     position: relative;
+//     input {
+//       color: #e02020;
+//     }
+//     .error-text {
+//       top: -18px;
+//       left: 0;
+//     }
+//   }
+// }
+
+// .phone-box {
+//   @include flexbox;
+//   padding: 15px;
+//   background-color: #f4f6fa;
+//   @include border-radius(16px);
+
+//   .phone-no {
+//     flex: 1;
+//     img {
+//       margin-right: 10px;
+//     }
+//     span {
+//       font-weight: 500;
+//       font-size: 18px;
+//       color: #2d3142;
+//       letter-spacing: 0.2px;
+//       line-height: 24px;
+//     }
+//   }
+// }
+
+// .prog-img {
+//   height: 100%;
+//   margin: 0 auto;
+//   @include flexbox;
+//   @include align-items(flex-end);
+//   @include justify-content(center);
+//   position: absolute;
+//   width: 100%;
+//   right: 0;
+//   background-repeat: no-repeat;
+//   bottom: 0;
+//   background-size: contain;
+//   background-position: bottom;
+//   img {
+//     max-height: 180px;
+//   }
+//   // &.pregnancy{
+//   //     display: flex;
+//   //     justify-content: flex-start;
+//   //     align-items: flex-end;
+//   // }
+// }
+// .card-info-holder {
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: flex-start;
+//   padding-bottom: 15px;
+//   margin-bottom: 15px;
+//   border-bottom: 1px solid #d8d8d8;
+//   position: relative;
+//   &:last-child {
+//     margin-bottom: 0;
+//     padding-bottom: 20px;
+//     border-bottom: 0;
+//   }
+// }
+// .vitals-entry-text {
+//   margin-right: 73px;
+//   h4 {
+//     font-weight: 500;
+//     font-size: 16px;
+//     line-height: 20px;
+//     margin-bottom: 5px;
+//     letter-spacing: 0.2px;
+//   }
+// }
+
+// .vital-entry-img {
+//   flex: none;
+//   position: absolute;
+//   right: 0;
+//   bottom: 0;
+//   @include flexbox;
+// }
+
+// .diet-card-box-list {
+//   .card-content {
+//     padding-top: 20px;
+//   }
+// }
+
+// .com-note-box {
+//   h5,
+//   p {
+//     font-weight: 400;
+//     font-size: 14px;
+//     color: #4c5980;
+//     letter-spacing: 0.2px;
+//     line-height: 24px;
+//   }
+//   strong {
+//     font-weight: 500;
+//   }
+// }
+// .program-banner {
+//   border-radius: 0 0 30px 30px;
+//   box-shadow: 0 5px 10px 0 rgba(64, 117, 205, 0.15);
+//   img {
+//     height: 250px;
+//   }
+//   @media screen and (max-width: 320px) {
+//     padding-top: 0px !important;
+//     img {
+//       height: 150px;
+//     }
+//   }
+// }
+
+// .program-img {
+//   padding: 0;
+//   min-height: 200px;
+//   img {
+//     max-height: 200px;
+//   }
+// }
+
+// .card-box-pregnancy {
+//   background: #ffffff url("../images/card-box-pregnancy-bg.svg") no-repeat
+//     center center;
+//   background-size: cover;
+// }
+// .card-box-pcos {
+//   background: #ffffff url("../images/card-box-pcos-bg.svg") no-repeat center
+//     center;
+//   background-size: cover;
+// }
+// .card-box-lactation {
+//   background: #ffffff url("../images/card-box-lactation-bg.svg") no-repeat
+//     center center;
+//   background-size: cover;
+// }
+// .card-box-nutrition {
+//   background: #ffffff url("../images/card-box-nutrition-bg.svg") no-repeat
+//     center center;
+//   background-size: cover;
+// }
+// .card-box-pediatric {
+//   background: #ffffff url("../images/card-box-pediatric-bg.svg") no-repeat
+//     center center;
+//   background-size: cover;
+// }
+
+// .card-box {
+//   position: relative;
+//   //border-radius: 12px;
+//   //box-shadow: 0 10px 20px 0 rgba(64,117,205,0.08);
+// }
+// .card-box-head {
+//   .card-box-img {
+//     height: 113px;
+//     width: 100%;
+//     display: block;
+//     border-radius: 8px 8px 0px 0px;
+//   }
+//   .card-box-tag {
+//     position: absolute;
+//     top: 12px;
+//     right: 12px;
+//     display: flex;
+//     .rect-tag {
+//       position: unset;
+//       padding: 5px 8px;
+//       margin-bottom: 0px;
+//       border-radius: 4px;
+//       &.dark-blue {
+//         background: #01193d;
+//       }
+//       &.cyan {
+//         background: $sec-blue-col;
+//       }
+//       &.orange {
+//         background: $orange-col;
+//       }
+//       &.green {
+//         background: $green-col;
+//       }
+//       &.red {
+//         background: $orange-col;
+//       }
+//     }
+//     .close-icon {
+//       margin-left: 10px;
+//       position: unset;
+//       width: auto;
+//       height: auto;
+//     }
+//   }
+// }
+
+// .card-box-body {
+//   -webkit-box-flex: 1;
+//   -ms-flex: 1 1 auto;
+//   flex: 1 1 auto;
+//   padding: 16px 16px;
+//   overflow: hidden;
+//   overflow-y: auto;
+//   display: flex;
+//   flex-direction: column;
+// }
+// .card-box-footer {
+//   padding: 0px 16px 20px;
+// }

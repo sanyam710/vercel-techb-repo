@@ -1,0 +1,39 @@
+.loader-sm-box {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .loader-sm {
+    width: 45px;
+    height: 45px;
+    display: inline-block;
+    padding: 0px;
+    border-radius: 100%;
+    border: 5px solid;
+    border-top-color: #1A2145;
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+    border-left-color: #1A2145;
+    border-right-color: rgba(255, 255, 255, 0.3);
+    -webkit-animation: loader-sm 1s ease-in-out infinite;
+    animation: loader-sm 1s ease-in-out infinite;
+  }
+
+  @keyframes loader-sm {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes loader-sm {
+    from {
+      -webkit-transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+}

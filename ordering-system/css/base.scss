@@ -1,0 +1,36 @@
+%scroll-y {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Core variables and mixins
+@import "base-partial/atoms/_variables.scss";
+@import "base-partial/atoms/_mixin.scss";
+
+// Normalize and reset
+@import "base-partial/atoms/_reset-and-normalize.scss";
+
+// Core css
+@import "base-partial/atoms/_typography.scss";
+@import "base-partial/atoms/_icons.scss";
+@import "base-partial/atoms/_button-groups.scss";
+@import "base-partial/atoms/_extend.scss";
+
+// Molecules
+@import "base-partial/molecules/_card.scss";
+@import "base-partial/molecules/inputs";
+@import "base-partial/molecules/_drawer.scss";
+@import "base-partial/molecules/_tags.scss";
+@import "base-partial/molecules/_side-drawer.scss";
+
+// Organisms
+@import "base-partial/organisms/_header.scss";
+
+// Motion
+@import "base-partial/motion/_ng-animate.scss";
+
+//templates
+@import "base-partial/templates/user";
+
+// Pages
+@import "base-partial/pages/_framework.scss";

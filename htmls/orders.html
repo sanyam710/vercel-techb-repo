@@ -1,0 +1,186 @@
+<html>
+<head>
+    <title>Order | Noodle Bar Restaurant</title>
+    <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+    <div class="main-wrap">
+        <div class="side-nav">
+            <div class="nav-header">
+                <h3>Noodle Bar Restaurant</h3>
+            </div>
+            <div class="nav">
+                <div class="nav-links">
+                    <ul>
+                        <li title="Dashboard"><a href="dashboard.html"><span class="dashboard-icon"></span>Dashboard</a></li>
+                        <li title="Profile"><a href="profile.html"><span class="profile-icon"></span>Profile</a></li>
+                        <li title="Orders" class="active"><a href="orders.html"><span class="order-icon"></span>Orders</a></li>
+                    </ul>
+                </div>
+                <div class="foot-links">
+                    <ul>
+                        <li title="Log out">
+                            <span class="log-out-btn"><span class="log-out-icon"></span>Log out</span>
+                        </li>
+                    </ul>    
+                </div>
+            </div>
+        </div>
+        <div class="content order-screen">
+            <div class="container height-100">
+                <div class="con-holder pad-20">    
+                    <div class="order-detail-head">
+                        <h3 class="mar-b-15">Order Details</h3>
+                        <div class="flex-space-between flex-align-center">
+                            <div class="form-field search-field">
+                                <input type="search" name="" id="" class="form-control form-control-search" placeholder="Search for name, order status or something...">
+                            </div>
+                            <div class="form-group">
+                                <div class="form-field-holder mar-b-0">
+                                    <div class="form-field all-type-select-field">
+                                        <label class="mar-r-10">View</label>
+                                        <div class="custom-select-holder">
+                                            <span class="custom-select-field select">All Type</span>
+                                            <ul class="custom-select-menu">
+                                                <li>Completed</li>
+                                                <li>Preparing</li>
+                                                <li>Canceled</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="form-field">
+                                        <button type="button" class="btn primary-btn mar-r-0"><img src="/images/icons/refresh-icon.svg" alt=""> Refresh</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-detail-body">
+                        <div class="content-body table-holder h-line-scroll">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><div class="row-name-field">Name</div></th>
+                                        <th><div class="row-email-field">Email</div></th>
+                                        <th><div class="row-phone-field">Phone</div></th>
+                                        <th><div class="row-instructions-field">Instructions</div></th>
+                                        <th><div class="row-address-field">Address</div></th>
+                                        <th><div class="row-status-field">Status</div></th>
+                                        <th><div class="row-action-field">Action</div></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><div class="row-name-field">Denil Devidson</div></td>
+                                        <td><div class="row-email-field">example@yourmail.com</div></td>
+                                        <td><div class="row-phone-field">+91 7359105164</div></td>
+                                        <td><div class="row-instructions-field">Lorem ipsum dolor sit amet,consectetu adipiscing elit, sed do eiusmod.</div></td>
+                                        <td><div class="row-address-field">4632 Pearl Street, NASHVILLE</div></td>
+                                        <td><div class="row-status-field status-btn order-accepted">Order Accepted</div></td>
+                                        <td><div class="row-action-field"><img src="/images/icons/circle-edit-icon.svg" alt=""> Edit</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="row-name-field">Jhon Doe</div></td>
+                                        <td><div class="row-email-field">example@yourmail.com</div></td>
+                                        <td><div class="row-phone-field">+91 7359105164</div></td>
+                                        <td><div class="row-instructions-field">Lorem ipsum dolor sit amet,consectetu adipiscing elit, sed do eiusmod.</div></td>
+                                        <td><div class="row-address-field">4632 Pearl Street, NASHVILLE</div></td>
+                                        <td><div class="row-status-field status-btn order-delivered"> Order Delivered</div></td>
+                                        <td><div class="row-action-field"><img src="/images/icons/circle-edit-icon.svg" alt=""> Edit</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="row-name-field">Jhon Moriss</div></td>
+                                        <td><div class="row-email-field">example@yourmail.com</div></td>
+                                        <td><div class="row-phone-field">+91 7359105164</div></td>
+                                        <td><div class="row-instructions-field">Lorem ipsum dolor sit amet,consectetu adipiscing elit, sed do eiusmod.</div></td>
+                                        <td><div class="row-address-field">4632 Pearl Street, NASHVILLE</div></td>
+                                        <td><div class="row-status-field status-btn order-preparing">Order Preparing</div></td>
+                                        <td><div class="row-action-field"><img src="/images/icons/circle-edit-icon.svg" alt=""> Edit</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="row-name-field">Jhon Moriss</div></td>
+                                        <td><div class="row-email-field">example@yourmail.com</div></td>
+                                        <td><div class="row-phone-field">+91 7359105164</div></td>
+                                        <td><div class="row-instructions-field">Lorem ipsum dolor sit amet,consectetu adipiscing elit, sed do eiusmod.</div></td>
+                                        <td><div class="row-address-field">4632 Pearl Street, NASHVILLE</div></td>
+                                        <td><div class="row-status-field status-btn order-placed">Order Placed</div></td>
+                                        <td><div class="row-action-field"><img src="/images/icons/circle-edit-icon.svg" alt=""> Edit</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="row-name-field">Jhon Moriss</div></td>
+                                        <td><div class="row-email-field">example@yourmail.com</div></td>
+                                        <td><div class="row-phone-field">+91 7359105164</div></td>
+                                        <td><div class="row-instructions-field">Lorem ipsum dolor sit amet,consectetu adipiscing elit, sed do eiusmod.</div></td>
+                                        <td><div class="row-address-field">4632 Pearl Street, NASHVILLE</div></td>
+                                        <td><div class="row-status-field status-btn order-failed">Order Failed</div></td>
+                                        <td><div class="row-action-field"><img src="/images/icons/circle-edit-icon.svg" alt=""> Edit</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="row-name-field">Jhon Moriss</div></td>
+                                        <td><div class="row-email-field">example@yourmail.com</div></td>
+                                        <td><div class="row-phone-field">+91 7359105164</div></td>
+                                        <td><div class="row-instructions-field">Lorem ipsum dolor sit amet,consectetu adipiscing elit, sed do eiusmod.</div></td>
+                                        <td><div class="row-address-field">4632 Pearl Street, NASHVILLE</div></td>
+                                        <td><div class="row-status-field status-btn out-for-dilevery">Out For Dilevery</div></td>
+                                        <td><div class="row-action-field"><img src="/images/icons/circle-edit-icon.svg" alt=""> Edit</div></td>
+                                    </tr>
+                                    <tr>
+                                        <td><div class="row-name-field">Jhon Moriss</div></td>
+                                        <td><div class="row-email-field">example@yourmail.com</div></td>
+                                        <td><div class="row-phone-field">+91 7359105164</div></td>
+                                        <td><div class="row-instructions-field">Lorem ipsum dolor sit amet,consectetu adipiscing elit, sed do eiusmod.</div></td>
+                                        <td><div class="row-address-field">4632 Pearl Street, NASHVILLE</div></td>
+                                        <td><div class="row-status-field status-btn order-rejected">Order Rejected</div></td>
+                                        <td><div class="row-action-field"><img src="/images/icons/circle-edit-icon.svg" alt=""> Edit</div></td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pagination-section">
+                            <label class="place-holder">1-12 of 1250 pages</label>
+                            <div class="pagination-block">
+                                <label class="place-holder mar-r-15">The page you’re on</label>
+                                <div class="pagination-no-field">
+                                    <div class="custom-select-holder">
+                                        <span class="custom-select-field select">0</span>
+                                        <ul class="custom-select-menu">
+                                            <li>1</li>
+                                            <li>2</li>
+                                            <li>3</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="pagination-arrow-field">
+                                    <span class="pre-arrow disabled"></span>
+                                    <span class="next-arrow"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Food Category -->
+    <div class="custom-modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-icon"></span>
+                    <h3 class="modal-title">Edit Food Category</h3>
+                    <div class="form-group">
+                        <div class="form-field mar-b-20">
+                            <input type="text" class="form-control" placeholder="Type here"/>
+                        </div>
+                        <div class="form-field flex-align-right">
+                            <button type="button" class="btn primary-btn"><img src="/images/icons/refresh-icon.svg" alt="">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+//veriables 
+$default-col: #A2A6B2;
+$midnight-express: #1A2145; 
+$caribbean-green: #18DAA0;
+$slate-grey: #244D4D; 
+$white-col: #ffffff;
+$blaze-orange: #FF5C01; 
+$alice-blue: #FBFCFE;
+$supernova: #FEB942;
+$hot-pink: #A863FF;
+$royal-blue: #455EEE;
+$green: #B2C225;
+$brilliant-rose: #FF5F93;  
+.caribbean-green{ background-color: $caribbean-green;}
+.supernova{ background-color: $supernova;}
+.hot-pink{ background-color: $hot-pink;}
+.royal-blue{  background-color: $royal-blue;}
+.green{ background-color: $green;}
+.brilliant-rose{ background-color: $brilliant-rose;}
+
+
+@font-face {
+    font-family: 'hk_groteskblack';
+    src: url('/landing-screen/font/hkgrotesk-black-webfont.woff2') format('woff2'),
+         url('/landing-screen/font/hkgrotesk-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'hk_groteskbold';
+    src: url('/landing-screen/font/hkgrotesk-bold-webfont.woff2') format('woff2'),
+         url('/landing-screen/font/hkgrotesk-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'hk_groteskextrabold';
+    src: url('/landing-screen/font/hkgrotesk-extrabold-webfont.woff2') format('woff2'),
+         url('/landing-screen/font/hkgrotesk-extrabold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'hk_grotesklight';
+    src: url('/landing-screen/font/hkgrotesk-light-webfont.woff2') format('woff2'),
+         url('/landing-screen/font/hkgrotesk-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'hk_groteskmedium';
+    src: url('/landing-screen/font/hkgrotesk-medium-webfont.woff2') format('woff2'),
+         url('/landing-screen/font/hkgrotesk-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'hk_groteskregular';
+    src: url('/landing-screen/font/hkgrotesk-regular-webfont.woff2') format('woff2'),
+         url('/landing-screen/font/hkgrotesk-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'hk_grotesksemibold';
+    src: url('/landing-screen/font/hkgrotesk-semibold-webfont.woff2') format('woff2'),
+         url('/landing-screen/font/hkgrotesk-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+//font variables
+.black{font-family: 'hk_groteskblack', sans-serif;}
+.extra-bold{ font-family: 'hk_groteskbold', sans-serif;}
+.bold{ font-family: 'hk_groteskextrabold', sans-serif;}
+.semi-bold{ font-family: 'hk_grotesksemibold', sans-serif;} 
+.medium{ font-family: 'hk_groteskmedium', sans-serif;}
+.regular{ font-family: 'hk_groteskregular', sans-serif;} 
+

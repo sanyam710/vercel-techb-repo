@@ -1,0 +1,56 @@
+.tag-list-holder {
+  display: flex;
+  flex-wrap: wrap;
+  .tag {
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+}
+.tag {
+  @extend.bold;
+  font-size: 10px;
+  line-height: 14px;
+  color: $white-col;
+  padding: 3px 6px;
+  @include border-radius(5px);
+  &.mid-purple {
+    background-color: $mid-purple;
+  }
+  &.state-blue {
+    background-color: $stateBlue;
+  }
+  &.light-cyan {
+    background-color: $lighcyan;
+  }
+  &.light-gold {
+    background-color: $lightgold;
+  }
+  &.pink {
+    background-color: $pink;
+  }
+}
+.status-list {
+  // padding-left: 25px;
+  @extend.flex-space-between;
+  margin-bottom: 15px;
+}
+.status {
+  @extend.flex-center;
+  width: 30%;
+  font-family: "HK Grotesk Regular";
+  display: inline-flex;
+  font-size: 16px;
+  line-height: 20px;
+  color: $default-col;
+  @include border-radius(5px);
+  padding: 16px 0;
+  text-align: center;
+  background-color: #f9f9f9;
+  transition: all 0.5s;
+  box-sizing: border-box;
+  &.active {
+    position: relative;
+    color: $white-col;
+    background-color: #18daa0;
+  }
+}

@@ -1,0 +1,39 @@
+<div class="side-nav">
+    <div class="nav-header">
+        <h3>Administrate</h3>
+    </div>
+    <div class="nav admin-nav">
+        <div class="nav-links">
+            <ul>
+                <li title="Users" ng-class="{'active': nav.selected == 'users'}" ng-click="goTo('/dashboard/admin')">
+                    <a><span class="admin-dashboard-icon"></span>Users </a>
+                </li>
+                <li title="Interns" ng-class="{'active': nav.selected == 'interns'}" ng-click="goTo('/interns')">
+                    <a><span class="admin-interns-icon"></span>Interns </a>
+                </li>
+                <!-- <li title="Leads" ng-class="{'active': nav.selected == 'leads'}" ng-click="goTo('/leads')">
+                    <a><span class="admin-leads-icon"></span>Leads </a>
+                </li>
+                <li title="Languages" ng-class="{'active': nav.selected == 'languages'}" ng-click="goTo('/admin/languages')">
+                    <a><span class="admin-languages-icon"></span>Languages</a>
+                </li>
+                <li title="Masterchild" ng-class="{'active': nav.selected == 'masterchild'}" ng-click="goTo('/admin/masterchild')">
+                    <a><span class="admin-languages-icon"></span>Masterchild</a>
+                </li>
+                <li title="Enquiry" ng-class="{'active': nav.selected == 'enquires'}" ng-click="goTo('/admin/enquires')">
+                    <a><span class="admin-enquiry-icon"></span>Enquiry</a>
+                </li>
+                <li title="Change Password" ng-class="{'active': nav.selected == 'password-reset'}" ng-click="goTo('/admin/password-reset')">
+                    <a><span class="admin-change-password-icon"></span>Change Password</a>
+                </li> -->
+            </ul>
+        </div>
+        <div class="foot-links">
+            <ul>
+                <li title="Log out">
+                    <span ng-click="logout()" class="log-out-btn"><span class="log-out-icon"></span>Log out</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

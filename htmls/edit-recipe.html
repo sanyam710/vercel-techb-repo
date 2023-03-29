@@ -1,0 +1,442 @@
+<html>
+<head>
+    <title>Edit Recipe | Noodle Bar Restaurant</title>
+    <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+    <div class="main-wrap">
+        <div class="side-nav">
+            <div class="nav-header">
+                <h3>Noodle Bar Restaurant</h3>
+            </div>
+            <div class="nav">
+                <div class="nav-links">
+                    <ul>
+                        <li title="Dashboard" class="active"><a href="dashboard.html"><span class="dashboard-icon"></span>Dashboard</a></li>
+                        <li title="Profile"><a href="profile.html"><span class="profile-icon"></span>Profile</a></li>
+                        <li title="Orders"><a href="orders.html"><span class="order-icon"></span>Orders</a></li>
+                    </ul>
+                </div>
+                <div class="foot-links">
+                    <ul>
+                        <li title="Log out">
+                            <span class="log-out-btn"><span class="log-out-icon"></span>Log out</span>
+                        </li>
+                    </ul>    
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="container height-100">
+                <div class="con-holder">    
+                    <div class="column-list flex-direction-column overflow-auto pad-20">
+                        <div class="column-list-holder flex-space-between flex-align-top mar-b-20">
+                            <div class="col-6 mar-r-10">
+                                <div class="form-section">
+                                    <div class="form-group-head">
+                                        <h3>Name</h3>
+                                    </div>
+                                    <div class="form-group-body">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <div class="form-field-holder">
+                                                    <div class="form-field width-100 error">
+                                                        <label class="field-label field-user">Gujarati</label>
+                                                        <input type="text" class="form-control" placeholder="Enter name"/>
+                                                    </div>
+                                                </div>
+    
+                                                <div class="form-field-holder">
+                                                    <div class="form-field width-100">
+                                                        <label class="field-label">English</label>
+                                                        <input type="text" class="form-control" placeholder="Enter name"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-field-holder" style="min-height: 48px;">
+                                                    <div class="form-field width-100">
+                                                    </div>
+                                                </div>        
+                                                
+                                                <div class="form-field-holder mar-b-0">
+                                                    <div class="form-field width-100">
+                                                        <button type="button" class="btn primary-btn block-btn"><img src="/images/icons/save-icon.svg" alt="">Save Changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mar-l-10">
+                                <div class="form-section">
+                                    <div class="form-group-head">
+                                        <h3>Price</h3>
+                                    </div>
+                                    <div class="form-group-body">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <div class="form-field-holder">
+                                                    <div class="form-field width-100 success">
+                                                        <label class="field-label">Garden</label>
+                                                        <input type="text" class="form-control" placeholder="Enter price"/>
+                                                    </div>
+                                                </div>
+    
+                                                <div class="form-field-holder">
+                                                    <div class="form-field width-100">
+                                                        <label class="field-label">Ac Banquet</label>
+                                                        <input type="number" class="form-control" placeholder="Enter price"/>
+                                                    </div>
+                                                </div>
+    
+                                                <div class="form-field-holder">
+                                                    <div class="form-field width-100">
+                                                        <label class="field-label">Non Ac</label>
+                                                        <input type="number" class="form-control" placeholder="Enter price"/>
+                                                    </div>
+                                                </div>
+    
+                                                <div class="form-field-holder mar-b-0">
+                                                    <div class="form-field width-100">
+                                                        <button type="button" class="btn primary-btn block-btn"><img src="/images/icons/save-icon.svg" alt="">Save Changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mar-b-20">
+                            <div class="form-section">
+                                <div class="form-group-head">
+                                    <h3>Food Information</h3>
+                                </div>
+                                <div class="form-group-body">
+                                    <form action="">
+                                        <div class="form-group">
+                                            <div class="form-field-holder">
+                                                <div class="form-field error">
+                                                    <label class="field-label field-user">Name</label>
+                                                    <input type="text" class="form-control" placeholder="Enter name"/>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="field-label field-user">Published</label>
+                                                    <div class="custom-select-holder">
+                                                        <span class="custom-select-field select">Published</span>
+                                                        <ul class="custom-select-menu">
+                                                            <li>Published</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-field-holder">
+                                                <div class="form-field">
+                                                    <label class="field-label">Category</label>
+                                                    <input type="text" class="form-control" placeholder="Enter name"/>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="field-label">Per Serving Weight</label>
+                                                    <input type="text" class="form-control" placeholder="Enter name"/>
+                                                    <span class="form-control-abs-text">Gm</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-field-holder">
+                                                <div class="form-field">
+                                                    <label class="field-label">Type</label>
+                                                    <div class="custom-select-holder">
+                                                        <span class="custom-select-field select">Veg</span>
+                                                        <ul class="custom-select-menu">
+                                                            <li>Veg</li>
+                                                            <li>Non Veg</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="field-label">Total Cooked Weight</label>
+                                                    <input type="text" class="form-control" placeholder="Enter name"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-field-holder">
+                                                <div class="form-field">
+                                                    <label class="field-label">Jain</label>
+                                                    <input type="text" class="form-control" placeholder="Enter name"/>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="field-label">Serving Description</label>
+                                                    <input type="text" class="form-control" placeholder="Enter name"/>
+                                                </div>
+                                            </div>
+                                            <div class="form-field-holder">
+                                                <div class="form-field">
+                                                    <label class="field-label">Liquid</label>
+                                                    <input type="text" class="form-control" placeholder="Enter name"/>
+                                                </div>
+                                                <div class="form-field">
+                                                    <label class="field-label">Best before Date</label>
+                                                    <input type="" class="form-control date-picker" placeholder="07/12/2021"/>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-field-holder mar-b-0">
+                                                <div class="form-field">&nbsp;</div>
+                                                <div class="form-field">
+                                                    <button type="button" class="btn primary-btn block-btn"><img src="/images/icons/save-icon.svg" alt="">Save Changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mar-b-20">
+                            <div class="form-section">
+                                <div class="form-group-head">
+                                    <h3>Contains</h3>
+                                </div>
+                                <div class="form-group-body">
+                                    <div class="contain-listing-sec">
+                                        <ul class="check-box-holder">
+                                            <li class="check-box-list-item">
+                                                <span class="check-box"></span>
+                                                <label>Brinjal</label>
+                                            </li>
+                                            <li class="check-box-list-item">
+                                                <span class="check-box"></span>
+                                                <label>Chickpea Flour (Besan)</label>
+                                            </li>
+                                            <li class="check-box-list-item active">
+                                                <span class="check-box"></span>
+                                                <label>Food Colors</label>
+                                            </li>
+                                            <li class="check-box-list-item">
+                                                <span class="check-box"></span>
+                                                <label>Sago</label>
+                                            </li>
+                                            <li class="check-box-list-item active">
+                                                <span class="check-box"></span>
+                                                <label>Buckwheat</label>
+                                            </li>
+                                            <li class="check-box-list-item">
+                                                <span class="check-box"></span>
+                                                <label>Garlic</label>
+                                            </li>
+                                            <li class="check-box-list-item">
+                                                <span class="check-box"></span>
+                                                <label>Not Allergic</label>
+                                            </li>
+                                            <li class="check-box-list-item active">
+                                                <span class="check-box"></span>
+                                                <label>Soy</label>
+                                            </li>
+                                            <li class="check-box-list-item">
+                                                <span class="check-box"></span>
+                                                <label>Sesame Seeds</label>
+                                            </li>
+                                            <li class="check-box-list-item">
+                                                <span class="check-box"></span>
+                                                <label>Pumpkin</label>
+                                            </li>
+                                            <li class="check-box-list-item">
+                                                <span class="check-box"></span>
+                                                <label>Lemon</label>
+                                            </li>
+                                            <li class="check-box-list-item active">
+                                                <span class="check-box"></span>
+                                                <label>Lady's Finger</label>
+                                            </li>
+                                            <li class="check-box-list-item active">
+                                                <span class="check-box"></span>
+                                                <label>Celery</label>
+                                            </li>
+                                            <li class="check-box-list-item">
+                                                <span class="check-box"></span>
+                                                <label>Pineapple</label>
+                                            </li>
+                                            <li class="check-box-list-item active">
+                                                <span class="check-box"></span>
+                                                <label>Red Meat</label>
+                                            </li>
+                                            <li class="check-box-list-item">
+                                                <span class="check-box"></span>
+                                                <label>Egg</label>
+                                            </li>
+                                            <li class="check-box-list-item active">
+                                                <span class="check-box"></span>
+                                                <label>Lactose</label>
+                                            </li>
+                                            <li class="check-box-list-item">
+                                                <span class="check-box"></span>
+                                                <label>Seafood</label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>        
+                        </div>
+
+                        <div class="column-list-holder flex-space-between flex-align-top mar-b-20">
+                            <div class="col-6 mar-r-10">
+                                <div class="form-section">
+                                    <div class="form-group-head">
+                                        <h3>Ingredients</h3>
+                                    </div>
+                                    <div class="form-group-body">
+                                        <ul class="ingredients-listing">
+                                            <li>
+                                                <span class="ingredients-listing-block">
+                                                    <span class="ingredients-name">Kidney Beans</span>
+                                                    <span class="ingredients-divider"></span>
+                                                    <span class="ingredients-quantity">4 tbsp</span>
+                                                </span>
+                                                <span class="edit-link"><img src="/images/icons/circle-edit-icon.svg" alt=""> Edit</span>
+                                                <span class="delete-link"><img src="/images/icons/def-close-icon-hover.svg" alt=""> Delete</span>
+                                            </li>
+                                            <li>
+                                                <span class="ingredients-listing-block">
+                                                    <span class="ingredients-name">Kidney Beans</span>
+                                                    <span class="ingredients-divider"></span>
+                                                    <span class="ingredients-quantity">4 tbsp</span>
+                                                </span>
+                                                <span class="edit-link"><img src="/images/icons/circle-edit-icon.svg" alt=""> Edit</span>
+                                                <span class="delete-link"><img src="/images/icons/def-close-icon-hover.svg" alt=""> Delete</span>
+                                            </li>
+                                            <li>
+                                                <span class="ingredients-listing-block">
+                                                    <span class="ingredients-name">Kidney Beans</span>
+                                                    <span class="ingredients-divider"></span>
+                                                    <span class="ingredients-quantity">4 tbsp</span>
+                                                </span>
+                                                <span class="edit-link"><img src="/images/icons/circle-edit-icon.svg" alt=""> Edit</span>
+                                                <span class="delete-link"><img src="/images/icons/def-close-icon-hover.svg" alt=""> Delete</span>
+                                            </li>
+                                            <li>
+                                                <span class="ingredients-listing-block">
+                                                    <span class="ingredients-name">Kidney Beans</span>
+                                                    <span class="ingredients-divider"></span>
+                                                    <span class="ingredients-quantity">4 tbsp</span>
+                                                </span>
+                                                <span class="edit-link"><img src="/images/icons/circle-edit-icon.svg" alt=""> Edit</span>
+                                                <span class="delete-link"><img src="/images/icons/def-close-icon-hover.svg" alt=""> Delete</span>
+                                            </li>
+                                        </ul> 
+                                        <form action="">
+                                            <div class="form-group">
+                                                <div class="form-field-holder">
+                                                    <div class="form-field search-field form-search-field">
+                                                        <label class="field-label">Search</label>
+                                                        <input type="search" name="" id="" class="form-control form-control-search" placeholder="Search by"/>
+                                                    </div>
+                                                    <div class="form-field">
+                                                        <label class="field-label">Serving Units</label>
+                                                        <div class="custom-select-holder">
+                                                            <span class="custom-select-field select">Select serving units</span>
+                                                            <ul class="custom-select-menu">
+                                                                <li>tbsp</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                                <div class="form-field-holder mar-0">
+                                                    <div class="form-field">
+                                                        <label class="field-label">Quantity</label>
+                                                        <input type="number" name="" id="" class="form-control form-control-search" placeholder="Enter quantity"/>
+                                                    </div>
+                                                    <div class="form-field">
+                                                        <button type="button" class="btn primary-btn block-btn"><img src="/images/icons/save-icon.svg" alt=""> Save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mar-l-10">
+                                <div class="form-section">
+                                    <div class="form-group-head">
+                                        <h3>Cooking Instructions</h3>
+                                    </div>
+                                    <div class="form-group-body">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <div class="form-field">
+                                                    <textarea name="" id="" class="form-control" placeholder="Cooking Instructions"></textarea>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="column-list-holder flex-space-between flex-align-top mar-b-20">
+                            <div class="col-6 mar-r-10">
+                                <div class="form-section">
+                                    <div class="form-group-head">
+                                        <h3>Select Recipe Image</h3>
+                                    </div>
+                                    <div class="form-group-body">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <div class="form-field-holder">
+                                                    <div class="form-field">
+                                                        <div class="file-upload-block">
+                                                            <div class="file-upload-field" style="display: none;">
+                                                                <h4>Select image file</h4>
+                                                                <img src="/images/icons/file-upload-icon.svg" alt="">
+                                                                <h6>Choose a file or grag here (Max. 2 MB)</h6>
+                                                            </div>
+                                                            <div class="file-upload-result">
+                                                                <img src="/images/background-img/temp-img.png" alt="">
+                                                                <div class="close-btn">
+                                                                    <img src="/images/icons/def-close-icon-hover.svg" alt="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-field flex-bottom">
+                                                        <button type="button" class="btn primary-btn block-btn">Choose File</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mar-l-10"></div>
+                        </div>    
+
+                        <div class="flex-align-right btn-block">
+                            <button type="button" class="btn treasury-btn" title="Back"><span class="back-arrow-icon"></span> Back</button>
+                            <button type="button" class="btn primary-btn" title="Update"><img src="/images/icons/refresh-icon.svg" alt=""> Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Food Category -->
+    <div class="custom-modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-icon"></span>
+                    <h3 class="modal-title">Edit Food Category</h3>
+                    <div class="form-group">
+                        <div class="form-field mar-b-20">
+                            <input type="text" class="form-control" placeholder="Type here"/>
+                        </div>
+                        <div class="form-field flex-align-right">
+                            <button type="button" class="btn primary-btn"><img src="/images/icons/refresh-icon.svg" alt="">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

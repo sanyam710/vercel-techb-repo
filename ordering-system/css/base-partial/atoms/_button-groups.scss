@@ -1,0 +1,225 @@
+.btn {
+  @extend .flex-center;
+  height: 60px;
+  @extend.bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: $white-col;
+  @include border-radius(10px);
+  text-align: center;
+  background: $default-col;
+  outline: none;
+  border: none;
+  // @media screen and (max-width: 320px) {}
+  &.sec-btn {
+    background-color: $teal-col;
+  }
+  &.outlined {
+    font-family: "HK Grotesk SemiBold";
+    color: $default-col;
+    border: 1px solid $lightgrey;
+    background-color: transparent;
+    height: 50px;
+  }
+  &.textbtn {
+    font-family: "HK Grotesk SemiBold";
+    color: $teal-col;
+    border-radius: 0;
+    padding: 8px 16px;
+    background-color: transparent;
+  }
+  .icon {
+    margin-right: 6px;
+  }
+  &.btnWithIcon {
+    @extend.flex-space-between;
+    padding: 0 15px 0 20px;
+    .btn-text {
+      @extend.bold;
+      font-size: 18px;
+      line-height: 22px;
+      color: $white-col;
+    }
+  }
+  &.btnWithradio {
+    @extend.flex-space-between;
+    & > .flex-space-between {
+      align-items: center;
+    }
+    padding: 0 15px;
+    .radioBtn {
+      margin-right: 10px;
+    }
+    .btn-text {
+      font-family: "HK Grotesk SemiBold";
+      font-size: 16px;
+      line-height: 20px;
+      color: $default-col;
+    }
+  }
+  &.fullwidth {
+    width: 100%;
+  }
+  &.large {
+  }
+  &.medium {
+    padding: 6px 16px;
+  }
+  &.small {
+  }
+  &.menu-btn {
+    @include border-radius(8px);
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+  }
+}
+.textBtn {
+  @extend.flex-center;
+  font-family: "HK Grotesk SemiBold";
+  font-size: 14px;
+  line-height: 18px;
+  color: $default-col;
+  .icon {
+    margin-right: 5px;
+  }
+}
+.disabled,
+.btn.disabled {
+  background: rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+}
+
+.textLink {
+  font-family: "HK Grotesk SemiBold";
+  font-size: 16px;
+  line-height: 20px;
+  color: $teal-col;
+}
+.secTextLink {
+  font-family: "HK Grotesk Medium";
+  font-size: 14px;
+  line-height: 18px;
+  color: #181725;
+}
+.btn-action {
+  @extend.flex-space-between;
+  .btn-link {
+    position: relative;
+    @extend.flex-center;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    @include border-radius(50%);
+    background-color: #bfc2ce;
+    &:last-child {
+      margin-right: 0;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      margin: 0 auto !important;
+      left: 0;
+      right: 0;
+    }
+    &.editLink {
+      &::before {
+        @extend.icon;
+        @extend.edit;
+        margin: 0 auto;
+      }
+      &.active {
+        background-color: #feb942;
+      }
+    }
+    &.deleteLink {
+      &::before {
+        @extend.icon;
+        @extend.delete;
+        margin: 0 auto;
+      }
+      &.active {
+        background-color: #ff5959;
+      }
+    }
+  }
+}
+.status-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  &.completed {
+    .status-date {
+      span {
+        background-color: $teal-col;
+      }
+    }
+    .status-btn {
+      color: $teal-col;
+      border: 0.5px solid #18daa0;
+      background: rgba(24, 218, 160, 0.05);
+    }
+  }
+
+  &.accepted {
+    .status-date {
+      span {
+        background-color: #90da18;
+      }
+    }
+    .status-btn {
+      color: #90da18;
+      border: 0.5px solid #90da18;
+      background: rgba(144, 218, 24, 0.1);
+    }
+  }
+
+  &.preparing {
+    .status-date {
+      span {
+        background-color: #e9d100;
+      }
+    }
+    .status-btn {
+      color: #e9d100;
+      border: 0.5px solid #e9d100;
+      background: rgba(233, 209, 0, 0.08);
+    }
+  }
+
+  &.faild {
+    .status-date {
+      span {
+        background-color: #ff2e00;
+      }
+    }
+    .status-btn {
+      color: #ff2e00;
+      border: 0.5px solid #ff2e00;
+      background: rgba(255, 46, 0, 0.08);
+    }
+  }
+}
+.status-date {
+  display: block;
+  margin-bottom: 15px;
+  span {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    @include border-radius(50%);
+    margin-right: 4px;
+    vertical-align: center;
+  }
+}
+.status-btn {
+  @extend.flex-center;
+  font-family: "HK Grotesk Regular";
+  font-size: 14px;
+  line-height: 18px;
+  padding: 5px 8px;
+  border: 0.5px solid #ddd;
+  @include border-radius(5px);
+  @media screen and (max-width: 374px) {
+    padding: 3px 4px;
+  }
+}

@@ -1,0 +1,289 @@
+<div class="main-wrap">
+    <div class="restaurant-head">
+        <div class="restaurant-profile-sec restaurant-header">
+            <div class="restaurant-profile-info" ng-click="home.navigateToResProfile()">
+                <img ng-src="{{ home.userInfo.logo }}" alt="" class="restaurant-logo"/>
+                <div class="restaurant-profile-dtl">
+                    <h2>{{ home.userInfo.name }}</h2>
+                    <span class="location-fld" ng-if="home.userInfo.city"><span class="icon location"></span>{{ home.userInfo.city }}, {{ home.userInfo.state }}</span>
+                </div>
+            </div>
+            <!--<div class="acc-profile">
+                <span class="icon profile"></span>
+            </div>-->
+            <!-- <div class="rating-block">
+                <span class="rating-fld"><span class="icon rating"></span>4.4</span>
+            </div> -->
+            
+        </div>
+        <div class="sec-pad">
+            <div class="flex-space-between">
+                <div class="search-fld">
+                    <input type="search" ng-model="home.searchRecipe" placeholder="Search Food Items" class="search-btn"/>
+                    <span class="icon search"></span>
+                </div>
+                <div class="acc-cart {{ cart.count == 0 ? 'disabled' : '' }}" ng-click="home.navigateToCart()">
+                    <span class="icon basket"></span>
+                    <span class="badge" ng-if="cart.count">{{ cart.count > 0 ? cart.count : "" }}</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="loader-sm-box" ng-if="home.dto['pageLoader']">
+        <div class="loader-sm"></div>
+    </div>
+    <div class="wrapper pad-b-85" ng-if="!home.dto['pageLoader']">
+        <!-- <div class="sec-pad">
+            <div class="flex-space-between">
+                <div class="search-fld">
+                    <input type="search" ng-model="home.searchRecipe" placeholder="Search Food Items" class="search-btn"/>
+                    <span class="icon search"></span>
+                </div>
+                <div class="acc-cart {{ cart.count == 0 ? 'disabled' : '' }}" ng-click="home.navigateToCart()">
+                    <span class="icon basket"></span>
+                    <span class="badge" ng-if="cart.count">{{ cart.count > 0 ? cart.count : "" }}</span>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Offers owl carousel -->
+        <div class="sec-pad" ng-if="home.userInfo.sliderImages">
+            <div class="owl-carousel owl-theme">
+                <div class="item" ng-repeat="image in home.userInfo.sliderImages">
+                    <img ng-src="{{image}}">
+                </div>
+            </div>
+        </div>
+
+        <!--Recommended Items-->
+        <div class="full-card carousel-block-wrap" ng-if="false">
+            <div class="card-head">
+                <h3 class="large">Recommended Items</h3>
+                <span class="textLink">See all</span>
+            </div>
+            <div class="carousel-block">
+                <div class="inline-card-list">
+                    <div class="card item-card">
+                        <div class="card-logo-holder">
+                            <div class="card-logo small">
+                                <img src="/ordering-system/images/logo/menu-logos/cheese-french-fries.png" alt=""/>
+                            </div>
+                            <div class="food-labelling-holder">
+                                <span class="icon award"></span> <span class="food-labelling veg"></span>
+                            </div>
+                        </div>
+                        <h4>Multi Veg Pizza</h4>
+                        <div class="tag-list-holder mar-b-15">
+                            <span class="tag mid-purple">Energy 20g</span>
+                            <span class="tag state-blue">Carbs 2.5g</span>
+                            <span class="tag ligh-cyan">Protein 2.3g</span> <span class="tag light-gold">Fat 11g</span>
+                            <span class="tag pink">Iron 5g</span>
+                        </div>
+                        <div class="card-item-foot">
+                            <strong class="val">$5.10</strong>
+                            <div class="cart-btn">
+                                <!-- <span class="plus-btn small fill">
+                                    <span class="icon plus"></span>
+                                </span> -->
+                                <div class="cart-btn-group">
+                                    <span class="minus-btn small outlined"><span class="icon minus"></span></span>
+                                    <span class="cart-value small">1</span>
+                                    <span class="plus-btn small outlined"><span class="icon green-plus"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-no-radius item-card">
+                        <div class="card-logo-holder">
+                            <div class="card-logo small">
+                                <img src="/ordering-system/images/logo/menu-logos/cheese-french-fries.png" alt=""/>
+                            </div>
+                            <div class="food-labelling-holder">
+                                <span class="icon award"></span> <span class="food-labelling veg"></span>
+                            </div>
+                        </div>
+                        <h4>Multi Veg Pizza</h4>
+                        <div class="tag-list-holder mar-b-15">
+                            <span class="tag mid-purple">Energy 20g</span>
+                            <span class="tag state-blue">Carbs 2.5g</span>
+                            <span class="tag ligh-cyan">Protein 2.3g</span> <span class="tag light-gold">Fat 11g</span>
+                            <span class="tag pink">Iron 5g</span>
+                        </div>
+                        <div class="card-item-foot">
+                            <strong class="val">$5.10</strong>
+                            <div class="cart-btn">
+                                <!-- <span class="plus-btn small fill"
+                                                  ><span class="icon plus"></span
+                                                ></span> -->
+                                <div class="cart-btn-group">
+                                    <span class="minus-btn small outlined"><span class="icon minus"></span></span>
+                                    <span class="cart-value small">1</span>
+                                    <span class="plus-btn small outlined"><span class="icon green-plus"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card item-card">
+                        <div class="card-logo-holder">
+                            <div class="card-logo small">
+                                <img src="/ordering-system/images/logo/menu-logos/cheese-french-fries.png" alt=""/>
+                            </div>
+                            <div class="food-labelling-holder">
+                                <span class="icon award"></span> <span class="food-labelling veg"></span>
+                            </div>
+                        </div>
+                        <h4>Multi Veg Pizza</h4>
+                        <div class="tag-list-holder mar-b-15">
+                            <span class="tag mid-purple">Energy 20g</span>
+                            <span class="tag state-blue">Carbs 2.5g</span>
+                            <span class="tag ligh-cyan">Protein 2.3g</span> <span class="tag light-gold">Fat 11g</span>
+                            <span class="tag pink">Iron 5g</span>
+                        </div>
+                        <div class="card-item-foot">
+                            <strong class="val">$5.10</strong>
+                            <div class="cart-btn">
+                                <!-- <span class="plus-btn small fill"
+                                                  ><span class="icon plus"></span
+                                                ></span> -->
+                                <div class="cart-btn-group">
+                                    <span class="minus-btn small outlined"><span class="icon minus"></span></span>
+                                    <span class="cart-value small">1</span>
+                                    <span class="plus-btn small outlined"><span class="icon green-plus"></span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Categories-->
+        <div class="full-card carousel-block-wrap" ng-repeat="cat in home.menuData | filter: home.searchRecipe" id="{{cat.name}}" ng-if="cat.recipes.length > 0">
+            <div class="card-head">
+                <h3 class="large">{{ cat.name }}</h3>
+                <!--<span class="textLink">See all</span>-->
+            </div>
+            <div class="carousel-block no-wrap">
+                <div class="inline-card-list no-wrap" style="width: 100%;">
+                    <div class="card card-no-radius item-card" ng-repeat="recipe in cat.recipes" ng-click="home.navigateToRecipeDetails(recipe)" style="min-height: 85px;">
+                    <!-- <div class="card card-no-radius item-card" ng-repeat="recipe in cat.recipes"> -->
+                        <div class="flex-space-between">
+                            <div class="col-6">
+                                <div class="card-logo-holder">
+                                    <div class="food-labelling-holder">
+                                        <span class="icon award" ng-if="recipe.best_seller"></span>
+                                        <span class="food-labelling {{ home.getVegNonVeg(recipe) }}"></span>
+                                    </div>
+                                    <h4>{{ recipe.name }}</h4>
+                                </div>
+                                
+                                <div>
+                                    {{recipe.recipes_description}}
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card-item-foot">
+                                    <span class="val" style="margin-bottom: 4px;font-weight: 900;">{{ recipe.price }} {{ home.userInfo.currency }}</span>
+                                    <div class="cart-btn">
+                                        <span class="plus-btn add-btn small fill" ng-if="(!cart.recipeMap[recipe.id] || cart.recipeMap[recipe.id].quantity == 0)" ng-click="cart.alter(recipe, 'addOpen'); $event.stopPropagation();" style="cursor: pointer;">
+                                          Add &nbsp; +
+                                        </span>
+                                        <div class="cart-btn-group" ng-if="cart.recipeMap[recipe.id].quantity > 0">
+                                            <span class="minus-btn small outlined" ng-click="cart.alter(recipe, 'remove'); $event.stopPropagation();"><span class="icon minus"></span></span>
+                                            <span class="cart-value small">{{ cart.recipeMap[recipe.id].quantity }}</span>
+                                            <span class="plus-btn small outlined" ng-click="cart.alter(recipe, 'add'); $event.stopPropagation();"><span class="icon green-plus"></span></span>
+                                        </div>
+                                    </div>
+                                    <div  style="margin-top: 12px;"  ng-if="recipe.children != 0" >
+                                        Customisable 
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                       
+                        
+                        <!-- <div class="tag-list-holder mar-b-15" ng-if="recipe.nutrition_info">
+                            <span class="tag mid-purple" ng-if="recipe.nutrients_map['Energy'].amount > 0">Energy {{ recipe.nutrients_map["Energy"].amount }} {{ recipe.nutrients_map["Energy"].unit }}</span>
+                            <span class="tag state-blue" ng-if="recipe.nutrients_map['Carbohydrates'].amount > 0">Carbs {{ recipe.nutrients_map["Carbohydrates"].amount }} {{ recipe.nutrients_map["Carbohydrates"].unit }}</span>
+                            <span class="tag light-cyan" ng-if="recipe.nutrients_map['Protein'].amount > 0">Protein {{ recipe.nutrients_map["Protein"].amount }} {{ recipe.nutrients_map["Protein"].unit }}</span>
+                            <span class="tag light-gold" ng-if="recipe.nutrients_map['Fat'].amount > 0">Fat {{ recipe.nutrients_map["Fat"].amount }} {{ recipe.nutrients_map["Fat"].unit }}</span>
+                            <span class="tag pink" ng-if="recipe.nutrients_map['Iron'].amount > 0">Iron {{ recipe.nutrients_map["Iron"].amount }} {{ recipe.nutrients_map["Iron"].unit }}</span>
+                        </div> -->
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="browse-menu-block" ng-if="!home.dto['pageLoader'] && !home.dto['hideBrowsingMenuDrawerBtn']">
+        <div class="btn fullwidth" ng-click="home.openDrawer('browsingMenu')">
+            <span class="icon copy-pest"></span> <span class="btn-text">Browse Menu</span>
+        </div>
+       
+    </div>
+
+    <div class="overlay {{ home.dto['browsingMenu'] ? 'open' : '' }}" ng-show="home.dto['browsingMenu']"></div>
+    <div class="drawer {{ home.dto['browsingMenu'] ? 'open' : '' }}">
+        <div class="drawer-pad">
+            <div class="drawer-con-block">
+                <ul class="list">
+                    <li ng-repeat="cat in home.menuData" ng-if="cat.recipes.length > 0" ng-click="home.scrollToCategory(cat.name)">
+                        <span>{{ cat.name }}</span> <strong>{{ cat.recipes.length }}</strong>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn" ng-click="home.closeDrawer('browsingMenu')">Close</div>
+        </div>
+    </div>
+
+    <div ng-click="home.closeCustomisableMenu()" class="overlay {{ home.dto['costomisableMenu'] ? 'open' : '' }}" ng-show="home.dto['costomisableMenu']"></div>
+    <div class="drawer {{ home.dto['costomisableMenu'] ? 'open' : '' }}" id="costomisableMenu">
+        <div class="">
+            <div class="drawer-con-block drawer-fill-bottom">
+                <div class="costomisable-menu-pad">
+                   <div class="costomisable-menu-header">
+                        <div>
+                            <h2 style="margin-bottom: 10px;">{{home.dto['costomisableRecipe'].name}} (price Range) </h2>
+                            <p>Costomize as per your test </p>
+                        </div>
+                        <span ng-click="home.closeCustomisableMenu()" class="icon black-close" style="cursor: pointer;"></span>
+                   </div>
+                </div>
+                <ul class="list costomisable-list">
+                    <li ng-repeat="cat in home.dto['costomisableRecipe'].children" >
+                        <input type="radio" id="{{cat.child_name}}" ng-model="home.childActive" ng-change="home.selectChild(cat)" ng-checked="home.catSelect" ng-value="{{cat}}" ng-true-value="Y" ng-false-value="N" name="children">
+                        <label for="{{cat.child_name}}" class="radio-btn">
+                            <span>{{ cat.child_name  }} </span> 
+                            <strong>{{ cat.child_price }}</strong>
+                        </label>
+                    </li>
+                </ul>
+                <div>
+                    <button class="btn" ng-click="cart.setChild(home.dto['costomisableRecipe'])" style="width: 200px;height: 45px;margin-bottom: 15px;margin-right: auto;margin-left: auto;" ng-disabled="!home.selectedChild">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Language Popup-->
+    <div class="overlay {{ home.dto['languagePopUp'] ? 'open' : ''}}" ng-show="home.dto['languagePopUp']"></div>
+    <div class="popup {{ home.dto['languagePopUp'] ? 'open' : ''}}">
+        <div class="popup-con-block" style="border-color: white">
+            <div class="popup-pad popup-con">
+                <h3 class="mar-b-25">Select language</h3>
+                <ul class="list">
+                    <li ng-repeat="lan in home.languages" ng-click="home.selectedLan = lan.id">
+                        <span>{{ lan.name }}</span>
+                        <img height="20px" ng-if="home.selectedLan == lan.id" src="/ordering-system/images/icons/check.png"/>
+                    </li>
+                </ul>
+                <div class="popup-foot">
+                    <div class="btn" ng-click="home.getMenuDetails()">Proceed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

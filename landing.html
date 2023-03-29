@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tech Bistro</title>
+
+    <base href="/"/>
+
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/lib/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="/lib/owl-carousel/owl.theme.default.css">
+
+    <!--  -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <!-- <script type="text/javascript"src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+
+    <!--<script src="/main.js"></script>-->
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular/angular-route.js"></script>
+    <script src="/lib/angular/angular-animate.js"></script>
+    <script src="/lib/moment.js"></script>
+    <script src="/lib/angular/QrCode/qrcode.js"></script>
+    <script src="/lib/tinyColor.js"></script>
+    <script src="/lib/angular/QrCode/angular-qrcode.js"></script>
+    <script src="/lib/dragndrop.js"></script>
+    <script src="/lib/jquery-3.6.0.min.js"></script>
+    <script src="/lib/owl-carousel/owl.carousel.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+    <script src="/env/vars.js"></script>
+
+    <script src="/app/helpers/utility.js"></script>
+    <script src="/app/helpers/constants.js"></script>
+
+    <script src="/app/module/firebase.module.js"></script>
+
+    <script src="/app/app.main.js"></script>
+    <script src="/app/routes/admin.routes.js"></script>
+    <script src="/app/routes/restaurant.routes.js"></script>
+
+    <script src="/app/service/auth.service.js"></script>
+    <script src="/app/service/admin.service.js"></script>
+    <script src="/app/service/restaurant.service.js"></script>
+    <script src="/app/controller/main.controller.js"></script>
+
+    <!--Admin-->
+    <script src="/app/controller/admin/dashboard.controller.js"></script>
+
+    <script src="/app/controller/admin/users/form.controller.js"></script>
+
+    <script src="/app/controller/admin/enquires/list.controller.js"></script>
+
+    <script src="/app/controller/admin/entities/list.controller.js"></script>
+
+    <script src="/app/controller/admin/languages/list.controller.js"></script>
+
+    <script src="/app/controller/admin/masterchild/list.controller.js"></script>
+
+    <script src="/app/controller/admin/leads/list.controller.js"></script>
+
+    <script src="/app/controller/admin/profile/reset.password.controller.js"></script>
+
+    <script src="/app/controller/admin/interns/list.controller.js"></script>
+    <script src="/app/controller/admin/interns/profile.controller.js"></script>
+
+    <!--Restaurant-->
+    <script src="/app/controller/restaurant/models/menu-qr-print-controller.js"></script>
+    <script src="/app/controller/restaurant/models/download.menu.controller.js"></script>
+
+    <script src="/app/controller/restaurant/dashboard.controller.js"></script>
+    <script src="/app/controller/restaurant/recipe/edit.controller.js"></script>
+
+    <script src="/app/controller/restaurant/profile/edit.controller.js"></script>
+
+    <script src="/app/controller/restaurant/tables/list.controller.js"></script>
+    <script src="/app/controller/restaurant/tables/table-orders.controller.js"></script>
+    <script src="/app/controller/restaurant/tables/order-list.controller.js"></script>
+    <script src="/app/controller/restaurant/tables/order-history.controller.js"></script>
+    <script src="/app/controller/restaurant/tables/order-history-list.controller.js"></script>
+
+    <style>
+        #google_translate_element {
+            position: absolute;
+            top: -4px;
+            right: 0;
+            z-index: 999;
+            margin-right: 30px;
+        }
+        .goog-te-combo {
+            background: #f1f1f1;
+            padding: 3px 15px;
+            border-radius: 3px;
+            color: #1a2145;
+            outline: none;
+            margin: 5px 20px;
+            border: 1px solid grey;
+        }
+        .goog-te-gadget {
+            color: transparent;
+        }
+        body {
+            top: 0 !important;
+        }
+        .goog-te-banner-frame {
+            display: none;
+        }
+        .goog-logo-link {
+            display: none;
+        }
+        #goog-gt-tt {
+            display: none !important;
+        }
+    </style>
+</head>
+<body ng-app="TechBistro" ng-cloak ng-controller="MainCtrl">
+    <div class="main-wrap">
+        <div id="google_translate_element"></div>
+
+        <ng-include src="'/templates/admin/partials/_navigation.html'" ng-if="pageView.current == constants.ADMINISTRATIVE"></ng-include>
+        <ng-include src="'/templates/restaurant/partials/_navigation.html'" ng-if="pageView.current == constants.RESTAURANT"></ng-include>
+        <ng-view></ng-view>
+
+        <!--Toast message's-->
+        <!-- info, warning, error, success -->
+        <div class="toast-msg {{ toast.type }}" ng-if="toast.type">
+            <span class="toast-icon toast-{{ toast.type }}-icon"></span>
+            <h4>{{ toast.message }}</h4>
+            <!--<span class="x-icon"></span>-->
+        </div>
+    </div>
+
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+
+        .loader {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 75px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .loader-1 .loader-outer {
+            position: absolute;
+            border: 4px solid #1a2145;
+            border-left-color: transparent;
+            border-bottom: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            -webkit-animation: loader-1-outer 1s cubic-bezier(.42, .61, .58, .41) infinite;
+            animation: loader-1-outer 1s cubic-bezier(.42, .61, .58, .41) infinite;
+        }
+        .loader-1 .loader-inner {
+            position: absolute;
+            border: 4px solid #18DAA0;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            left: calc(50% - 20px);
+            top: calc(50% - 20px);
+            border-right: 0;
+            border-top-color: transparent;
+            -webkit-animation: loader-1-inner 1s cubic-bezier(.42, .61, .58, .41) infinite;
+            animation: loader-1-inner 1s cubic-bezier(.42, .61, .58, .41) infinite;
+        }
+
+        @-webkit-keyframes loader-1-outer {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes loader-1-outer {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes loader-1-inner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(-360deg);
+                transform: rotate(-360deg);
+            }
+        }
+
+        @keyframes loader-1-inner {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(-360deg);
+                transform: rotate(-360deg);
+            }
+        }
+</style>
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBTJa2JN_619ZAPNxmSEaQMbInPxFRlWEc",
+        authDomain: "techbistro-fa4b9.firebaseapp.com",
+        projectId: "techbistro-fa4b9",
+        storageBucket: "techbistro-fa4b9.appspot.com",
+        messagingSenderId: "562573716555",
+        appId: "1:562573716555:web:d70471192a5299f42971ce",
+        measurementId: "G-RV1NF18VXY"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    const app = initializeApp(firebaseConfig);
+    const fcm = firebase.messaging();
+    const analytics = getAnalytics(app);
+</script>
+</html>

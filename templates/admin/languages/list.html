@@ -1,0 +1,97 @@
+<div class="content order-screen">
+    <div class="container height-100 flex-center">
+        <div class="loader loader-1" ng-if="languages.pageLoader">
+            <div class="loader-outer"></div>
+            <div class="loader-inner"></div>
+        </div>
+        <div class="con-holder pad-20" ng-if="!languages.pageLoader">
+            <div class="order-detail-head">
+                <div class="flex-space-between flex-align-center inline-form">
+                    <h3>Languages</h3>
+                    <div class="form-group flex-space-between flex-align-center">
+                        <div class="form-field search-field">
+                            <input type="search" ng-model="languages.searchText" class="form-control form-control-search" placeholder="Search for name, order status or something...">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-field">
+                                <button type="button" class="btn primary-btn mar-l-15" ng-click="popOver.show('languageAlter', {})"> + Add New Language</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-detail-body">
+                <div class="content-body table-holder h-line-scroll">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>
+                                <div class="row-name-field">Name</div>
+                            </th>
+                            <th>
+                                <div class="row-status-field">Status</div>
+                            </th>
+                            <th>
+                                <div class="row-action-field flex-align-right">Action</div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="language in languages.list | filter: languages.searchText">
+                            <td>
+                                <div class="row-name-field">{{ language.name }}</div>
+                            </td>
+                            <td>
+                                <div class="row-status-field status-btn {{ constants.CONTENT_STATUS_MAP[language.status_id].className }}">{{ constants.CONTENT_STATUS_MAP[language.status_id].text }}</div>
+                            </td>
+                            <td>
+                                <div class="row-action-field flex-align-right" ng-click="popOver.show('languageAlter', language)">
+                                    <img src="/images/icons/circle-edit-icon.svg" alt=""> Edit
+                                </div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="custom-modal" ng-if="popOver.current == 'languageAlter'">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="close-icon" ng-click="popOver.hide()"></span>
+                <h3 class="modal-title mar-b-30">{{ popOver.data.id ? "Update" : "New" }} Language</h3>
+                <div class="form-group">
+                    <div class="form-field-holder">
+                        <div class="form-field width-100">
+                            <label class="field-label">Language Name</label>
+                            <input type="text" name="ebtity" class="form-control" ng-model="popOver.data.name" placeholder="Enter name" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-field-holder">
+                        <div class="form-field width-100">
+                            <label class="field-label">Status</label>
+                            <div class="custom-select-holder {{ popOver.data.dto.statusDd ? 'active' : '' }}" ng-click="popOver.data.dto.statusDd = !popOver.data.dto.statusDd">
+                                <span class="custom-select-field select">{{ popOver.data.status_id ? constants.CONTENT_STATUS_MAP[popOver.data.status_id].text : 'Select status' }}</span>
+                                <ul class="custom-select-menu">
+                                    <li ng-repeat="status in constants.CONTENT_STATUS" ng-click="popOver.data.status_id = status.id; ">{{ status.text }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-field flex-align-right">
+                        <button type="button" class="btn primary-btn" ng-click="languages.save()">
+                            <img src="/images/icons/refresh-icon.svg" alt=""> {{ popOver.data.id ? 'Update' : 'Save' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="main-wrap">
+    <div class="header">
+        <div class="back-link" ng-click="recipeDetails.goBackToHome()">
+            <img src="/ordering-system/images/icons/back-arrow.svg" alt="">
+        </div>
+        <div class="page-title">{{ recipeDetails.details.name }}</div>
+        <div class="blank-col">
+            <!--<div class="acc-profile fill">
+                <span class="icon fill-profile"></span>
+            </div>-->
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="slider-wrap">
+            <img ng-src="{{ recipeDetails.details.recipe_images.length > 0 ? recipeDetails.details.recipe_images[0] : '/ordering-system/images/food.png' }}" alt="">
+        </div>
+        <div class="full-card">
+            <div class="card-body">
+                <div class="flex-space-between">
+                    <div class="flex-align-left mar-b-10">
+                        <h3>{{ recipeDetails.details.name }}</h3>
+                        <div class="food-labelling-holder mar-l-5">
+                            <span class="icon award" ng-if="recipeDetails.details.best_seller"></span>
+                            <span class="food-labelling {{ recipeDetails.getVegNonVeg() }}"></span>
+                        </div>
+                    </div>
+                    <!--<span class="icon wishlist"></span>-->
+                </div>
+                <!--<span class="item-description">12 inch price</span>-->
+                <div class="card-item-foot mar-b-30">
+                    <div class="cart-btn">
+                        <div class="cart-btn-group">
+                            <span class="minus-btn medium outlined" ng-click="recipeDetails.alterCart('remove')"><span class="icon minus"></span></span>
+                            <span class="cart-value medium">{{ recipeDetails.cartItemsMap[recipeDetails.details.id] ? recipeDetails.cartItemsMap[recipeDetails.details.id].quantity : 0 }}</span>
+                            <span class="plus-btn medium outlined" ng-click="recipeDetails.alterCart('add')"><span class="icon green-plus"></span></span>
+                        </div>
+                    </div>
+                    <strong class="val"> {{ recipeDetails.currency }} {{ recipeDetails.cartItemsMap[recipeDetails.details.id].price }}</strong>
+                </div>
+                <div class="acc-listing mar-0">
+                    <div class="acc-block {{ recipeDetails.dto.ingAcro ? 'active' : '' }}" ng-if="recipeDetails.details.ingredientsStr" ng-click="recipeDetails.dto.ingAcro = !recipeDetails.dto.ingAcro">
+                        <div class="acc-header">
+                            <h4>Ingredients</h4>
+                            <span class="icon arrow"></span>
+                        </div>
+                        <div class="acc-body">
+                            <p class="capitalize">{{ recipeDetails.details.ingredientsStr }}</p>
+                        </div>
+                    </div>
+                    <div class="acc-block {{ recipeDetails.dto.nutAcro ? 'active' : '' }}" ng-if="recipeDetails.details.nutrition_info" ng-click="recipeDetails.dto.nutAcro = !recipeDetails.dto.nutAcro">
+                        <div class="acc-header">
+                            <h4>Nutrients</h4>
+                            <span class="icon arrow"></span>
+                        </div>
+                        <div class="acc-body">
+                            <div class="tag-list-holder">
+                                <span class="tag" style="background-color: {{ nut.colourCode }}" ng-repeat="nut in recipeDetails.details.nutrition_info | orderBy: '-amount'">{{ nut.title }} {{ nut.amount }} {{ nut.unit }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="btn">
+                    <span class="icon basket"></span> Add To Basket
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>

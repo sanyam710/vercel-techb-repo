@@ -1,0 +1,24 @@
+<nav class="navbar navbar-light bg-light sticky-top navigation" style="justify-content: space-between">
+    <div class="text-center p-2">
+        <span>Your Leads</span>
+    </div>
+    <div class="mr-2" ng-click="leads.logout()">
+        <img src="/leads/images/log-out.svg" alt="">
+    </div>
+</nav>
+<div class="page-loader" ng-if="leads.pageLoader">
+    <div class="spinner"></div>
+    <div class="txt">Working...</div>
+</div>
+<div class="container" ng-if="!leads.pageLoader">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" ng-repeat="lead in leads.list">
+            <span>{{ lead.restaurant_name }}</span>
+            <span ng-click="leads.editLead(lead)"><img src="/leads/images/edit.svg" alt=""></span>
+        </li>
+    </ul>
+    <div class="floating-btn">
+        <a class="btn btn-primary btn-lg" ng-click="leads.addLead()" role="button" aria-pressed="true">
+            <img src="/leads/images/plus.svg"/> </a>
+    </div>
+</div>

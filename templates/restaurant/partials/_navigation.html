@@ -1,0 +1,30 @@
+<div class="side-nav">
+    <div class="nav-header">
+        <h3>{{ pageView.userDetails.name }}</h3>
+    </div>
+    <div class="nav">
+        <div class="nav-links">
+            <ul>
+                <li title="Dashboard" ng-class="{'active': nav.selected == 'dashboard'}" ng-click="goTo('/dashboard')">
+                    <span class="dashboard-icon"></span>Dashboard
+                </li>
+                <!-- <li title="Tables" ng-class="{'active': nav.selected == 'tables'}" ng-click="goTo('/tables')">
+                    <span class="table-icon"></span>Tables
+                </li>
+                <li title="Orders" ng-class="{'active': nav.selected == 'order-history'}"  ng-click="goTo('/order-history')">
+                    <span class="order-icon"></span>Orders
+                </li> -->
+                <li title="Profile" ng-class="{'active': nav.selected == 'profile'}" ng-click="goTo('/profile')">
+                    <span class="profile-icon"></span>Profile
+                </li>
+            </ul>
+        </div>
+        <div class="foot-links">
+            <ul>
+                <li title="Log out">
+                    <span ng-click="logout()" class="log-out-btn"><span class="log-out-icon"></span>Log out</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

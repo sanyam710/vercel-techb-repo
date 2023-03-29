@@ -1,0 +1,335 @@
+.flex-center{
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center); 
+}
+.flex-space-between{
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-between); 
+}
+.flex-align-top{
+    @include flexbox;
+    @include align-items(flex-start); 
+}
+.flex-align-center{
+    @include flexbox;
+    @include align-items(center); 
+}
+.flex-align-right{
+    @include flexbox;
+    @include align-items(center); 
+    @include justify-content(flex-end); 
+} 
+.flex-bottom{
+    @include flexbox;
+    @include align-items(flex-end);
+    @include justify-content(center); 
+}
+.flex-direction-column{
+    @include flexbox;
+    @include flex-direction(column);
+}
+.display-inline-flex{
+    display: inline-flex;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    min-height: 65px;
+    padding:0 17px;
+    justify-content: center;
+    position: relative;
+}
+
+.box-label{
+    //font-weight: 400;
+    font-size: 18px;
+    color: #61747A;
+    position: absolute;
+    top:20px;
+    z-index: 0;
+    transition: all 0.3s;    
+}
+.box-active-label{
+    top: 9px;
+    font-size: 14px;
+}
+
+.box-text{
+    //font-weight:400;
+    font-size: 18px;
+    border:0;
+    z-index: 1;
+    padding: 30px 0 10px;
+    background-color: transparent;
+}
+.box-shadow{
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25); 
+}
+.checkbox{
+    width: 24px;
+    height: 24px;
+    border: 1px solid #5C6979;
+    display: block;
+    position: relative;
+    border-radius: 10px;
+}
+.checkbox-active{
+    background-color: #5C6979;
+    &:before{
+        content: '';
+        display: block;
+        width: 5px;
+        height: 10px;
+        border: solid #fff;
+        border-width: 0 3px 3px 0;
+        transform: rotate(45deg);
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 4px;
+    }
+}
+.icon-block{
+    @extend.flex-center; 
+    min-width: 70px; 
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    background-color: #F7F9FA;
+    &.md-icon{
+        min-width: 54px;  
+        width: 54px;
+        height: 54px;
+    }
+}
+.ornament{
+    position: relative;
+    &::before{
+        display: none;
+        content: '';
+        position: absolute;
+        top: -12px;
+        left: 0;
+        width: 100%;
+        height: 25px;
+        background: url(/images/white-oval-bg.png) center center repeat;
+    }
+}
+.act-btn{
+    width: 40px;
+    height:40px;
+    @extend .flex-center;
+}
+.toast-msg{
+    @extend .flex-center;
+    background-color: #2D3142;
+    // min-height: 60px;
+    transform: translate(0, 70px);
+    /* transition: all 0.5s; */
+    z-index: 9999;
+    position: absolute;
+    // width: max-content;
+    // max-width: 300px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #b2b2b2;
+    transition: all 0.5s ease-in-out;
+    background: #2D3142;
+    padding: 10px;
+    opacity: 0.9;
+
+    &.open{
+        transform: translate(0, -60px);
+        transition: all 0.2s;
+    }
+    
+    .msg-text{
+        font-size: 14px;
+        color: #2AC8E0;
+        line-height: 14px;
+    }
+}
+.loader{
+    &::before{
+        content: '';
+        position: fixed; 
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        //background-color: rgba(0,0,0,.6); 
+        background-image: url('/images/loader.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        z-index: 10; 
+    }
+}
+
+// //radio button block
+// .radio-container {
+//     display: block;
+//     position: relative;
+//     padding-left: 35px;
+//     cursor: pointer;
+//     font-size: 22px;
+//     line-height: 26px;
+//     -webkit-user-select: none;
+//     -moz-user-select: none;
+//     -ms-user-select: none;
+//     user-select: none;
+//   }
+// .radio-container input { 
+//     position: absolute;
+//     opacity: 0;
+//     cursor: pointer;
+//     width: 18px;
+//     height: 18px;
+//     left: 0; 
+// }
+//   /* Create a custom radio button */
+//   .radio {
+//     position: absolute;
+//     top: 0; 
+//     left: 0;
+//     height: 18px;
+//     width: 18px;
+//     background: url('/images/icons/radio.svg') no-repeat;
+//     transition: all .3s ease-in-out;
+//   }
+  
+//   /* On mouse-over, add a grey background color */
+//   .radio-container:hover input ~ .radio {
+//     background: url('/images/icons/radio-active.svg') no-repeat;
+//   }
+  
+//   /* When the radio button is checked, add a blue background */
+//   .radio-container input:checked ~ .radio {
+//     background: url('/images/icons/radio-active.svg') no-repeat;
+// }
+  
+//   /* Create the indicator (the dot/circle - hidden when not checked) */
+//   .radio:after {
+//     content: "";
+//     position: absolute;
+//     display: none;
+//   }
+  
+//   /* Show the indicator (dot/circle) when checked */
+//   .radio-container input:checked ~ .radio:after {
+//     display: block;
+//   }
+  
+//   /* Style the indicator (dot/circle) */ 
+//   .radio-container .radio:after {
+//     //    top: 9px;
+//     //   left: 9px;
+//     //   width: 8px;
+//     //   height: 8px;
+//     //   border-radius: 50%;
+//     //   background: white;
+//   }
+
+
+// .shake{
+//     -webkit-animation: shakeAnim 0.4s 1 linear;
+//     -moz-animation: shakeAnim 0.4s 1 linear;
+//     -o-animation: shakeAnim 0.4s 1 linear;
+// }
+// @-webkit-keyframes shakeAnim {
+//     0% { -webkit-transform: translate(30px); }
+//     20% { -webkit-transform: translate(-30px); }
+//     40% { -webkit-transform: translate(15px); }
+//     60% { -webkit-transform: translate(-15px); }
+//     80% { -webkit-transform: translate(8px); }
+//     100% { -webkit-transform: translate(0px); }
+// }
+// @-moz-keyframes shakeAnim {
+//     0% { -moz-transform: translate(30px); }
+//     20% { -moz-transform: translate(-30px); }
+//     40% { -moz-transform: translate(15px); }
+//     60% { -moz-transform: translate(-15px); }
+//     80% { -moz-transform: translate(8px); }
+//     100% { -moz-transform: translate(0px); }
+// }
+// @-o-keyframes shakeAnim {
+//     0% { -o-transform: translate(30px); }
+//     20% { -o-transform: translate(-30px); }
+//     40% { -o-transform: translate(15px); }
+//     60% { -o-transform: translate(-15px); }
+//     80% { -o-transform: translate(8px); }
+//     100% { -o-origin-transform: translate(0px); }
+// }
+
+// .pageLoader {
+//     z-index: 20;
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color: #F1F5F8;
+//     font-size: 38px;
+//     @extend .flex-center;
+//   }
+// .loader-box{
+// display: flex;
+// flex-direction: column;
+// justify-content: center;
+// align-items: center;
+// .loader-ico{
+//     background: url('../images/icons/health-logo.svg') no-repeat center center;
+//     width: 32px;
+//     height: 32px;
+//     -webkit-animation: spin 2s linear infinite; /* Safari */
+//     animation: spin 2s linear infinite;
+//     margin: 0 auto 20px;
+// }
+// @-webkit-keyframes spin {
+//     0% { -webkit-transform: rotate(0deg); }
+//     100% { -webkit-transform: rotate(360deg); }
+//     }
+    
+//     @keyframes spin {
+//     0% { transform: rotate(0deg); }
+//     100% { transform: rotate(360deg); }
+//     }
+//     .loader-text {
+//     font-size: 14px;
+//     line-height: 24px;
+//     color: $black-col;
+//     width: 50px;
+//     margin: 0 auto;
+//     }
+//     .loader-text:after {
+//     content: "."; 
+//     animation-name: loading-text;
+//     animation-duration: 3s;
+//     animation-iteration-count: infinite;
+//     }
+
+// }
+  
+// @keyframes loading-text {
+//     0% {
+//         content: ".";
+//     }
+//     25% {
+//         content: "..";
+//     }
+//     50% {
+//         content: "...";
+//     }
+//     75% {
+//         content: "....";
+//     }
+// }

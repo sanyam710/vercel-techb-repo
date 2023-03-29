@@ -1,0 +1,148 @@
+<div class="main-wrap">
+    <div class="header">
+        <div class="back-link" ng-click="cart.goBackToHome()" style="cursor: pointer;">
+            <img src="/ordering-system/images/icons/back-arrow.svg" alt=""/>
+        </div>
+        <div class="page-title">View Cart</div>
+        <div class="blank-col">
+            <!--<div class="acc-profile fill">
+                <span class="icon fill-profile"></span>
+            </div>-->
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="sec-pad pad-b-0">
+            <h3>My Order {{ cart.orderId ? ('(Order #' + cart.orderId) + ")" : ""}}</h3>
+        </div>
+        <div class="sec-pad pad-b-0">
+            <div class="cart-list-holder">
+                <div class="card card-no-radius cart-list" ng-repeat="recipe in cart.items">
+                    <div class="cart-dtl-holder">
+                        <!-- <div class="card-logo medium">
+                            <img ng-src="{{ recipe.image ? recipe.image : '/ordering-system/images/food.png' }}" alt=""/>
+                        </div> -->
+                        <div class="cart-dtl">
+                            <h4>{{ recipe.name }} {{  recipe.child_name ? '(' + recipe.child_name + ')'  : ''}}</h4>
+                            <!-- <h5>&nbsp;</h5> -->
+                            <div class="card-item-foot">
+                                <div class="cart-btn">
+                                    <div class="cart-btn-group" ng-if="recipe.statusId !== 1">
+                                        <span class="minus-btn medium outlined" ng-click="cart.alter(recipe, 'remove')"><span class="icon minus"></span></span>
+                                        <span class="cart-value medium">{{ recipe.quantity }}</span>
+                                        <span class="plus-btn medium outlined" ng-click="cart.alter(recipe, 'add')"><span class="icon green-plus"></span></span>
+                                    </div>
+                                </div>
+                                <strong class="val">{{ recipe.child_price ? recipe.child_price : recipe.price }} {{ cart.currency }} </strong>
+                            </div>
+                            <span class="cart-delete" ng-if="recipe.statusId !== 1" ng-click="cart.removeFood(recipe)"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sec-pad">
+            <div class="form-group form-group-icon-fld" ng-if="cart.dto['showCookingNotes']">
+                <label>Add a note for chef...</label>
+                <textarea type="text" class="fullwidth" ng-model="cart.dto['cookingNotes']" placeholder="E.g. Extra spicy..."></textarea>
+            </div>
+            <div class="btn outlined" ng-click="cart.dto['showCookingNotes'] = true" ng-if="!cart.dto['showCookingNotes']">
+                <span class="icon black-plus"></span>Add Notes
+            </div>
+        </div>
+        <div class="sec-pad">
+            <div class="form-group">
+                <label ng-if="!cart.dto['selectedTableDdDisabled']">Tell us on which table you are on..</label>
+                <label ng-if="cart.dto['selectedTableDdDisabled']">You are on...</label>
+                <select ng-model="cart.dto['selectedTableId']" class="fullwidth" ng-disabled="cart.dto['selectedTableDdDisabled']">
+                    <option ng-value="">Select Table</option>
+                    <option ng-value={{table.id}} ng-repeat="table in cart.tables">{{ table.name }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="sec-pad">
+            <div class="form-group form-group-icon-fld {{!cart.userDetails.customer_name && cart.formIsSubmit ? 'error' : ''}} " style="flex-direction: row;align-items: center;justify-content: space-between;">
+                <label for="">Name:-</label>
+                <input type="text" placeholder="Enter your name..." ng-model="cart.userDetails.customer_name">
+            </div>
+            <div class="form-group form-group-icon-fld  {{!cart.userDetails.customer_mobile_no && cart.formIsSubmit ? 'error' : ''}}" style="flex-direction: row;align-items: center;justify-content: space-between;">
+                <label for="">Mobile No:-</label>
+                <input type="number" placeholder="Enter your mobile no..." ng-model="cart.userDetails.customer_mobile_no">
+            </div>
+            <div class="form-group form-group-icon-fld {{!cart.userDetails.customer_address && cart.formIsSubmit ? 'error' : ''}}  " style="flex-direction: row;align-items: center;justify-content: space-between;">
+                <label for="">Address :-</label>
+                <input type="text" placeholder="Enter your address..." ng-model="cart.userDetails.customer_address">
+            </div>
+        </div>
+        
+        <!--<div class="full-card">
+            <div class="card-head">
+                <h3>Order Type</h3>
+            </div>
+            <div class="card-body">
+                <div class="status-list">
+                    <span class="status">Pickup</span> <span class="status active">Delivery</span>
+                    <span class="status">Room</span>
+                </div>
+                <h3 class="mar-b-15">Delivery Address</h3>
+                &lt;!&ndash; Add New Address Button &ndash;&gt;
+                &lt;!&ndash; <div class="btn outlined">
+                  <span class="icon black-plus"></span>Add New Address
+                </div> &ndash;&gt;
+                <div class="btn outlined btnWithradio">
+                    <div class="flex-space-between">
+                        <span class="radioBtn active"></span> <span class="btn-text">Briken Dipakbhai Prajapati</span>
+                    </div>
+                    <span class="icon back-arrow"></span>
+                </div>
+            </div>
+        </div>-->
+        <div class="full-card">
+            <!--<div class="card-head">
+              <h3>Select Payment Method</h3>
+            </div>-->
+            <div class="card-body">
+                <!--<div class="card outlined mar-b-20">
+                    <ul class="list">
+                        <li>
+                    <span><span class="icon debit-credit-card"></span>
+                      <span>Debit/Credit Card</span></span> <span class="radioBtn active"></span>
+                        </li>
+                        <li>
+                    <span><span class="icon netbanking"></span>
+                      <span>Net Banking</span></span> <span class="radioBtn"></span>
+                        </li>
+                        <li>
+                    <span><span class="icon cod"></span>
+                      <span>Cash on Delivery</span></span> <span class="radioBtn"></span>
+                        </li>
+                    </ul>
+                </div>-->
+                <div class="cart-total-block mar-b-30">
+                    <ul class="cart-item-list">
+                        <li>
+                            <span>Item Total</span> <strong>{{ cart.currency }} {{ cart.amount.total }}</strong>
+                        </li>
+                        <li>
+                            <span>Taxes and Charges</span> <strong>{{ cart.currency }} {{ cart.amount.taxes }}</strong>
+                        </li>
+                        <li>
+                            <span>Grand Total</span> <strong>{{ cart.currency }} {{ cart.amount.totalWithTax }}</strong>
+                        </li>
+                    </ul>
+                </div>
+                <!--<div class="promo-block">
+                  <div class="promo-input">
+                      <input type="text" name="" id="" placeholder="Apply promo code"/>
+                      <span class="icon promo"></span>
+                  </div>
+                  <div class="btn sec-btn">Apply</div>
+                 </div>-->
+                <div class="btn btnWithIcon mar-t-10 {{ cart.items.length == 0 ? 'disabled' : '' }}" ng-click="cart.placeOrder()">
+                    <span class="btn-text" ng-if="!cart.dto['btnLoader']">Place Order </span>
+                    <span class="icon next-arrow" ng-if="!cart.dto['btnLoader']"></span>
+                    <span class="btn-text" ng-if="cart.dto['btnLoader']">Working...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

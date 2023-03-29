@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TechBistro | Leads</title>
+
+    <link rel="stylesheet" href="/leads/css/bootstrap.css">
+    <link rel="stylesheet" href="/leads/css/style.css">
+
+    <script src="/leads/lib/angular.js"></script>
+    <script src="/leads/lib/angular-route.js"></script>
+
+    <script src="/env/vars.js"></script>
+    <script>
+        let app = angular.module("leadsApp", ["ngRoute"]);
+    </script>
+
+    <script src="/app/helpers/utility.js"></script>
+
+    <script src="/leads/routes/app.routes.js"></script>
+    <script src="/leads/services/leads.service.js"></script>
+
+    <script src="/leads/controller/main.controller.js"></script>
+    <script src="/leads/controller/leads/list.controller.js"></script>
+    <script src="/leads/controller/leads/alter.controller.js"></script>
+
+</head>
+<body ng-app="leadsApp" ng-controller="mainCtrl">
+    <ng-view></ng-view>
+</body>
+</html>

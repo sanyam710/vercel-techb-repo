@@ -1,0 +1,91 @@
+<!-- Select Category -->
+<div ng-controller="menuQrPrintCtrl">
+    <div class="custom-modal" ng-if="menuQr.currentDisplay == 'selection'">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-icon" ng-click="popOver.hide()"></span>
+                    <h3 class="modal-title">Select Category</h3>
+                    <div class="loader-sm-box" ng-if="menuQr.dto['retLoader']">
+                        <div class="loader-sm"></div>
+                    </div>
+                    <div class="form-group" ng-if="!menuQr.dto['retLoader']">
+                        <div class="form-field mar-b-15">
+                            <!-- Add active class next custom-select-holder-->
+                            <!-- <div class="custom-select-holder {{ menuQr.dto.showDd ? 'active' : '' }}" ng-if="menuQr.entityList.length > 1">
+                                <span class="custom-select-field select" ng-click="menuQr.dto.showDd = !menuQr.dto.showDd">{{ menuQr.entity ? menuQr.entity.name : "Select Entity" }}</span>
+                                <ul class="custom-select-menu" ng-if="menuQr.dto.showDd">
+                                    <li ng-click="menuQr.selectEntity(en)" ng-repeat="en in menuQr.entityList">{{ en.name }}</li>
+                                </ul>
+                            </div> -->
+                            <!-- <div style="color: black" ng-if="menuQr.entityList.length == 1">
+                                Selected Entity: <em> <u>{{ menuQr.entity.name }}</u></em>
+                            </div> -->
+                            <!-- <div style="color: red" ng-if="menuQr.entityList.length == 0">
+                                <em> <u>You have no entity present, please add one first!</u></em>
+                            </div> -->
+                        </div>
+
+                        <div class="form-field check-box-holder flex-align-right mar-b-15">
+                            <div class="check-box-list-item {{ menuQr.dto.selectedIds.length == menuQr.categoryList.length ? 'active' : '' }}" ng-click="menuQr.selectAll()">
+                                <span class="check-box"></span>
+                                <label>{{ menuQr.dto.selectedIds.length == menuQr.categoryList.length ? 'Unselect All' : 'Select all'}}</label>
+                            </div>
+                        </div>
+
+                        <div class="check-box-container mar-b-20">
+                            <ul class="check-box-holder" dnd-list="menuQr.categoryList" dnd-drop="menuQr.onDropCallback(index, item, external, type)">
+                                <li class="check-box-list-item {{ menuQr.dto.selectedIds.indexOf(cat.id) !== -1 ? 'active' : '' }}" ng-repeat="cat in menuQr.categoryList" ng-click="menuQr.alterCategory(cat)" dnd-draggable="cat" dnd-dragend="menuQr.onDragElement(cat)" dnd-effect-allowed="move" dnd-moved="menuQr.categoryList.splice($index, 1)" dnd-selected="models.selected = cat">
+                                    <span class="check-box"></span> <label>{{ cat.name }}</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="form-field">
+                            <div class="btn-group flex justify-content-between">
+                                <button style="padding: 7px 10px" type="button" class="btn primary-btn mar-r-20 {{ menuQr.dto.btnLoader ? 'btn-loader' : '' }}" ng-click="menuQr.getQr()">
+                                    <img src="/images/icons/qr-icon.svg" alt="">Generate QR
+                                </button>
+                                <button style="padding: 7px 10px" type="button" class="btn primary-btn {{ menuQr.dto.updateQrCategoriesBtnLoader ? 'btn-loader' : '' }}" ng-click="menuQr.updateQrCategories()">
+                                    Update Menu Categories
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-modal" ng-if="menuQr.currentDisplay == 'qr-code'">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-icon" ng-click="popOver.hide()"></span>
+                    <h3 class="modal-title">Select QR size to print</h3>
+                    <div class="form-group">
+                        <div class="form-field mar-b-15">
+                            <select ng-model="menuQr.dto.qrCodeSizeModel" class="select">
+                                <option value="100">Small</option>
+                                <option value="200">Medium</option>
+                                <option value="300">Large</option>
+                            </select>
+                        </div>
+                        <div id="qrCodeBlock">
+                            <div class="qr-block">
+                                <qrcode data="{{menuQr.qrUrl}}" color="black" href="{{menuQr.qrUrl}}" size="{{ menuQr.dto.qrCodeSizeModel }}" download></qrcode>
+                                <span class="qr-scan-text">Scan to see Menu</span>
+                            </div>
+                        </div>
+                        <div class="form-field flex-align-right">
+                            <button type="button" class="btn primary-btn" ng-click="menuQr.print()">
+                                <img src="/images/icons/print-icon.svg" alt="">Print
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

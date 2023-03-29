@@ -1,0 +1,300 @@
+<style>
+    #invoice-POS{
+        box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+        padding:2mm;
+        margin: 0 auto;
+        width: 44mm;
+        background: #FFF;
+    }
+
+
+    ::selection {background: #f31544; color: #FFF;}
+    ::moz-selection {background: #f31544; color: #FFF;}
+    h1{
+        font-size: 1.5em;
+        color: #222;
+    }
+    h2{
+        font-size: .9em;
+        line-height: 2em;
+    }
+    h3{
+        font-size: 1.2em;
+        font-weight: 300;
+        line-height: 2em;
+    }
+    p{
+        font-size: .7em;
+        /* color: #666; */
+        color: #333;
+        line-height: 1.2em;
+        margin-bottom: 5px;
+    }
+    #bot{ min-height: 50px;}
+    .clientlogo{
+        float: left;
+        height: 60px;
+        width: 60px;
+        background: url(http://michaeltruong.ca/images/client.jpg) no-repeat;
+        background-size: 60px 60px;
+        border-radius: 50px;
+    }
+    #top {
+        padding-bottom: 2px;
+        margin-bottom: 5px;
+    }
+    .bdr-bottom {
+        border-bottom: 1px dashed black;
+        margin-bottom: 5px;
+    }
+    .print-btn {
+        outline: none;
+        border: none;
+        background: #18DAA0;
+        margin-top: 15px;
+        padding: 6px 19px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 15px;
+        border-radius: 3px;
+    }
+    .bdr-top {
+        border-top: 1px dashed black;
+        margin-top: 5px;
+    }
+    .info{
+        display: block;
+        margin-left: 0;
+    }
+    .address{
+        font-size: 6px;
+    }
+    .pay-total {
+        font-size: 0.6em;
+        line-height: 1em;
+        padding-top: 5px;
+        margin-bottom: 10px;
+    }
+    .info p {
+        font-size: 6px;
+        margin-bottom: 3px;
+    }
+    .title{
+        float: right;
+    }
+    .title p{text-align: right;} 
+    table{
+        width: 100%;
+        border-collapse: collapse;
+    }
+    .tabletitle{
+        font-size: .5em;
+        /* background: #EEE; */
+    }
+    /* .service{border-bottom: 1px solid #EEE;} */
+    /* .item{width: 24mm;} */
+    .item{width: 16mm;}
+    .itemtext{font-size: .5em;}
+
+    #legalcopy{
+        margin-top: 5mm;
+    }
+    tr td {
+        padding: 0 5px;
+    }
+    tr td:first-child {
+        padding-left: 0px;
+    }
+    tr td:last-child {
+        padding-right: 0px;
+    }
+    .amount-calc h2{
+        line-height: 1.6em;
+    }
+    /* .service:last-child td {
+        padding-bottom: 3px;
+    } */
+    .payment-details p{
+        padding-bottom: 4px;
+    }
+    .thanks-sec h2 {
+        font-size: 0.4em;
+        line-height: normal;
+    }
+    strong {
+        font-weight: 800;
+    }
+    .item.kot {
+        width: 20mm;
+    }
+    @media print {
+         /* p.bodyText {font-family:georgia, times, serif;color: red;} */
+         .hidden-print {
+            display: none !important;
+         }
+         #invoice-POS {
+            box-shadow: none;
+         }
+         .print-btn {
+            display: none;
+         }
+         .custom-modal .modal-content {
+            box-shadow:none;
+            border-radius:none;
+            -webkit-border-radius:none;
+            min-width:80mm;
+            max-height: unset;
+            background: unset;
+         }
+      }
+</style>
+<link rel="stylesheet" href="/css/print.css">
+<div ng-controller="downloadMenuCtrl" style="display:none ;" ng-if="popOver.current == 'invoice' || popOver.current == 'kotOrder'">
+
+    <div class="custom-modal" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-icon" ng-click="popOver.hide()"></span>
+                    <!-- Invoice Start -->
+                    <div id="invoice-POS" ng-if="popOver.current == 'invoice'">
+                        <div>
+                            <center id="top" class="bdr-bottom">
+                                <div class="info">
+                                    <h4>{{ pageView.userDetails.name }}</h4>
+                                    <p class="address">{{ pageView.userDetails.address }}</p>
+                                    <p>GST :- {{pageView.userDetails.gst_number}}</p>
+                                    <p>
+                                        <strong>TAX INVOICE</strong>
+                                    </p>
+                                </div><!--End Info-->
+                            </center><!--End InvoiceTop-->
+                            <div class="info bdr-bottom ">
+                                <p>Bill No :- {{table.list[0].id}}</p>
+                                <p>Date :- {{downloadMenu.cdate | date:'dd/MM/yyyy hh:mm:ss a'}}</p>
+                                <p>Name :- {{popOver.data.customer_name}}</p>
+                                <p>Mobile :- {{popOver.data.customer_mobile_no}} </p>
+                                <p>Address :- {{popOver.data.customer_address}}</p>
+                            </div>
+                            <div id="bot">
+                                <div id="table">
+                                    <table>
+                                        <thead>
+                                            <tr class="tabletitle">
+                                                <td class="item"><h2>Item</h2></td>
+                                                <td class="Hours"><h2>Qty</h2></td>
+                                                <td class="Rate"><h2>Price</h2></td>
+                                                <td class="Rate"><h2>Amount</h2></td>
+                                            </tr>
+                                        </thead>
+                                        
+                                        <tbody>
+                                            <tr class="service" ng-repeat="recipe in popOver.data.recipe_details">
+                                                <td class="tableitem"><p class="itemtext">{{recipe.recipe_name}}</p></td>
+                                                <td class="tableitem"><p class="itemtext">{{recipe.quantity}}</p></td>
+                                                <td class="tableitem"><p class="itemtext">{{recipe.current_price}}</p></td>
+                                                <td class="tableitem"><p class="itemtext">{{recipe.current_total_price}}</p></td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody class="bdr-top amount-calc">
+                                            <!-- <tr class="tabletitle">
+                                                <td class="Rate"><h2>Sub Total</h2></td>
+                                                <td></td>
+                                                <td class="payment"></td>
+                                                <td class="payment"><h2>&#8377; 419.25</h2></td>
+                                            </tr>
+                                            <tr class="tabletitle">
+                                                <td class="Rate"><h2>GST @5%</h2></td>
+                                                <td></td>
+                                                <td class="payment"></td>
+                                                <td class="payment"><h2>2</h2></td>
+                                            </tr>
+                                            <tr class="tabletitle">
+                                                <td class="Rate"><h2>Round Off</h2></td>
+                                                <td></td>
+                                                <td class="payment"></td>
+                                                <td class="payment"><h2>0</h2></td>
+                                            </tr> -->
+                                            <tr class="tabletitle">
+                                                <td class="Rate"><h2>Grand Total</h2></td>
+                                                <td></td>
+                                                <td class="payment"></td>
+                                                <td class="payment"><h2>{{popOver.data.total_price}}</h2></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div><!--End Table-->
+                                <!-- <center class="bdr-top bdr-bottom">
+                                    <h2 class="pay-total">PAY: &#8377;{{popOver.data.total_price}}</h2>
+                                </center> -->
+                            </div><!--End InvoiceBot-->
+                            <!-- <div class="payment-details info">
+                                <p class="bdr-bottom">Payment Details :-  Cash {{popOver.data.total_price}}</p>
+                            </div> -->
+                            <center class="thanks-sec bdr-top">
+                                <h2>FSSAT Lic No :- {{pageView.userDetails.fssai}}</h2>
+                                <h2>Thank You Visit Again</h2>
+                            </center>
+                            <center >
+                                <button class="print-btn" onclick="window.print()">Print</button>
+                            </center>
+                        </div>
+                    </div>
+                    <!--End Invoice-->
+
+                    <!-- KOT Modal STRAT -->
+                    <div id="invoice-POS" ng-if="popOver.current == 'kotOrder'"> 
+                        <center id="top" class="bdr-bottom">
+                            <div class="info"> 
+                                <!-- <h4>{{ pageView.userDetails.name }}</h4> -->
+                                <h4>KOT</h4>
+                                <!-- <p class="address">{{ pageView.userDetails.address }}</p>    -->
+                            </div><!--End Info-->
+                        </center><!--End InvoiceTop-->
+                        <div class="info bdr-bottom ">
+                            <!-- <p>Bill No :- gdjhasgdjhsaj</p> -->
+                            <div style="display: flex;justify-content: space-between;">
+                                <p>KOT No :- {{popOver.data.id}} </p>
+                                <p>Date :- {{downloadMenu.cdate | date:'dd/MM/yyyy hh:mm:ss a'}}</p>
+                            </div>
+                            <p>Table Name :- {{table.order['subOrders'].table_name}}</p>
+                            <p></p>
+                        </div>
+                        <div id="bot">
+                            <div id="table">
+                                <table>
+                                    <thead>
+                                        <tr class="tabletitle">
+                                            <td class="item kot"><h2>Item</h2></td>
+                                            <td class=""><h2>Remarks</h2></td>
+                                            <td class="Hours"><h2>Qty</h2></td>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody ng-repeat="recipe in popOver.data.sub_order_details" >
+                                        <tr class="service">
+                                            <td class="tableitem"><p class="itemtext">{{recipe.recipe_name}} {{ recipe.child_name  ? '('+ recipe.child_name + ')' : '' }}</p></td>
+                                            <td class="tableitem"><p class="itemtext">{{recipe.instruction}} </p></td>
+                                            <td class="tableitem"><p class="itemtext">{{recipe.quantity}}</p></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div><!--End Table-->
+                            <center class="amount-calc bdr-top">
+                                <h2 class="pay-total">Total Items :- {{popOver.data.sub_order_details.length}}</h2>
+                            </center>
+                        </div><!--End InvoiceBot-->
+                    </div>
+                    <!-- KOT Modal End -->
+                    <div class="form-field flex-align-right hidden-print" >
+                        <div class="form-field">
+                            <button type="button" class="btn primary-btn" ng-click="table.print()">
+                                <img src="/images/icons/print-icon.svg" alt=""> Print
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

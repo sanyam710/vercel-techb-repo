@@ -1,0 +1,199 @@
+.icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.location {
+  width: 12px;
+  height: 15px;
+  background-image: url("../images/icons/location.svg");
+}
+.grey-location {
+  @extend.location;
+  background-image: url("../images/icons/grey-location.svg");
+}
+.profile {
+  width: 16px;
+  height: 19px;
+  background-image: url("../images/icons/profile.svg");
+}
+.fill-profile {
+  @extend.profile;
+  background-image: url("../images/icons/fill-profile.svg");
+}
+.rating {
+  width: 15px;
+  height: 15px;
+  background-image: url("../images/icons/rating.svg");
+}
+.search {
+  width: 19px;
+  height: 19px;
+  background-image: url("../images/icons/search.svg");
+}
+.basket {
+  width: 23px;
+  height: 23px;
+  background-image: url("../images/icons/basket.svg");
+}
+.award {
+  width: 17.99px;
+  height: 18.11px;
+  background-image: url("../images/icons/award.svg");
+  margin-right: 6px;
+}
+.plus {
+  width: 10.79px;
+  height: 10.3px;
+  background-image: url("../images/icons/plus.svg");
+}
+.green-plus {
+  @extend.plus;
+  background-image: url("../images/icons/green-plus.svg");
+}
+.black-plus {
+  @extend.plus;
+  background-image: url("../images/icons/black-plus.svg");
+}
+.minus {
+  width: 10.79px;
+  height: 1.72px;
+  background-image: url("../images/icons/minus.svg");
+}
+.copy-pest {
+  width: 17.48px;
+  height: 22.8px;
+  background-image: url("../images/icons/copy-pest.svg");
+}
+.next-arrow {
+  width: 28px;
+  height: 28px;
+  background-image: url("../images/icons/next-arrow.svg");
+}
+.back-arrow {
+  width: 10px;
+  height: 18px;
+  background-image: url("../images/icons/back-arrow.svg");
+  transform: rotate(180deg);
+}
+.arrow {
+  width: 16px;
+  height: 10px;
+  background-image: url("../images/icons/arrow.svg");
+}
+.debit-credit-card {
+  width: 22px;
+  height: 15px;
+  background-image: url("../images/icons/debit-credit-card.svg");
+}
+.netbanking {
+  width: 20px;
+  height: 22px;
+  background-image: url("../images/icons/netbanking.svg");
+}
+.cod {
+  width: 22px;
+  height: 19px;
+  background-image: url("../images/icons/cod.svg");
+}
+.promo {
+  width: 18px;
+  height: 19px;
+  background-image: url("../images/icons/promo-code.svg");
+}
+.close {
+  width: 18.21px;
+  height: 18px;
+  background-image: url("../images/icons/close.svg");
+}
+.black-close {
+  @extend.close;
+  background-image: url("../images/icons/black-close.svg");
+}
+.edit {
+  width: 12px;
+  height: 12px;
+  background-image: url("../images/icons/edit.svg");
+}
+.delete {
+  width: 10.22px;
+  height: 13.14px;
+  background-image: url("../images/icons/delete.svg");
+}
+.hide-password {
+  width: 19.93px;
+  height: 18.92px;
+  background-image: url("../images/icons/hide-password.svg");
+}
+.show-password {
+  width: 19.93px;
+  height: 18.92px;
+  background-image: url("../images/icons/show-password.svg");
+}
+.success {
+  width: 19.53px;
+  height: 14.65px;
+  background-image: url("../images/icons/success.svg");
+}
+.wishlist {
+  width: 22.8px;
+  height: 19.6px;
+  background-image: url("../images/icons/wishlist.svg");
+  &.active {
+    background-image: url("../images/icons/wishlisted.svg");
+  }
+}
+.clock {
+  width: 18px;
+  height: 18px;
+  background-image: url("../images/icons/clock.svg");
+}
+.tel {
+  width: 18px;
+  height: 18px;
+  background-image: url("../images/icons/tel.svg");
+}
+.check-icon {
+  width: 18px;
+  height: 18px;
+  background-image: url("../images/icons/check-icon.svg");
+}
+.green-edit {
+  width: 15px;
+  height: 15px;
+  background-image: url("../images/icons/green-edit.svg");
+}
+
+.order {
+  width: 18px;
+  height: 20px;
+  background-image: url("../images/icons/orders.svg");
+}
+.black-location {
+  width: 16.81px;
+  height: 20.17px;
+  background-image: url("../images/icons/black-location.svg");
+}
+.details {
+  width: 20px;
+  height: 15.02px;
+  background-image: url("../images/icons/details.svg");
+}
+.payment-methods {
+  width: 20px;
+  height: 13.45px;
+  background-image: url("../images/icons/payment-methods.svg");
+}
+.help {
+  width: 20px;
+  height: 20px;
+  background-image: url("../images/icons/help.svg");
+}
+.about {
+  width: 20px;
+  height: 20px;
+  background-image: url("../images/icons/about.svg");
+}

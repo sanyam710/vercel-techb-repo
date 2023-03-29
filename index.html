@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Bistro</title>
+    <link rel="stylesheet" href="/landing-screen/css/base.css" />
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(window)
+            .scroll(function () {
+                var windscroll = $(window).scrollTop();
+                if (windscroll >= 90) {
+                    $(".header").addClass("fixed");
+                } else {
+                    $(".header").removeClass("fixed");
+                    $("nav a.active").removeClass("active");
+                    // $('nav a:first').addClass('active');
+                }
+            })
+            .scroll();
+
+        angular
+            .module("app", [])
+            .controller("mainCtrl", function ($scope, $http, $timeout) {
+                $scope.page = {
+                    year: new Date().getFullYear(),
+                    hamBgMenuOpened: false,
+                    navigateToRestaurantLogin: function () {
+                        window.location.href = "/restaurant-login.html";
+                    },
+                };
+
+                $(".sticky-nav-tab").on("click", function (event) {
+                    if (this.hash !== "") {
+                        event.preventDefault();
+                        var hash = this.hash;
+                        $("html, body").animate(
+                            {
+                                scrollTop: $(hash).offset().top - 90,
+                            },
+                            1000
+                        );
+                        $scope.page.hamBgMenuOpened = false;
+                        $scope.$digest();
+                    }
+                });
+
+                $scope.contactUs = {
+                    form: { isAgreed: false },
+                    error: false,
+                    success: false,
+                    btnLoader: false,
+                    submit: function () {
+                        if ($scope.contactUsForm.$valid && this.form.isAgreed) {
+                            this.btnLoader = true;
+                            let params = {
+                                name: this.form.name,
+                                email: this.form.email,
+                                mobile_no: this.form.mobile,
+                                message: this.form.message,
+                            };
+                            // todo change end point
+                            $http
+                                .post(
+                                    "https://esista.herokuapp.com/welcome/generate_enquiry",
+                                    params,
+                                    {}
+                                )
+                                .then(
+                                    (result) => {
+                                        if (result.data.status === "error") {
+                                            this.error = true;
+                                            this.success = false;
+                                            this.resetMessages();
+                                        } else if (result.data.status === "success") {
+                                            this.error = false;
+                                            this.success = true;
+                                            this.btnLoader = false;
+                                            this.reset();
+                                            this.resetMessages();
+                                        } else {
+                                            this.error = true;
+                                            this.success = false;
+                                            this.resetMessages();
+                                        }
+                                    },
+                                    function () {
+                                        this.error = true;
+                                        this.success = false;
+                                        this.resetMessages();
+                                    }
+                                );
+                        }
+                    },
+                    reset: function () {
+                        this.form = { isAgreed: false };
+                        $scope.contactUsForm.$submitted = false;
+                        $scope.contactUsForm.$setUntouched();
+                    },
+                    resetMessages: function () {
+                        $timeout(() => {
+                            this.error = false;
+                            this.success = false;
+                        }, 2000);
+                    },
+                };
+
+                $scope.pricing = {
+                    plans: [{
+                        name: "Starters",
+                        saveUpTo: "10",
+                        price: "2000",
+                        features: [
+                            "Intelligent Dashboard",
+                            "3 Predesigned Templates",
+                            "Recipe and Nutrition data",
+                            "Customer feedback",
+                            "Monthly reports"
+                        ]
+                    }, {
+                        name: "Appetizers",
+                        saveUpTo: "15",
+                        price: "4000",
+                        features: [
+                            "5 Predesigned Templates",
+                            "Everything in starters",
+                            "Customized menu",
+                            "Daily reports",
+                            "Email Support"
+                        ]
+                    }, {
+                        name: "Main Course",
+                        saveUpTo: "20",
+                        price: "8000",
+                        features: [
+                            "Everything in Appetizers",
+                            "7 Predesigned Templates",
+                            "AI based suggestions",
+                            "Chat support",
+                            "1 Free Marketing consultation/Month"
+                        ]
+                    }],
+                    selected: null,
+                    onSelect: function (plan) {
+                        this.selected = plan;
+                    }
+                }
+            });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RV1NF18VXY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-RV1NF18VXY');
+    </script>
+</head>
+
+<body ng-app="app" ng-controller="mainCtrl" ng-class="{'overflow-hidden': page.hamBgMenuOpened }">
+    <header class="header">
+        <div class="l-subsection-h header-pad width-100 flex-align-right">
+            <a class="logo" href="/" title="Company Logo">
+                <img src="/landing-screen/images/logo/tech-bistro-logo.svg" height="114px" alt="Tech Bistro" /> </a>
+            <button type="button" class="btn uppercase mar-r-20 mob-view" ng-click="page.navigateToRestaurantLogin()"> Log In </button>
+            <div class="hamburger-icon {{ page.hamBgMenuOpened ? 'is-open' : '' }}" ng-click="page.hamBgMenuOpened = !page.hamBgMenuOpened">
+                <img class="hamburger-menu" src="/landing-screen/images/icons/hamburger-icon.svg" alt="" />
+                <img class="close-menu" src="/landing-screen/images/icons/close-icon.svg" alt="" />
+            </div>
+            <nav class="sticky-nav-tabs {{ page.hamBgMenuOpened ? 'is-open' : '' }}">
+                <ul class="sticky-nav-tabs-container flex-space-between">
+                    <li class="nav-link">
+                        <a href="#home" class="sticky-nav-tab" data-scroll="Home">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#service" class="sticky-nav-tab" data-scroll="Services">Services</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#features" class="sticky-nav-tab" data-scroll="Pricing">Features</a>
+                    </li>
+                    <!--<li class="nav-link"><a href="#pricing" class="sticky-nav-tab" data-scroll="About Us">Pricing Plans</a></li>-->
+                    <li class="nav-link">
+                        <a href="#about-us" class="sticky-nav-tab" data-scroll="About Us">About Us</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="#contactus" class="sticky-nav-tab" data-scroll="Contact Us">Contact Us</a>
+                    </li>
+                    <!--<li class="nav-link">
+                            <a href="#testimonials" class="sticky-nav-tab" data-scroll="Testimonials">Testimonials</a>
+                        </li>-->
+                    <!--<li class="nav-link"><a href="#our-team" class="sticky-nav-tab" data-scroll="Our Team">Our Team</a></li>-->
+                    <li>
+                        <button type="button" class="btn uppercase" ng-click="page.navigateToRestaurantLogin()"> Log In </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+            <div id="home" class="l-subsection home-banner">
+                <div class="l-subsection-h home-content-holder">
+                    <div class="home-content">
+                        <h1>A Single TouchPoint Software to Manage your Restaurant</h1>
+                        <p>Simple and Interactive Restaurant Management Platform</p>
+                        <a type="button" href="#contactus" class="btn uppercase sticky-nav-tab display-inline-flex" title="Get Started">Get Started</a>
+                    </div>
+                    <img src="/landing-screen/images/background-images/banner-computer-img.svg" alt="" class="dashboard-png" />
+                </div>
+            </div>
+            <div id="service" class="l-subsection zig-zag-section">
+                <div class="l-subsection-h">
+                    <div class="mob-view">
+                        <span class="section-sub-title">Our Services</span>
+                        <div class="section-title">
+                            <h3>Enhance your dining experience</h3>
+                        </div>
+                    </div>
+                    <div class="col-holder col-reverse">
+                        <div class="col-7 l-column">
+                            <div class="img-block">
+                                <img src="/landing-screen/images/background-images/enhance-your-dining-experience.svg" alt="Enhance your dining experience" />
+                            </div>
+                        </div>
+                        <div class="col-5 r-column">
+                            <div class="content-block">
+                                <span class="section-sub-title">Our Services</span>
+                                <div class="section-title">
+                                    <h3>Enhance your dining experience</h3>
+                                </div>
+                                <p class="mar-b-50"> With intelligent menu design, your customers will have relevant information about your menu on their smartphones creating a better dining experience. Just by upgrading your management system, you will take your first step towards a perfect restaurant experience for your customers. </p>
+                                <a type="button" href="#contactus" class="btn uppercase sticky-nav-tab display-inline-flex" title="Get Started">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="l-subsection zig-zag-section">
+                <div class="l-subsection-h">
+                    <div class="mob-view section-title">
+                        <h3>Streamline your management</h3>
+                    </div>
+                    <div class="col-holder">
+                        <div class="col-7 l-column">
+                            <div class="img-block">
+                                <img src="/landing-screen/images/background-images/streamline-management.svg" alt="Streamline your management" />
+                            </div>
+                        </div>
+                        <div class="col-5 r-column">
+                            <div class="content-block">
+                                <div class="section-title">
+                                    <h3>Streamline your management</h3>
+                                </div>
+                                <p class="mar-b-50"> Easily automate and organize your workflow with your inbuilt inventory, workflow, and payroll management tools. Automate every aspect of your business process to discard bottlenecks and ensure smooth functioning of business, </p>
+                                <a type="button" href="#contactus" class="btn uppercase sticky-nav-tab display-inline-flex" title="Get Started">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="l-subsection zig-zag-section">
+                <div class="l-subsection-h">
+                    <div class="mob-view section-title">
+                        <h3>Take data-driven decisions</h3>
+                    </div>
+                    <div class="col-holder col-reverse">
+                        <div class="col-7 l-column">
+                            <div class="img-block">
+                                <img src="/landing-screen/images/background-images/take-data-driven-decisions.svg" alt="Take data-driven decisions" />
+                            </div>
+                        </div>
+                        <div class="col-5 r-column">
+                            <div class="content-block">
+                                <div class="section-title">
+                                    <h3>Take data-driven decisions</h3>
+                                </div>
+                                <p class="mar-b-50"> Get actionable insights on sales and customer behavior to take better decisions and scale your business. One-stop dashboard to get visual graphs and heatmaps on your hottest menu item and AI-based suggestions on inventory management. </p>
+                                <a type="button" href="#contactus" class="btn uppercase sticky-nav-tab display-inline-flex" title="Get Started">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="features" class="l-subsection our-features-bg">
+                <div class="l-subsection-h">
+                    <span class="section-sub-title">Our Features</span>
+                    <div class="section-title mar-b-30">
+                        <h3 class="mar-b-0">Our innovative features</h3>
+                    </div>
+                    <div class="card-listing-holder">
+                        <div class="col-holder">
+                            <div class="col-6">
+                                <div class="flat-card caribbean-green">
+                                    <div class="flex-space-between mar-b-15">
+                                        <div class="flat-card-icon">
+                                            <img src="/landing-screen/images/icons/smart-menu-icon.svg" alt="Smart Menu" />
+                                        </div>
+                                        <h4 class="flat-card-title">Smart Menu</h4>
+                                    </div>
+                                    <p> Give your customers access to our smart menus that will contain relevant info. If there is a special wine, your customers should know what exactly makes it special. Also, it can help people be aware of any food allergens beforehand. Customers can place orders and customizations more accurately with the virtual menu. </p>
+                                </div>
+                                <div class="flat-card supernova">
+                                    <div class="flex-space-between mar-b-15">
+                                        <div class="flat-card-icon">
+                                            <img src="/landing-screen/images/icons/ordering-system-icon.svg" alt="Ordering system" />
+                                        </div>
+                                        <h4 class="flat-card-title">Ordering system</h4>
+                                    </div>
+                                    <p> Develop an ordering system personalized according to your restaurant needs and industry. AB test different products with different prices and get the optimum price to market and sell your products. </p>
+                                </div>
+                                <div class="flat-card hot-pink">
+                                    <div class="flex-space-between mar-b-15">
+                                        <div class="flat-card-icon">
+                                            <img src="/landing-screen/images/icons/real-time-icon.svg" alt="Real-time Changes" />
+                                        </div>
+                                        <h4 class="flat-card-title">Real-time Changes</h4>
+                                    </div>
+                                    <p> Delays in data can block business progress. Get data and changes in real-time as and when needed. This feature enables you with floor data, inventory notifications, and a live feed of any bottlenecks or problems. </p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="flat-card royal-blue">
+                                    <div class="flex-space-between mar-b-15">
+                                        <div class="flat-card-icon">
+                                            <img src="/landing-screen/images/icons/analytics-icon.svg" alt="Analytics for owners" />
+                                        </div>
+                                        <h4 class="flat-card-title">Analytics for owners</h4>
+                                    </div>
+                                    <p> Get the most out of all your consumer data. With FoodFormula, you will get regular reports with visual data that will help you gain a deeper understanding of where the business stands. </p>
+                                </div>
+                                <div class="flat-card green">
+                                    <div class="flex-space-between mar-b-15">
+                                        <div class="flat-card-icon">
+                                            <img src="/landing-screen/images/icons/membership-reward-icon.svg" alt="Membership reward system" />
+                                        </div>
+                                        <h4 class="flat-card-title">Membership reward system</h4>
+                                    </div>
+                                    <p> Integrate a reward system to engage with your customers and boost loyalty. With a reward system, you create a community of your loyal customers. It will help you understand the Customer Lifetime Value. </p>
+                                </div>
+                                <div class="flat-card brilliant-rose">
+                                    <div class="flex-space-between mar-b-15">
+                                        <div class="flat-card-icon">
+                                            <img src="/landing-screen/images/icons/waiting-time-icon.svg" alt="Gamified waiting time" />
+                                        </div>
+                                        <h4 class="flat-card-title">Gamified waiting time</h4>
+                                    </div>
+                                    <p> Waiting is the most boring thing in a restaurant. Don’t let go of this opportunity to engage with your customers. With this feature, your customers will be able to play games within your platform while they wait. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pricing" class="l-subsection zig-zag-section pricing-bg" ng-if="">
+                <div class="l-subsection-h">
+                    <div class="mob-view">
+                        <span class="section-sub-title">Pricing Plans</span>
+                        <div class="section-title">
+                            <h3>Choose your plan to get access</h3>
+                        </div>
+                    </div>
+                    <div class="col-holder col-reverse">
+                        <div class="col-7 l-column">
+                            <div class="content-block pricinglisting-content-block">
+                                <div class="pricinglisting-sec">
+                                    <span class="pricinglisting-sec-bg-left"></span>
+                                    <span class="pricinglisting-sec-bg-right"></span>
+                                    <ul class="pricinglisting">
+                                        <li class="{{ pricing.selected == plan ? 'active' : '' }}" ng-click="pricing.onSelect(plan)" ng-repeat="plan in pricing.plans">
+                                            <div class="pricinglisting-header">
+                                                <div class="lCol">
+                                                    <span class="radioBtn"></span>
+                                                    <h6>{{ plan.name }}</h6>
+                                                    <span class="pricing-tag">Save {{ plan.saveUpTo }}%</span>
+                                                </div>
+                                                <div class="rCol">
+                                                    <strong class="pricing-val"> Rs. {{ plan.price }}/ <span class="pricing-plan-period">Month</span></strong>
+                                                </div>
+                                            </div>
+                                            <div class="pricinglisting-body">
+                                                <ul class="bullet-list">
+                                                    <li ng-repeat="feature in plan.features"> {{ feature }} </li>
+                                                    <li>
+                                                        <button type="button" class="btn"> Get Started </button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-5 r-column">
+                            <div class="content-block">
+                                <span class="section-sub-title">Pricing Plans</span>
+                                <div class="section-title">
+                                    <h3>Choose your plan to get access</h3>
+                                </div>
+                                <!-- <p class="mar-b-50"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                                <button type="button" class="btn uppercase" title="Customized your plan"> Customized your plan </button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="about-us" class="l-subsection zig-zag-section">
+                <div class="l-subsection-h">
+                    <div class="mob-view">
+                        <span class="section-sub-title">About us</span>
+                        <div class="section-title">
+                            <h3>Get to know more about us</h3>
+                        </div>
+                    </div>
+                    <div class="col-holder">
+                        <div class="col-7 l-column">
+                            <div class="img-block">
+                                <img src="/landing-screen/images/background-images/about-us.svg" alt="Get to know more about us" />
+                            </div>
+                        </div>
+                        <div class="col-5 r-column">
+                            <div class="content-block">
+                                <span class="section-sub-title">About us</span>
+                                <div class="section-title">
+                                    <h3>Get to know more about us</h3>
+                                </div>
+                                <p class="mar-b-50"> TechBistro provides the restaurant management portal to make your operations hassle-free and smooth. We are constantly improving our user-friendly, quick, and efficient services to help restaurant owners save costs and time. </p>
+                                <a type="button" href="#contactus" class="btn uppercase sticky-nav-tab display-inline-flex" title="Get Started">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="l-subsection matters-to-us-section">
+                <div class="l-subsection-h">
+                    <span class="section-sub-title">Matters to us</span>
+                    <div class="section-title mar-b-50">
+                        <h3 class="mar-b-0">What matters to us?</h3>
+                    </div>
+                    <div class="card">
+                        <div class="card-item">
+                            <div class="card-content empathy">
+                                <div class="circle-shape-icon mar-b-5">
+                                    <img src="/landing-screen/images/icons/empathy-icon.svg" alt="Empathy" />
+                                </div>
+                                <h4 class="mar-b-5">Empathy</h4>
+                                <p> We believe that empathizing with our customers and their customers is the easiest way to find a solution to any existing problem. </p>
+                            </div>
+                            <div class="card-content design-thinking">
+                                <div class="circle-shape-icon mar-b-5">
+                                    <img src="/landing-screen/images/icons/design-thinking-icon.svg" alt="Design thinking" />
+                                </div>
+                                <h4 class="mar-b-5">Design thinking</h4>
+                                <p> For us, design is not just a way of presenting fancy material. We believe that design (regardless of the industry) is powerful enough to drive excellence. </p>
+                            </div>
+                            <div class="card-content community">
+                                <div class="circle-shape-icon mar-b-5">
+                                    <img src="/landing-screen/images/icons/community-icon.svg" alt="Community" />
+                                </div>
+                                <h4 class="mar-b-5">Community</h4>
+                                <p> We are always listening, thinking, and caring to all the people in our community to strengthen our core values and to provide unique care to the people around us. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="testimonials" class="l-subsection testimonials-section" ng-if="">
+                <div class="l-subsection-h">
+                    <ul class="testimonials-listing-holder">
+                        <li class="testimonials-listing">
+                            <div class="testimonials-profile-info">
+                                <div class="testimonials-profile">
+                                    <img src="/landing-screen/images/background-images/testimonials-profile-1.png" alt="" />
+                                    <div class="testimonials-profile-dtl">
+                                        <h4>Matt Wong</h4>
+                                        <span>CEO of Pixler lab</span>
+                                    </div>
+                                </div>
+                                <div class="testimonials-quote-block">
+                                    <div class="testimonials-quote">
+                                        <span class="quote-top"></span>
+                                        <p> With TechBistro, I can finally see all the functions of my restaurant from one screen. It has been a completely rejuvenating experience. </p>
+                                        <span class="quote-bot"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonials-sec-heading">
+                                <span class="section-sub-title">Testimonials</span>
+                                <div class="section-title mar-b-50">
+                                    <h3 class="mar-b-0">Review from our valued customers</h3>
+                                </div>
+                            </div>
+                        </li>
+                        <div class="testimonials-listing-arrow">
+                            <span class="testimonials-listing-pre-arrow disabled"><img src="/landing-screen/images/icons/pre-arrow-icon.svg" alt="" /></span>
+                            <span class="testimonials-listing-next-arrow"><img src="/landing-screen/images/icons/next-arrow-icon.svg" alt="" /></span>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="our-team" class="l-subsection" ng-if="">
+                <div class="l-subsection-h">
+                    <span class="section-sub-title">Our Team</span>
+                    <div class="section-title mar-b-50">
+                        <h3 class="mar-b-0">Meet our team</h3>
+                    </div>
+                    <ul class="team-listing-holder">
+                        <li class="team-member-listing">
+                            <img src="/landing-screen/images/background-images/vijay.png" alt="" class="member-img" />
+                            <div class="member-info">
+                                <h4>Vijay Poriya</h4>
+                                <span class="member-title">CEO</span>
+                                <span class="member-description"> Vijay is the boss of all things at TechBistro. He manages and supervises all the strategic aspects of the business. His creative thinking coupled with his strategic decision-making makes him a sure-shot recipe for success. </span>
+                            </div>
+                        </li>
+                        <li class="team-member-listing">
+                            <img src="/landing-screen/images/background-images/mihir.png" alt="" class="member-img" />
+                            <div class="member-info">
+                                <h4>Mihir Chaudhary</h4>
+                                <span class="member-title">CTO</span> <span class="member-description"> Tech Genie slash Cyber Guru slash Coding Artist, Mihir manages the tech in TechBistro. His extensive learning about programming and curiosity towards design thinking helps us tackle everything from minor bugs to major update releases. </span>
+                            </div>
+                        </li>
+                        <li class="team-member-listing">
+                            <img src="/landing-screen/images/background-images/prachi.png" alt="" class="member-img" />
+                            <div class="member-info">
+                                <h4>Prachi Dalal</h4>
+                                <span class="member-title">CFO</span>
+                                <span class="member-description"> Prachi takes care of the financial side of the business. For any question ranging from payment gateways to accounting, we rush straight to him and he gladly solves it. His background in account and massive knowledge of law help our fiscal boat stride through the tough waves. </span>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--<ul class="mob-view pager">
+                        <li class="pager-listing"></li>
+                        <li class="pager-listing active"></li>
+                        <li class="pager-listing"></li>
+                    </ul>-->
+                </div>
+            </div>
+
+            <div id="contactus" class="l-subsection zig-zag-section">
+                <div class="l-subsection-h">
+                    <span class="section-sub-title">Get in touch</span>
+                    <div class="section-title mar-b-30">
+                        <h3 class="mar-b-0">Contact us</h3>
+                    </div>
+                    <div class="cal-holder mar-b-20 flex-direction-column address-block" style="font: 400 16px/20px sans-serif">
+                        <span class="mar-b-10" style="display: block"> Don't hesitate to give us a call or send us a contact form message</span>
+                        <span class="mar-b-10">502, Sri Skanda Residency, 7th C 11th Cross, Kalappa Layout, Basavanagar, Bangalore-560037.</span>
+                        <div class="contact" style="display: flex">
+                            <span class="flex-center mar-r-20"><img style="margin-right: 5px" src="/images/icons/profile-icons/success-call-icon.svg" alt="" />
+                                <a href="tel: +91 99246 38611">+91 99246 38611</a> / <a href="tel: +91 87805 49018">+91 87805 49018</a></span>
+                            <span class="flex-center"><img style="margin-right: 5px" src="/images/icons/profile-icons/success-email-icon.svg" alt="" /><a href="mailto: techbistroinfo@gmail.com">techbistroinfo@gmail.com</a></span>
+                        </div>
+                    </div>
+                    <div class="col-holder col-reverse">
+                        <div class="col-7 l-column">
+                            <div class="img-block width-100 map-frame">
+                                <!--<img src="images/background-images/map.png" alt="">-->
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0418562121213!2d77.68558201495382!3d12.969173518440307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae13cf4cf74439%3A0x7ec4f273b5ef311d!2sSri%20Skanda%20Residency!5e0!3m2!1sen!2sin!4v1668255019175!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                        <div class="col-5 r-column">
+                            <div class="content-block">
+                                <div class="content-block width-100">
+                                    <form name="contactUsForm" class="form" ng-submit="contactUs.submit()" novalidate>
+                                        <div class="form-field {{ (contactUsForm.$submitted || contactUsForm.name.$touched) && contactUsForm.name.$invalid ? 'error-field' : '' }}">
+                                            <label>Name</label>
+                                            <input type="text" name="name" class="form-control" ng-model="contactUs.form.name" placeholder="Enter your full name" required />
+                                            <!-- <span class="error">Please enter your name</span> -->
+                                        </div>
+                                        <div class="form-field {{ (contactUsForm.$submitted || contactUsForm.email.$touched) && contactUsForm.email.$invalid ? 'error-field' : '' }}">
+                                            <label>Email</label>
+                                            <input type="email" name="email" class="form-control" ng-model="contactUs.form.email" placeholder="Enter your email address" required="" />
+                                        </div>
+                                        <!-- <div class="form-field {{ (contactUsForm.$submitted || contactUsForm.mobile.$touched) && contactUsForm.mobile.$invalid ? 'error-field' : '' }}">
+                                            <label>Mobile</label>
+                                            <input type="number" name="mobile" maxlength="10" ng-model="contactUs.form.mobile" oninput="this.value=this.value.slice(0,this.maxLength)" class="form-control" placeholder="Enter your mobile number" required/>
+                                        </div> -->
+                                        <div class="form-field {{ (contactUsForm.$submitted || contactUsForm.message.$touched) && contactUsForm.message.$invalid ? 'error-field' : '' }}">
+                                            <label>Your message</label>
+                                            <textarea name="message" cols="0" rows="3" resize="none" ng-model="contactUs.form.message" class="form-control" placeholder="Short description" required></textarea>
+                                        </div>
+                                        <div class="form-field checkbox-container {{ (contactUsForm.$submitted && !contactUs.form.isAgreed) ? 'error-field' : '' }}">
+                                            <div class="checkbox-list-item" ng-click="contactUs.form.isAgreed = !contactUs.form.isAgreed">
+                                                <span class="check-box {{ contactUs.form.isAgreed ? 'active' : '' }}"></span>
+                                                <label>I have read and agree with TechBistro's stated Privacy Policy and Terms Conditions</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-field mar-b-0 form-btn">
+                                            <button type="submit" class="btn uppercase block-btn {{ contactUs.btnLoader ? 'progress' : '' }}" title="Submit Message"> {{ contactUs.btnLoader ? "Working..." : "Submit Message "}} </button>
+                                        </div>
+                                        <div class="flex-center mar-t-10">
+                                            <span class="success" ng-if="contactUs.success" style="color: #18d26e">We have received your query, We will get in touch with you soon.</span>
+                                            <span class="error" style="color: red" ng-if="contactUs.error">We are facing some trouble, please try later.</span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer foot-bg">
+        <div class="foot-sec-holder">
+            <div class="l-subsection-h pad-0">
+                <ul class="foot-sec-col">
+                    <li class="foot-sec-col-listing">
+                        <h4>Quick Links</h4>
+                        <div class="foot-link-holder">
+                            <ul>
+                                <li class="foot-link">
+                                    <a href="#home" title="Home">Home</a>
+                                </li>
+                                <li class="foot-link">
+                                    <a href="#service" title="Services">Services</a>
+                                </li>
+                                <li class="foot-link">
+                                    <a href="#features" title="Features">Features</a>
+                                </li>
+                                <!--<li class="foot-link"><a href="#pricing" title="Pricing plans">Pricing plans</a></li>-->
+                            </ul>
+                            <ul>
+                                <li class="foot-link">
+                                    <a href="#about-us" title="About Us">About Us</a>
+                                </li>
+                                <li class="foot-link">
+                                    <a href="#contactus" title="Contact Us">Contact Us</a>
+                                </li>
+                                <!--<li class="foot-link"><a href="#testimonials" title="Testimonials">Testimonials</a></li>
+                                    <li class="foot-link"><a href="#our-team" title="Our Team">Our Team</a></li>-->
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="foot-sec-col-listing social-listing">
+                        <h4>Social Links</h4>
+                        <ul class="flex-space-between">
+                            <li class="foot-link">
+                                <a href="#" title="Facebook" target="_blank"><img src="/landing-screen/images/icons/facebook.svg" alt="" /> Facebook</a>
+                            </li>
+                            <li class="foot-link">
+                                <a href="https://www.instagram.com/techbistroapp/" title="Instagram" target="_blank"><img src="/landing-screen/images/icons/instagram.svg" alt="" /> Instagram</a>
+                            </li>
+                            <li class="foot-link">
+                                <a href="https://twitter.com/TechBistroApp" title="Twitter" target="_blank"><img src="/landing-screen/images/icons/twitter.svg" alt="" /> Twitter</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="foot-sec-col-listing newsletter-section">
+                        <h4>Newsletter</h4>
+                        <p> Stay in touch, Get regular tips, tricks, and hacks for restaurant management in your inbox </p>
+                        <div class="form-group form-inline">
+                            <div class="form-field">
+                                <input type="email" class="form-control" placeholder="Enter your e-mail" />
+                                <button type="button" class="btn uppercase mar-l-15" title="Subscribe"> Subscribe </button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="l-subsection-h pad-0">
+            <div class="flex-space-between pad-t-25">
+                <h6 style="line-height: 22px"> Copyright&copy; All rights and reserved TechBistro {{ page.year }} <span>
+                        <br />
+                        <!-- <b>Powered By</b> D.M. Growth Management Pvt. Ltd.</span> -->
+                </h6>
+                <nav>
+                    <ul class="flex-space-between">
+                        <li class="foot-link">
+                            <a href="/privacy-policy.html" target="_blank">Privacy policy</a>
+                        </li>
+                        <li class="foot-link">
+                            <a href="/refund-policy.html" target="_blank">Refund Policy</a>
+                        </li>
+                        <li class="foot-link">
+                            <a href="/terms-and-conditions.html" target="_blank">Terms and Condition</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

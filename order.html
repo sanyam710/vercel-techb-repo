@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order</title>
+
+    <link rel="stylesheet" href="/ordering-system/css/base.css">
+    <link rel="stylesheet" href="/lib/owl-carousel/owl.carousel.css">
+
+    <script src="/env/vars.js"></script>
+    <script src="/app/helpers/utility.js"></script>
+    <script src="/app/helpers/constants.js"></script>
+
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular/angular-route.js"></script>
+    <script src="/lib/moment.js"></script>
+    <script src="/lib/tinyColor.js"></script>
+
+    <script src="/lib/jquery-3.6.0.min.js"></script>
+    <script src="/lib/owl-carousel/owl.carousel.js"></script>
+
+    <script src="/ordering-system/js/constants.js"></script>
+    <script src="/ordering-system/modules/cart.module.js"></script>
+
+    <script src="/ordering-system/app.js"></script>
+    <script src="/ordering-system/routes.js"></script>
+    <script src="/ordering-system/services/auth.service.js"></script>
+    <script src="/ordering-system/services/orders.service.js"></script>
+
+    <script src="/ordering-system/controllers/main.controller.js"></script>
+
+    <script src="/ordering-system/controllers/auth/signup.controller.js"></script>
+    <script src="/ordering-system/controllers/auth/login.controller.js"></script>
+
+    <script src="/ordering-system/controllers/cart/cart-details.controller.js"></script>
+    <script src="/ordering-system/controllers/cart/order-accepted.controller.js"></script>
+
+    <script src="/ordering-system/controllers/home.controller.js"></script>
+
+    <script src="/ordering-system/controllers/recipe/recipe-details.controller.js"></script>
+
+    <script src="/ordering-system/controllers/profile/user-profile.controller.js"></script>
+    <script src="/ordering-system/controllers/profile/restaurant-info.controller.js"></script>
+    <script src="/ordering-system/controllers/profile/order-history.controller.js"></script>
+    <script src="/ordering-system/controllers/profile/address/list.controller.js"></script>
+    <script src="/ordering-system/controllers/profile/address/alter.controller.js"></script>
+</head>
+<body ng-app="OrderingSystemApp" ng-controller="MainCtrl">
+    <ng-view></ng-view>
+</body>
+</html>

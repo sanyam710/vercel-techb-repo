@@ -1,0 +1,42 @@
+<nav class="navbar navbar-light bg-light sticky-top navigation">
+    <div class="mr-2" ng-click="lead.goBack()">
+        <img src="/leads/images/arrow-left.svg" alt="">
+    </div>
+    <div class="text-center p-2">
+        <span>Alter Lead</span>
+    </div>
+</nav>
+<div class="page-loader" ng-if="lead.dto.pageLoader">
+    <div class="spinner"></div>
+    <div class="txt">Working...</div>
+</div>
+<div class="container p-3" ng-if="!lead.dto.pageLoader">
+    <form name="lead.dto.leadForm" ng-submit="lead.submitForm()">
+        <div class="form-group">
+            <label for="exampleFormControlInput2">Restaurant Name</label>
+            <input type="text" class="form-control" ng-model="lead.info.restaurant_name" id="exampleFormControlInput2" autocomplete="off" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Email</label>
+            <input type="email" class="form-control" ng-model="lead.info.email" id="exampleFormControlInput1" autocomplete="off" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput3">Mobile</label>
+            <input type="number" class="form-control" ng-model="lead.info.mobile_no" id="exampleFormControlInput3" autocomplete="off" placeholder="7896523145" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput4">Manager Name</label>
+            <input type="text" class="form-control" ng-model="lead.info.manager_name" id="exampleFormControlInput4" autocomplete="off" placeholder="Ex. John Mc." required>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Address</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" ng-model="lead.info.address" autocomplete="off" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea6">Comments</label>
+            <textarea class="form-control" id="exampleFormControlTextarea6" ng-model="lead.info.comment" autocomplete="off" rows="3" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-theme" ng-if="lead.id">{{ lead.dto.btnLoader ? "Working..." : "Update Lead" }}</button>
+        <button type="submit" class="btn btn-primary btn-theme" ng-if="!lead.id">{{ lead.dto.btnLoader ? "Working..." : "Add Lead" }}</button>
+    </form>
+</div>

@@ -1,0 +1,327 @@
+
+.select{
+    @extend.flex-center;
+    justify-content: flex-start; 
+    width: 100%;
+    // min-width: 135px;
+    font-size: 14px;
+    line-height: 18px;
+    color: $default-col;
+    padding: 14px 25px 14px 20px;
+    @include border-radius(8px);
+    border: 1px solid $grey-col;
+    background: #fff url('/images/icons/down-arrow.svg') no-repeat 95% center;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    //min-height: 36px;
+    &:focus{
+        outline: 0;
+    } 
+    &::-webkit-input-placeholder{
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        color: $grey-col;
+    }   
+}
+// .dropdown-holder-block{
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: flex-start;
+//     .form-field{
+//         .select{
+//             margin-right: 15px;            
+//         }
+//         &:last-child{
+//             .select{
+//                 margin-right: 0;
+//             }
+//         }
+//     }
+    
+// }
+// .select-wrapper{
+//     position: relative;
+//     margin: 0;
+//     cursor: pointer; 
+//     .sec-select{
+//         position: relative;
+//         width: 95px;
+//         min-width: auto;
+//         min-height: auto;
+//         font-weight: 400;
+//         font-size: 12px;
+//         line-height: 16px;
+//         border: 0;
+//         padding: 3px 15px 3px 10px;
+//         cursor: pointer;
+//         z-index: 1;
+//     }
+//     .select-hover{
+//         display: inline-block;
+//         width: 100%;
+//         height: 100%;
+//         position: absolute;
+//         left: 0;
+//         top: 0;
+//         margin: 0 auto;
+//         @include border-radius(6px);
+//         background-color: rgba($color: #dddddd, $alpha: .3);
+//         visibility: hidden;
+//     }
+//     &:hover{
+//         .sec-select{
+//             background-color: transparent;
+//         }
+//         .select-hover{
+//             visibility: visible;
+//         }
+//     }
+// }
+// .card-head{
+//     .form-field-holder{
+//         .select-wrapper{
+//              margin: 0;
+//         }
+//     }
+// }
+
+
+//new css
+.recipe-category-menu{
+    padding: 15px;
+    margin-top: 15px;
+    @include border-radius(8px);
+    background: $light-grey-col;
+    min-height: 150px;
+    max-height: 150px;
+    overflow-y: auto;
+    .recipe-category-menu-listing{
+        @extend.flex-space-between;
+        margin-bottom: 10px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        .recipe-category-listing-info{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .recipe-category-type{
+                @extend.flex-center;
+                width: 15px;
+                height: 15px;
+                background-color: $white-col;
+                @include border-radius(50%);
+                margin-right: 7px;
+                box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+                span{
+                    display: inline-block;
+                    width: 7px;
+                    height: 7px;
+                    @include border-radius(50%);
+                    background-color: $grey-col;
+                }
+            }
+            h4{
+                font-weight: 600;
+                color: #494d54;
+            }
+        }
+        .recipe-category-listing-action{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            li{
+                @extend.flex-center;
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+                @include border-radius(50%);
+                background-color: $primary-col;
+                visibility: hidden;
+                transition: all .1s ease-in-out;
+                span{
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                }
+                &.close-icon{
+                    cursor: pointer;
+                    visibility: visible;
+                    background-color: transparent;
+                }
+                &:last-child{
+                    margin-right: 0;
+                }
+            }
+        }
+        &.published {
+            h4 {
+                color: #494d54;
+            }
+        }
+        &.draft {
+            h4 {
+                color: $grey-col;
+            }
+        }
+        &.veg{
+            .recipe-category-type{
+                span{
+                    background-color: $primary-col
+                }
+            }
+        }
+        &.non-veg{
+            .recipe-category-type{
+                span{
+                    background-color: $secondary-col;  
+                }    
+            }
+        }
+        &.default{
+            .recipe-category-type{
+                span{
+                    background-color: $grey-col;
+                }
+            }
+        }
+        &:hover{
+            .recipe-category-listing-action{
+                li{
+                    visibility: visible;
+                    &.close-icon{
+                        cursor: pointer;
+                        background: url('/images/icons/def-close-icon-hover.svg');
+                    }
+                }
+            }
+            .recipe-category-listing-info{
+                .recipe-category-type{
+                    span{
+                        //background-color: $primary-col; 
+                    }
+                }
+                h4{
+                    color: $default-col;
+                }
+            }
+        }
+    }
+}
+.dot-menu{
+    position: relative;
+    .sub-menu{
+        position: absolute;
+        right: -25px;
+        top: 30px;
+        width: 125px;
+        padding: 18px 15px;
+        @include border-radius(10px);
+        background-color: $white-col;
+        box-shadow: 10px 10px 70px rgba(0, 0, 0, 0.1);
+        .cornor{
+            position: absolute;
+            top: -9px;
+            right: 18px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 10px solid $white-col;
+        }
+        li{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 14px;
+            line-height: 18px;
+            color: $primary-col;
+            margin-bottom: 10px;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            img{
+                margin-right: 6px;
+            }
+            &.close-link{
+                color: $secondary-col;
+                .link-icon{
+                    background-color: transparent;
+                    .close-icon{
+                        width: 21px;
+                        height: 21px;                
+                        background: url('/images/icons/def-close-icon-hover.svg');
+                        background-size: cover;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }  
+    }
+    &:hover {
+        background: #d3d3d34d;
+        border-radius: 8px;
+    }
+}
+
+.custom-select-holder{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    //border: 1px solid $grey-col;
+    @include border-radius(10px);
+    //box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.07);
+    .custom-select-field{
+        text-transform: capitalize;
+        border: 0;
+        @include border-radius(10px);    
+        min-height: 48px;
+        border: 1px solid $grey-col;
+        img{
+            display: inline-block;
+            margin-right: 5px;
+        }
+    }
+    .custom-select-menu{
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 44px;
+        border: 1px solid $grey-col;
+        @include border-radius(0 0 10px 10px);
+        background-color: $white-col;
+        width: 100%;
+        z-index: 2;
+        max-height: 200px;
+        overflow-y: auto;
+        li{
+            text-transform: capitalize;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 18px;
+            color: $default-col;
+            padding: 15px 20px;
+            cursor: pointer;
+            &:hover{
+                background-color: $light-grey-col;
+                color: $primary-col;
+            }
+            &:last-child{
+                @include border-radius(0 0 10px 10px);
+            }
+        }
+    }
+    &.active{
+        .custom-select-field{
+            background: $white-col url('/images/icons/up-arrow.svg') no-repeat 95% center;
+        }
+        .custom-select-menu{
+            display: flex;
+        }
+    }
+}

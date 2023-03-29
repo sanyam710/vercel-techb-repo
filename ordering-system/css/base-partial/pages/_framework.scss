@@ -1,0 +1,510 @@
+//Start latest
+.sec-pad {
+  padding: 15px 25px 15px;
+}
+
+.browse-menu-block {
+  position: fixed;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
+  padding: 0px 25px 25px;
+  box-sizing: border-box;
+  display: flex;
+}
+.list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  max-height: calc(100vh - 190px);
+  overflow-y: auto;
+  li {
+    @extend.flex-space-between;
+    padding: 15px 0;
+    margin: 0 23px;
+    border-bottom: 1px solid #e5e5e5;
+    box-sizing: border-box;
+    span,
+    strong {
+      font-family: "HK Grotesk SemiBold", sans-serif;
+      font-size: 16px;
+      line-height: 20px;
+      color: $default-col;
+    }
+    strong {
+      @extend.bold;
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+  &.costomisable-list {
+    li {
+      justify-content: start;
+    }
+  }
+}
+
+.card {
+  .list {
+    padding: 16px 0;
+    li {
+      border: 0;
+      padding: 0;
+      margin-bottom: 15px;
+      & > span {
+        @extend.flex-center;
+        align-items: flex-end;
+        span {
+          &:last-child {
+            line-height: 16px;
+          }
+        }
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.promo-block {
+  @extend.flex-space-between;
+  position: relative;
+  margin-bottom: 15px;
+  .promo-input {
+    width: 70%;
+  }
+  input {
+    width: 100%;
+    font-family: "HK Grotesk SemiBold";
+    font-size: 16px;
+    line-height: 20px;
+    color: $default-col;
+    padding-left: 45px;
+    border: 1px solid #e5e5e5;
+    @include border-radius(8px);
+    box-sizing: border-box;
+    @media screen and (max-width: 374px) {
+      padding-left: 42px;
+    }
+    &::-webkit-input-placeholder {
+      /* Edge */
+      font-size: 16px;
+      line-height: 20px;
+      color: $default-col;
+    }
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      font-family: "HK Grotesk SemiBold";
+      font-size: 16px;
+      line-height: 20px;
+      color: $default-col;
+    }
+    &::placeholder {
+      font-family: "HK Grotesk SemiBold";
+      font-size: 16px;
+      line-height: 20px;
+      color: $default-col;
+    }
+  }
+  .icon {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+  }
+  .sec-btn {
+    font-family: "HK Grotesk SemiBold";
+    height: 50px;
+    width: 80px;
+    @media screen and (max-width: 374px) {
+      width: 70px;
+    }
+  }
+}
+.address-listing {
+  margin-bottom: 15px;
+  .card {
+    .card-pad {
+      padding: 15px;
+    }
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+.seledted {
+  background: #ecfff9;
+  border-color: $teal-col !important;
+  .radioBtn {
+    border-color: #d9f8ee;
+    background-color: #18daa0;
+  }
+  .btn-action {
+    .btn-link {
+      &.editLink {
+        background-color: #feb942;
+      }
+      &.deleteLink {
+        background-color: #ff5959;
+      }
+    }
+  }
+}
+.order-accepted-holder {
+  @extend.flex-center;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: url("../images/order-accepted-bg.jpg") no-repeat center center;
+  background-size: cover;
+  .sec-pad {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+.order-accepted-sec {
+  @extend.flex-center;
+  flex-direction: column;
+  height: calc(100% - 90px);
+  max-width: 270px;
+  margin: 0 auto;
+  text-align: center;
+  img {
+    display: block;
+    margin-bottom: 65px;
+  }
+  p {
+    color: #7c7c7c;
+  }
+}
+
+.form-wrapper {
+  @extend.flex-center;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.54),
+      rgba(255, 255, 255, 0.54)
+    ),
+    #fcfcfc;
+  background: $white-col url("../images/mask-bg.png") no-repeat center center;
+  background-size: cover;
+  .sec-pad {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  h1 {
+    font-size: 26px;
+    line-height: 30px;
+    margin-bottom: 15px;
+  }
+  p {
+    color: #a2a6b2;
+  }
+  .foot-text {
+    display: block;
+    font-family: "HK Grotesk Regular";
+    font-size: 16px;
+    line-height: 18px;
+    color: $default-col;
+    margin-top: 25px;
+    text-align: center;
+  }
+  .form-group {
+    width: 100%;
+  }
+  label {
+    color: #7c7c7c;
+  }
+  input {
+    height: auto;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 0px 0px 10px;
+  }
+  .textLink {
+    font-family: "HK Grotesk Medium";
+    font-size: 15px;
+    line-height: 19px;
+  }
+  .error-field {
+    input {
+      border-color: #fb0202;
+    }
+  }
+}
+.login-form-sec {
+  @extend.flex-center;
+  width: 100%;
+  padding: 30px 25px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+.slider-wrap {
+  @extend.flex-center;
+  min-height: 370px;
+  @include border-radius(0px 0px 25px 25px);
+  background-color: #f3f3f3;
+}
+.item-description {
+  display: block;
+  font-family: "HK Grotesk Medium";
+  font-size: 16px;
+  line-height: 20px;
+  color: #7c7c7c;
+  margin-bottom: 25px;
+}
+.acc-listing {
+  margin-bottom: 65px;
+  border-bottom: 1px solid rgba(226, 226, 226, 0.7);
+}
+.acc-block {
+  .acc-header {
+    @extend.flex-space-between;
+    padding: 15px 0;
+    border-top: 1px solid rgba(226, 226, 226, 0.7);
+    .icon {
+      transform: rotate(180deg);
+    }
+  }
+  .acc-body {
+    padding-bottom: 20px;
+    display: none;
+    p {
+      color: #bfc2ce;
+    }
+  }
+  &.active {
+    .acc-header {
+      .icon {
+        transform: rotate(0deg);
+      }
+    }
+    .acc-body {
+      display: block;
+    }
+  }
+}
+
+.order-history-screen {
+  .restaurant-profile-dtl {
+    h2 {
+      color: $default-col;
+    }
+    .location-fld {
+      color: $default-col;
+    }
+  }
+  .card-pad {
+    padding: 15px;
+  }
+  .cart-total-block {
+    margin-bottom: 15px;
+    .cart-item-list {
+      margin-bottom: 10px;
+      li {
+        span {
+          font-size: 14px;
+          line-height: 18px;
+        }
+        strong {
+          font-size: 14px;
+          line-height: 18px;
+        }
+        &:last-child {
+          padding-top: 12px;
+          margin-top: 12px;
+        }
+      }
+    }
+    border-bottom: 1px solid #e5e5e5;
+  }
+}
+.restaurant-profile-screen {
+  .restaurant-profile-dtl {
+    h2 {
+      color: $default-col;
+    }
+    .location-fld {
+      color: $default-col;
+    }
+  }
+}
+.full-card {
+  .rating-listing {
+    .rating-block {
+      min-width: 35px;
+    }
+  }
+  .rest-no {
+    @media screen and (max-width: 374px) {
+      display: block;
+      .rating-block {
+        margin-bottom: 8px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.rest-delivery-opt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  .delivery-opt {
+    @extend.flex-center;
+    justify-content: flex-start;
+    width: 50%;
+    font-size: 16px;
+    line-height: 19px;
+    color: #807f99;
+    margin-top: 15px;
+    .icon {
+      margin-right: 6px;
+    }
+  }
+}
+.form-wrapper {
+  .foot-text {
+    &.acc-foot-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      span {
+        display: block;
+        font-family: "HK Grotesk Regular";
+        font-size: 15px;
+        line-height: 18px;
+        color: #bfc2ce;
+        margin-bottom: 10px;
+      }
+      strong {
+        font-family: "HK Grotesk Bold";
+        font-size: 20px;
+        line-height: 24px;
+        color: #262230;
+      }
+    }
+  }
+}
+.account-screen {
+  background-image: none;
+}
+.account-sec {
+  @extend.flex-center;
+  width: 100%;
+  padding: 30px 25px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+  .list {
+    width: 100%;
+    max-height: 100%;
+    overflow: unset;
+    li {
+      margin: 0;
+      padding: 20px 0;
+      border-color: #e2e2e2;
+      & > span {
+        @extend.flex-center;
+        .icon {
+          margin-right: 20px;
+        }
+      }
+      .icon {
+        &.arrow {
+          transform: rotate(90deg);
+        }
+      }
+      &:last-child {
+        border-bottom: 1px solid #e2e2e2;
+      }
+    }
+  }
+}
+.account-profile-dtl {
+  @extend.flex-space-between;
+  .account-profile-img {
+    width: 65px;
+    height: 65px;
+    @include border-radius(10px);
+    img {
+      display: block;
+      width: 65px;
+      height: 65px;
+      @include border-radius(10px);
+    }
+  }
+  .account-profile-info {
+    margin-left: 20px;
+    .icon {
+      margin-left: 10px;
+    }
+    .email-text {
+      display: inline-block;
+      font-size: 16px;
+      line-height: 20px;
+      color: #7c7c7c;
+      margin-top: 8px;
+      text-decoration: none;
+    }
+  }
+}
+
+.cuisine-listing-sec {
+  @extend.flex-space-between;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  .cuisine-listing {
+    margin-bottom: 8px;
+    margin-right: 8px;
+    @extend.flex-center;
+    justify-content: flex-start;
+    padding: 5px 8px;
+    @include border-radius(5px);
+    .recipe-cat-name {
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+    svg {
+      width: 100%;
+      max-width: 25px;
+      max-height: 20px;
+    }
+    &.chinese {
+      background-color: #eeeaff;
+      color: #7556ff;
+    }
+    &.breads {
+      background-color: #fff5dc;
+      color: #f6b507;
+    }
+    &.pizzas {
+      background-color: #ffe8db;
+      color: #fe7b31;
+    }
+    &.dassert {
+      background-color: #ffebf6;
+      color: #ff84cb;
+    }
+  }
+}
+.owl-stage-outer {
+  border-radius: 10px;
+}

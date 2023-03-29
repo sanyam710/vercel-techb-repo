@@ -1,0 +1,196 @@
+html,
+body,
+.wrapper {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  &.maxwidth {
+    padding: 0 25px;
+  }
+
+  &.fullwidth {
+    padding: 0;
+  }
+
+  &.block {
+    @extend .block;
+  }
+
+  .app-bar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    flex: none;
+    z-index: 1;
+
+    .back-link,
+    .blank-col {
+      width: 60px;
+      height: 60px;
+      @extend .flex-center;
+    }
+  }
+
+  .bot-shadow {
+    box-shadow: 0 0px 15px 0 rgba(192, 192, 192, 0.25);
+  }
+
+  .container {
+    flex: 1;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+}
+
+.main-wrap {
+  height: 100%;
+  overflow: hidden;
+  @include flexbox;
+  @include flex-direction(column);
+
+  .header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    flex: none;
+    z-index: 1;
+
+    .back-link,
+    .blank-col {
+      width: 60px;
+      height: 60px;
+      @extend .flex-center;
+    }
+
+    .page-title {
+      @extend .bold;
+      font-size: 20px;
+      line-height: 24px;
+      color: $default-col;
+    }
+  }
+}
+
+// .main-wrap-item {
+//   flex: 1;
+//   z-index: 1;
+//   position: absolute;
+//   width: 100%;
+//   height: calc(100% - 60px);
+//   top: 60px;
+// }
+// .page-container {
+//   @extend .wrapper;
+// }
+// .title {
+//   // font-weight: 500;
+//   // font-size: 18px;
+//   // color: $black-col;
+//   // letter-spacing: 0.2px;
+//   // line-height: 30px;
+
+//   font-weight: 700;
+//   font-size: 20px;
+//   color: $default-col;
+//   letter-spacing: 0.4px;
+//   line-height: 27px;
+//   margin-bottom: 0px;
+//   text-align: left;
+//   flex: 1;
+//   &.align-center {
+//     text-align: center;
+//   }
+// }
+
+// #pageTitle {
+//   white-space: nowrap;
+//   width: auto;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   opacity: 0;
+// }
+
+// #paraHead,
+// #listHead {
+//   z-index: 10;
+
+//   #backLink {
+//     img {
+//       position: absolute;
+//     }
+//   }
+// }
+
+.restaurant-profile-sec {
+  @extend .flex-space-between;
+  align-items: center;
+  .restaurant-profile-info {
+    @extend .flex-align-top;
+    align-items: center;
+    // min-width: 230px;
+    // min-height: 63px;
+    min-width: 300px;
+    min-height: 30px;
+    .restaurant-logo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-width: 63px;
+      @media screen and (max-width: 374px) {
+        display: block;
+        width: 55px;
+      }
+    }
+  }
+
+  .restaurant-profile-dtl {
+    margin-left: 12px;
+
+    h2 {
+      color: $white-col;
+      margin-bottom: 5px;
+    }
+
+    .location-fld {
+      @extend .flex-align-top;
+      font-family: "HK Grotesk SemiBold", sans-serif;
+      font-size: 15px;
+      line-height: 18px;
+      align-items: center;
+      color: $white-col;
+    }
+
+    .location {
+      margin-right: 4px;
+    }
+  }
+
+  &.restaurant-header {
+    padding: 15px 25px;
+    @include border-radius(0px 0px 30px 30px);
+    // margin-bottom: 20px;
+    background-color: $default-col;
+    box-shadow: 12px 12px 30px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.acc-profile {
+  @extend .flex-center;
+  width: 38px;
+  height: 38px;
+  @include border-radius(50%);
+  background-color: $white-col;
+
+  &.fill {
+    background-color: $default-col;
+  }
+}

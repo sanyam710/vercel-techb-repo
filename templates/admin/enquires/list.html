@@ -1,0 +1,94 @@
+<div class="content order-screen">
+    <div class="container height-100">
+        <div class="con-holder pad-20">
+            <div class="order-detail-head">
+                <div class="flex-space-between flex-align-center">
+                    <h3>Enquiries</h3>
+                    <div class="form-group flex-space-between flex-align-center">
+                        <div class="form-field search-field">
+                            <input type="search" name="" id="" class="form-control form-control-search" placeholder="Search for name, order status or something...">
+                        </div>
+                        <!-- <div class="form-group">
+                            <div class="form-field">
+                                <button type="button" class="btn primary-btn mar-l-15">Enquiries</button>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="order-detail-body">
+                <div class="content-body table-holder h-line-scroll">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>
+                                <div class="row-name-field">Name</div>
+                            </th>
+                            <th>
+                                <div class="row-email-field">Email</div>
+                            </th>
+                            <th>
+                                <div class="row-phone-field">Mobile</div>
+                            </th>
+                            <th>
+                                <div class="row-status-field">Status</div>
+                            </th>
+                            <th>
+                                <div class="row-action-field">Edit</div>
+                            </th>
+                            <th>
+                                <div class="row-action-field">Delete</div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="enquiry in enquiries.list">
+                                <td>
+                                    <div class="row-name-field">{{ enquiry.name }}</div>
+                                </td>
+                                <td>
+                                    <div class="row-email-field">{{ enquiry.email }}</div>
+                                </td>
+                                <td>
+                                    <div class="row-phone-field">{{ enquiry.mobile_no }}</div>
+                                </td>
+                                <!--<td>
+                                    <div class="row-status-field status-btn deactive">Deactivate</div>
+                                </td>-->
+                                <!--<td>
+                                    <div class="row-action-field">
+                                        <img src="/images/icons/circle-edit-icon.svg" alt=""> Edit
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="row-action-field">
+                                        <img src="/images/icons/def-close-icon-hover.svg" alt=""> Delete
+                                    </div>
+                                </td>-->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--<div class="pagination-section">
+                    <label class="place-holder">1-12 of 1250 pages</label>
+                    <div class="pagination-block">
+                        <label class="place-holder mar-r-15">The page you’re on</label>
+                        <div class="pagination-no-field">
+                            <div class="custom-select-holder">
+                                <span class="custom-select-field select">0</span>
+                                <ul class="custom-select-menu">
+                                    <li>1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pagination-arrow-field">
+                            <span class="pre-arrow disabled"></span> <span class="next-arrow"></span>
+                        </div>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>

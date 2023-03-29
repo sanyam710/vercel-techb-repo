@@ -1,0 +1,126 @@
+.form{
+    .form-field{
+        margin-bottom: 15px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        label{
+            display: block;
+            @extend.medium; 
+            font-size: 15px;
+            line-height: 25px;
+            color: $default-col;
+            margin-bottom: 5px;
+            text-align: left;
+            
+        }
+        &.error-field{
+            position:relative;
+            input, textarea, .checkbox-list-item .check-box {
+                border: 1px solid #E43A40;
+            }
+            .error{
+                @extend.regular;
+                font-size: 11px;
+                line-height: 14px;
+                position: absolute;
+                left: 0px;
+                bottom: -15px;
+                color: #E43A40;
+            }
+        }
+        &.form-btn {
+            text-align: center;
+            span.success {
+                font: 400 12px/16px sans-serif;
+                color: #2daf2d;
+            }
+            span.error {
+                font: 400 12px/16px sans-serif;
+                color: #E43A40;
+            }
+        }
+    }
+}
+.form-control{
+    width: 100%;
+    @extend.medium;  
+    font-size: 15px;
+    line-height: 25px;
+    color: $midnight-express;
+    @include border-radius(8px); 
+    border: 1px solid #BFC2CE;
+    padding: 16px 16px 17px;
+    background-color: transparent;
+    resize: none;
+    &::-webkit-input-placeholder{
+        @extend.medium;  
+        font-size: 14px;
+        line-height: 25px;
+        color: $default-col;
+    }
+    &:-ms-input-placeholder{
+        @extend.medium;  
+        font-size: 14px;
+        line-height: 25px;
+        color: $default-col;
+    }
+    &::-moz-input-placeholder{
+        @extend.medium;  
+        font-size: 14px;
+        line-height: 25px;
+        color: $default-col;
+    }
+    @media screen and (max-width: 1023px) { 
+        padding: 10px 15px;
+        background-color: #F9F9F9;
+        border: 0;
+    }
+}
+
+.checkbox-container{
+    .checkbox-list-item{
+        display: flex;
+        align-items: flex-start;
+        label{
+            @extend.medium;        
+            font-size: 14px;
+            line-height: 20px;
+            color: $default-col;
+            margin-bottom: 0; 
+        } 
+        .check-box{
+            @extend.flex-center;
+            width: 21px;
+            min-width: 21px;
+            height: 21px;
+            @include border-radius(5px);
+            border: 1px solid #92A3A9;
+            margin: 3px 10px 0 0;
+            transition: all .1s ease-in-out;
+            &.active{ 
+                background-color: $caribbean-green;
+                border-color: $caribbean-green; 
+                &::before{
+                    content: '';
+                    @extend.flex-center;
+                    position: absolute;
+                    width: 13px;
+                    height: 13px;
+                    background: url('/landing-screen/images/icons/check-icon.svg') no-repeat center center;
+                    background-size: cover;
+                }
+            }
+        }
+
+    }
+}
+
+.form-inline{
+    width: 100%;
+    .form-field{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+}

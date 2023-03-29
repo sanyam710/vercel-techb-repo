@@ -1,0 +1,121 @@
+<div class="main-wrap">
+    <div class="content flex-center">
+        <div class="loader loader-1" ng-if="order.loader">
+            <div class="loader-outer"></div>
+            <div class="loader-inner"></div>
+        </div>
+        <div class="container height-100" ng-if="!order.loader">
+            <div class="con-holder">
+                <div class="column-list flex-direction-column overflow-auto pad-20">
+                    <div class="column-list-holder flex-space-between flex-align-top mar-b-20">
+                        <div class="col-6 mar-r-10">
+                            <div class="form-section mar-b-20">
+                                <div class="form-group-head">
+                                    <h3>Customer Details</h3>
+                                </div>
+                                <div class="form-group-body">
+                                    <form action="">
+                                        <div class="form-group">
+                                            <div class="form-field-holder">
+                                                <div class="form-field width-100">
+                                                    <label class="field-label field-user">Customer Name</label>
+                                                    <input type="text" class="form-control" ng-model="order.info.name" placeholder="Customer's Name" readonly/>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-field-holder">
+                                                <div class="form-field width-100">
+                                                    <label class="field-label">Email</label>
+                                                    <input type="email" class="form-control" ng-model="order.info.email" placeholder="Customer's Email" readonly/>
+                                                </div>
+                                            </div>
+                                            <div class="form-field-holder">
+                                                <div class="form-field width-100">
+                                                    <label class="field-label field-user">Status</label>
+                                                    <div class="custom-select-holder {{ order.dto.statusDd ? 'active' : '' }}" ng-click="order.dto.statusDd = !order.dto.statusDd">
+                                                        <span class="custom-select-field select">{{ constants.ORDER_STATUS_MAP[order.info.status].text }}</span>
+                                                        <ul class="custom-select-menu">
+                                                            <li ng-click="order.info.status = status.id" ng-repeat="status in constants.ORDER_STATUS">{{ status.text }}</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-field-holder">
+                                                <div class="form-field width-100">
+                                                    <label class="field-label">Phone</label>
+                                                    <input type="number" class="form-control" ng-model="order.info.mobile_no" placeholder="Enter Number" readonly/>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-field-holder">
+                                                <div class="form-field width-100">
+                                                    <label class="field-label field-user">Address</label>
+                                                    <textarea class="form-control" placeholder="Customer's Address" readonly></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-field-holder">
+                                                <div class="form-field width-100">
+                                                    <label class="field-label field-user">Cooking Instruction</label>
+                                                    <textarea class="form-control" placeholder="Cooking Instruction By Customer..." readonly></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-field-holder mar-b-0">
+                                                <div class="form-field width-100">
+                                                    <button type="button" class="btn primary-btn block-btn {{ order.btnLoader ? 'btn-loader' : '' }}" ng-click="order.update()">
+                                                        <img src="/images/icons/refresh-icon.svg" alt="">Update
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 mar-l-10">
+                            <div class="form-section order-item-section mar-b-20">
+                                <div class="form-group-head">
+                                    <h3>Order items</h3>
+                                </div>
+                                <div class="form-group-body">
+                                    <div class="order-item-holder">
+                                        <div class="food-menu-listing" ng-repeat="food in order.info.recipes">
+                                            <div class="flex-space-between">
+                                                <div class="food-info-dtl flex-space-between col-7">
+                                                    <!--<div class="food-thumbnail">
+                                                        <img src="/images/recipe-category/temp-manchurian.png" alt="">
+                                                    </div>-->
+                                                    <div class="food-info">
+                                                        <h3 class="mar-b-5">{{ food.name }}</h3>
+                                                        <!--<p>With extra oregano, & black pepper</p>-->
+                                                    </div>
+                                                </div>
+                                                <div class="flex-space-between food-pricing-dtl col-5">
+                                                    <div class="food-rate-field">
+                                                        <h6>Rate</h6>
+                                                        <span style="color: #333">{{ pageView.userDetails.currency }} {{ food.price }}</span>
+                                                    </div>
+                                                    <div class="food-quantity-field">
+                                                        <h6>Quantity</h6>
+                                                        <span style="color: #333">{{ food.quantity }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group-footer">
+                                    <div class="flex-space-between">
+                                        <label>Total Price:</label>
+                                        <strong>{{ pageView.userDetails.currency }} {{ order.info.totalPrice }}</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

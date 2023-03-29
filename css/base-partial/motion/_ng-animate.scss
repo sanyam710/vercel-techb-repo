@@ -1,0 +1,289 @@
+.ngViewContent.forward.ng-enter {
+  background-color: red;
+  transform: translate(100vw, 0);
+  transition:0.3s linear all;
+  opacity: 1;
+}
+.ngViewContent.forward.ng-enter.ng-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.ngViewContent.forward.ng-leave {
+  transition:0.3s linear all;
+  transform: translate(0, 0);
+  opacity: 1;
+}
+.ngViewContent.forward.ng-leave.ng-leave-active {
+  transform: translate(-100vw, 0);
+  opacity: 1;
+}
+
+.ngViewContent.backward.ng-enter {
+  background-color: green;
+
+  transform: translate(-100vw, 0);
+  transition:0.3s linear all;
+  opacity: 1;
+}
+.ngViewContent.backward.ng-enter.ng-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.ngViewContent.backward.ng-leave {
+  transition:0.3s linear all;
+  transform: translate(0, 0);
+  opacity: 1;
+}
+.ngViewContent.backward.ng-leave.ng-leave-active {
+  transform: translate(100vw, 0);
+  opacity: 1;
+}
+
+
+.drawer.ng-enter {
+  // transition:0.5s linear all;
+  // opacity:0;
+
+  transform: translate(0, 100vh);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.40);
+}
+
+/* The finishing CSS styles for the enter animation */
+.drawer.ng-enter.ng-enter-active {
+  transform: translate(0, 0);
+}
+
+.drawer.ng-leave {
+  transition:0.3s linear all;
+  transform: translate(0, 0);
+}
+.drawer.ng-leave.ng-leave-active {
+  transform: translate(0, 100vh);
+}
+
+.overlay.ng-enter {
+  // transition:0.5s linear all;
+  opacity:0;
+  // transform: translate(0, 100vh);
+  transition:0.3s linear all;
+}
+
+/* The finishing CSS styles for the enter animation */
+.overlay.ng-enter.ng-enter-active {
+  // transform: translate(0, 0);
+  opacity:1;
+}
+
+.overlay.ng-leave {
+  transition:0.3s linear all;
+  // transform: translate(0, 0);
+  opacity:1;
+}
+.overlay.ng-leave.ng-leave-active {
+  // transform: translate(0, 100vh);
+  opacity:0;
+}
+.glass-box{
+  position: relative;
+}
+.glass-fill{
+  position: absolute;
+  width: 33px;
+  height:38px;
+  background: url('../images/water.svg') repeat-x;
+  animation: glassAnim 40s linear infinite;
+  top:0;
+}
+
+@keyframes glassAnim{
+
+  0%{
+    background-position: 0 38px;
+  }
+
+  10%{
+    background-position: 0 38px;
+  }
+
+  40%{
+    background-position: 1000px -15px;
+  }
+
+  80%{
+    background-position: 2000px -25px;
+  }
+
+  100%{
+    background-position: 2500px 38px;
+  }
+
+}
+
+
+.main-wrap-item.ng-enter {
+  transform: translate(100vw, 0);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.45);
+}
+
+.main-wrap-item.ng-enter.ng-enter-active {
+  transform: translate(0, 0);
+}
+
+.main-wrap-item.ng-leave {
+  transition:0.3s linear all;
+  transform: translate(0, 0);
+}
+.main-wrap-item.ng-leave.ng-leave-active {
+  transform: translate(-100vw, 0);
+}
+
+
+// .carousel-popup{
+//   transition: all 0.3s;
+//   .owl-carousel{
+//     transform:translate(0, 50px);
+//     opacity: 0;
+//     transition: all 0.3s;
+//   }
+//   .overlay{
+//     transition: all 0.3s;
+//     opacity: 0;
+//   }
+  
+//   &.open{
+//     .owl-carousel{
+//       transform:translate(0, 0);
+//       opacity: 1;
+//     }
+//     .overlay{
+//       opacity: 1;
+//     }
+//   }
+  
+// }
+
+
+.popup.ng-enter {
+  transform:translate(0, 50px);
+  transition:0.3s linear all;
+  opacity: 0;
+}
+
+.popup.ng-enter.ng-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.popup.ng-leave {
+  transition:0.3s linear all;
+  transform: translate(0, 0);
+  opacity: 1;
+}
+.popup.ng-leave.ng-leave-active {
+  transform:translate(0, 50px);
+  opacity: 0;
+}
+
+
+#card-container{
+  .popup.ng-enter {
+      transform:unset;
+      transition:0.3s linear all;
+      opacity: 0;
+    }
+    
+    .popup.ng-enter.ng-enter-active {
+      transform:unset;
+      opacity: 1;
+    }
+    
+    .popup.ng-leave {
+      transition:0.3s linear all;
+      transform:unset;
+      opacity: 1;
+    }
+    .popup.ng-leave.ng-leave-active {
+      transform:unset;
+      opacity: 0;
+    }
+}    
+
+
+
+.carousel-popup.ng-enter {
+  transform:translate(50px, 0);
+  transition:0.3s linear all;
+  opacity: 0;
+}
+
+.carousel-popup.ng-enter.ng-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.carousel-popup.ng-leave {
+  transition:0.3s linear all;
+  transform: translate(0, 0);
+  opacity: 1;
+}
+.carousel-popup.ng-leave.ng-leave-active {
+  transform:translate(0, 50px);
+  opacity: 0;
+}
+
+
+
+
+.internet-error-box.ng-enter {
+  transform:translate(0, 50px);
+  transition:0.3s linear all;
+  opacity: 0;
+}
+
+.internet-error-box.ng-enter.ng-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.internet-error-box.ng-leave {
+  transition:0.3s linear all;
+  transform: translate(0, 0);
+  opacity: 1;
+}
+.internet-error-box.ng-leave.ng-leave-active {
+  transform:translate(0, 50px);
+  opacity: 0;
+}
+
+
+
+.side-drawer.ng-enter {
+  transform:translate(-100vw, 0);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.45);
+}
+
+.side-drawer.ng-enter.ng-enter-active {
+  transform: translate(0, 0);
+}
+
+.side-drawer.ng-leave {
+  transition:0.3s linear all;
+  transform: translate(0, 0);
+}
+.side-drawer.ng-leave.ng-leave-active {
+  transform:translate(-100vw, 0);
+}
+
+.previewContent .chatPanel .messagePanel .textMessage.ng-enter {
+  transform:translate(0, 30px);
+  max-height: 0;
+  opacity: 0;
+}
+
+.previewContent .chatPanel .messagePanel .textMessage.ng-enter.ng-enter-active {
+  transform: translate(0, 0);
+  max-height: 100%;
+  opacity: 1;
+}

@@ -1,0 +1,29 @@
+<div class="content">
+    <div class="header">
+        <div class="col-4">
+            <div class="form-field search-field">
+                <input type="search" ng-model="tables.search" class="form-control form-control-search" placeholder="Search Table"/>
+            </div>
+        </div>
+    </div>
+    <div class="flex-center height-100" style="align-items: flex-start;">
+        <div class="container">
+            <div class="con-holder pad-20">
+                <div class="card-box-holder">
+                    <div class="card-box" style="height: fit-content" ng-repeat="table in tables.list | filter: tables.search">
+                        <div class="card-pad" ng-click="tables.tableOrders(table)">
+                            <div class="flex-space-between flex-align-top mar-b-15">
+                                <div class="recipe-cat-holder">
+                                    <div class="recipe-cat-img" style="padding: 10px; border-radius: 15px; background: whitesmoke">
+                                        <img src="/images/icons/table-dashboard-icon.svg">
+                                    </div>
+                                    <h5 class="recipe-cat-name" style="color: #333">{{ table.name }}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

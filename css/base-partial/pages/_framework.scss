@@ -1,0 +1,468 @@
+.content {
+    width: 100%;
+    height: 100%;
+    padding-left: 240px;
+    background-color: #E5E5E5;
+    overflow: hidden;
+}
+
+.container {
+    overflow-y: auto;
+    width: 100%;
+    height: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+
+    .con-holder {
+        position: relative;
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        transition: all .1s ease-in-out;
+    }
+}
+
+.contain-listing-sec {
+    .check-box-holder {
+        display: flex;
+        flex-wrap: wrap;
+
+        .check-box-list-item {
+            margin-bottom: 15px;
+            min-width: 25%;
+            cursor: pointer;
+        }
+    }
+}
+
+.order-screen {
+    .container {
+        overflow: unset;
+    }
+
+    .con-holder {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .order-detail-body {
+        flex: 1;
+        height: calc(100% - 120px);
+
+        .h-line-scroll {
+            flex: 1;
+            //height: calc(100% - 70px);
+            height: 100%;
+            margin-bottom: 20px;
+            overflow-y: auto;
+        }
+    }
+}
+
+.order-detail-head {
+    padding: 20px;
+    @include border-radius(10px 10px 0 0);
+    background-color: #F4F4F4;
+
+    .search-field {
+        min-width: 355px;
+    }
+
+    .form-field-holder {
+        .form-field {
+            .custom-select-holder {
+                //min-width: 126px;
+            }
+
+            .btn {
+                width: 100%;
+                // min-width: 126px;
+                // margin-left: 15px;
+            }
+
+            &.all-type-select-field {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                min-width: 175px;
+
+                label {
+                    color: rgba(0, 0, 0, 0.29);
+                }
+
+                .custom-select-holder {
+                    min-width: 125px;
+
+                    .select {
+                        background-position: 90% center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.order-detail-body {
+    padding: 20px;
+    background-color: $white-col;
+}
+.delete-icon {
+    cursor: pointer;
+}
+
+.order-item-section {
+    .form-group-body {
+        border-radius: 0;
+    }
+
+    .order-item-holder {
+        .food-menu-listing {
+            .food-info-dtl {
+                &.flex-space-between {
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                }
+            }
+
+            .food-thumbnail {
+                min-width: 85px;
+                width: 85px;
+                height: 85px;
+
+                img {
+                    display: block;
+                    height: 100%;
+                }
+            }
+
+            .food-info {
+                margin-top: 5px;
+            }
+
+            .food-pricing-dtl {
+                align-items: flex-start;
+            }
+        }
+
+    }
+
+    .form-group-footer {
+        @include border-radius(0px 0px 10px 10px);
+        padding: 15px 30px;
+        background: #1A2145;
+
+        label {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 18px;
+            color: $white-col;
+        }
+
+        strong {
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 30px;
+            color: $white-col;
+        }
+    }
+}
+
+.food-menu-listing {
+    .food-info-dtl {
+        &.flex-space-between {
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+    }
+}
+
+.loader-sm-box {
+    text-align: center;
+    padding: 24px;
+
+    .loader-sm {
+        width: 45px;
+        height: 45px;
+        display: inline-block;
+        padding: 0px;
+        border-radius: 100%;
+        border: 5px solid;
+        border-top-color: #1A2145;
+        border-bottom-color: rgba(255, 255, 255, 0.3);
+        border-left-color: #1A2145;
+        border-right-color: rgba(255, 255, 255, 0.3);
+        -webkit-animation: loader-sm 1s ease-in-out infinite;
+        animation: loader-sm 1s ease-in-out infinite;
+    }
+
+    @keyframes loader-sm {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    @-webkit-keyframes loader-sm {
+        from {
+            -webkit-transform: rotate(0deg);
+        }
+        to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+}
+
+.dndPlaceholder {
+    height: 0;
+    width: 100%;
+    border: 1px solid #333;
+}
+.leads-table {
+    tr {
+        cursor: pointer;
+        &:hover {
+            background-color: #e9e9e9;
+        }
+    }
+}
+
+.info-list {
+    .info-item {
+        padding: 10px 0;
+        border-bottom: 1px solid #d3d3d3;
+        span {
+            color: #333;
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+.accordion-list-item {
+    margin-bottom: 25px;
+    .accordion-list-item-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        background: #d3d3d3;
+        border-radius: 8px;
+        color: #333;
+        cursor: pointer;
+        &:hover, &:focus{
+            background: #cccccc;
+        }
+        &.active {
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+        .accordion-list-item-action {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            li {
+                &:nth-child(2){
+                    height: 20px;
+                    width: 20px;
+                    background: white;
+                    border-radius: 50%;
+                    transition: .2s all;
+                    &.active {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+    }
+    .accordion-list-item-body {
+        padding: 20px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background: #fff;
+        .left-body, .right-body {
+            width: 50%;
+            padding: 15px;
+        }
+        .left-body {
+             border-left: 2px solid #d3d3d3;
+            
+        }
+        .sub-order-list {
+            .sub-order {
+                padding: 25px 25px 20px 20px;
+                border: 1px solid #bbb;
+                border-radius: 8px;
+                position: relative;
+                box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+                .sub-order-item {
+                    margin-bottom: 8px;
+                    span{
+                        color: #333;
+                    }
+                }
+                .edit-link {
+                    position: absolute;
+                    top: 5px;
+                    right: 6px;
+
+                }
+                .status-btn {
+                    padding: 9px 9px 9px 30px;
+                    margin-left: 15px;
+                }
+            }
+        }
+        .accordion-list-item-title, .accordion-list-item-footer {
+            color: #333;
+            
+        }
+    }
+}
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 15px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.bdr {
+    border: 1px solid #BFC2CE;
+}
+.edit-link {
+    cursor: pointer;
+}
+
+.refresh-table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .record-status-label{
+        margin-right: 12px;
+        label {
+            text-align: right;
+            display: block;
+            font-weight: 400;
+            font-size: 11px;
+            line-height: 15px;
+            color: #42526E
+        }
+        strong {
+            font-size: 12px;
+            line-height: 16px;
+            color: #42526E;
+        }
+    }
+    .refresh-icon-back {
+        border: 1px solid #adafb5de;
+        padding: 13px;
+        border-radius: 36px;
+        background: #b4b5ba6b;
+        cursor: pointer;
+    }
+}
+
+.ongoing-sub-order {
+    border: 2px solid #ffd400 !important;
+} 
+.ongoing-order {
+    border:2px solid #58d68d;
+}
+.ongoing-sub-order-text {
+    color: #ffd400;
+    display: none;
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    &.active {
+        display: flex;
+        align-items: center;
+    }
+    &::after {
+        content: "";
+        width: 10px;
+        display: block;
+        height: 10px;
+        background-color: #ffd400;
+        margin-left: 6px;
+        border-radius: 10px;
+    }
+}
+.ongoing-order-text {
+    color: #58d68d;
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    display: none;
+    &.active {
+        display: flex;
+        align-items: center;
+    }
+    &::after {
+        content: "";
+        width: 10px;
+        display: block;
+        height: 10px;
+        background-color: #58d68d;
+        margin-left: 6px;
+        border-radius: 10px;
+    }
+}
+.order-status {
+    position: relative;
+
+}
+
+.masterchild-action {
+    display: flex;
+    gap: 25px;
+    justify-content: end;
+    align-items: center;
+    margin-top: 5px;
+    div {
+        display: flex;
+        gap: 7px;
+    }
+}
+// badha pati gya hoy => green
+// order on going sub order pending => yellow
+// tru tru=> yellow
+// one => green
+
+@keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .rotating {
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+  }

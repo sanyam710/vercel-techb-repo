@@ -1,0 +1,736 @@
+<html>
+<head>
+    <title>Dashboard | Noodle Bar Restaurant</title>
+    <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+    <div class="main-wrap">
+        <div class="side-nav">
+            <div class="nav-header">
+                <h3>Noodle Bar Restaurant</h3>
+            </div>
+            <div class="nav">
+                <div class="nav-links">
+                    <ul>
+                        <li title="Dashboard" class="active"><a href="dashboard.html"><span class="dashboard-icon"></span>Dashboard</a></li>
+                        <li title="Profile"><a href="profile.html"><span class="profile-icon"></span>Profile</a></li>
+                        <li title="Orders"><a href="orders.html"><span class="order-icon"></span>Orders</a></li>
+                    </ul>
+                </div>
+                <div class="foot-links">
+                    <ul>
+                        <li title="Log out">
+                            <span class="log-out-btn"><span class="log-out-icon"></span>Log out</span>
+                        </li>
+                    </ul>    
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="header">
+                <div class="btn-block flex-align-left col-8">
+                    <!-- <button type="button" class="btn lg-btn primary-btn" title="Menu QR">
+                        <span class="qr-icon mar-r-5"></span>
+                        <span>Menu QR</span>
+                    </button> -->
+                    <!-- <button type="button" class="btn lg-btn primary-btn" title="Download Menu">
+                        <span class="download-icon mar-r-5"></span>
+                        <span>Download Menu</span>
+                    </button> -->
+                    <button type="button" class="btn lg-btn primary-btn" title="Export Recipes With Costing">
+                        <span class="export-icon mar-r-5"></span>
+                        <span>Export Recipes With Costing</span>
+                    </button>
+                </div>
+                <div class="col-4">
+                    <div class="form-field search-field">
+                        <input type="search" name="" id="" class="form-control form-control-search" placeholder="Search recipe"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="con-holder pad-20">    
+                    <div class="card-box-holder">
+                        <div class="card-box">
+                            <div class="card-pad">
+                                <div class="flex-space-between flex-align-top mar-b-15">
+                                    <div class="recipe-cat-holder">
+                                        <div class="recipe-cat-img"><img src="/images/recipe-category/chinese.png" alt=""></div>
+                                        <h5 class="recipe-cat-name chinese">Chinese</h5>
+                                    </div>
+                                    <span class="card-box-menu dot-menu-icon"></span>
+                                </div>
+                                <div class="card-foot btn-block">
+                                    <button type="button" class="btn" aria-colspan="Add New Item">Add New Item</button>
+                                    <button type="button" class="btn" title="Bulk Entry">Bulk Entry</button>
+                                </div>
+
+                                <div class="form-group" style="display: none;">
+                                    <div class="form-field mar-b-20">
+                                        <input type="text" class="form-control" placeholder="Enter name of recipes one on each line" />
+                                        <ul class="recipe-category-menu">
+                                            <li class="recipe-category-menu-listing veg">
+                                                <div class="recipe-category-listing-info">
+                                                    <span class="recipe-category-type"><span></span></span>
+                                                    <h4>Hakkanoodels</h4>
+                                                </div>
+                                                <ul class="recipe-category-listing-action">
+                                                   <li class=""><span class="view-icon"></span></li> 
+                                                   <li class=""><span class="copy-icon"></span></li> 
+                                                   <li class=""><span class="edit-icon"></span></li> 
+                                                   <li class="close-icon"></li> 
+                                                </ul>
+                                            </li>
+                                            <li class="recipe-category-menu-listing non-veg">
+                                                <div class="recipe-category-listing-info">
+                                                    <span class="recipe-category-type"><span></span></span>
+                                                    <h4>Manchurian</h4>
+                                                </div>
+                                                <ul class="recipe-category-listing-action">
+                                                   <li class=""><span class="view-icon"></span></li> 
+                                                   <li class=""><span class="copy-icon"></span></li> 
+                                                   <li class=""><span class="edit-icon"></span></li> 
+                                                   <li class="close-icon"></li> 
+                                                </ul>
+                                            </li>
+                                            <li class="recipe-category-menu-listing">
+                                                <div class="recipe-category-listing-info">
+                                                    <span class="recipe-category-type"><span></span></span>
+                                                    <h4>Chines Bhel</h4>
+                                                </div>
+                                                <ul class="recipe-category-listing-action">
+                                                   <li class=""><span class="view-icon"></span></li> 
+                                                   <li class=""><span class="copy-icon"></span></li> 
+                                                   <li class=""><span class="edit-icon"></span></li> 
+                                                   <li class="close-icon"></li> 
+                                                </ul>
+                                            </li>
+                                            <li class="recipe-category-menu-listing">
+                                                <div class="recipe-category-listing-info">
+                                                    <span class="recipe-category-type"><span></span></span>
+                                                    <h4>Manchuriyan dry</h4>
+                                                </div>
+                                                <ul class="recipe-category-listing-action">
+                                                   <li class=""><span class="view-icon"></span></li> 
+                                                   <li class=""><span class="copy-icon"></span></li> 
+                                                   <li class=""><span class="edit-icon"></span></li> 
+                                                   <li class="close-icon"></li> 
+                                                </ul>
+                                            </li>
+                                            <li class="recipe-category-menu-listing">
+                                                <div class="recipe-category-listing-info">
+                                                    <span class="recipe-category-type"><span></span></span>
+                                                    <h4>Paneer Chilly</h4>
+                                                </div>
+                                                <ul class="recipe-category-listing-action">
+                                                   <li class=""><span class="view-icon"></span></li> 
+                                                   <li class=""><span class="copy-icon"></span></li> 
+                                                   <li class=""><span class="edit-icon"></span></li> 
+                                                   <li class="close-icon"></li> 
+                                                </ul>
+                                            </li>
+                                            <li class="recipe-category-menu-listing">
+                                                <div class="recipe-category-listing-info">
+                                                    <span class="recipe-category-type"><span></span></span>
+                                                    <h4>Frid Rice</h4>
+                                                </div>
+                                                <ul class="recipe-category-listing-action">
+                                                   <li class=""><span class="view-icon"></span></li> 
+                                                   <li class=""><span class="copy-icon"></span></li> 
+                                                   <li class=""><span class="edit-icon"></span></li> 
+                                                   <li class="close-icon"></li> 
+                                                </ul>
+                                            </li>
+                                            <li class="recipe-category-menu-listing">
+                                                <div class="recipe-category-listing-info">
+                                                    <span class="recipe-category-type"><span></span></span>
+                                                    <h4>Mashroom Chilly</h4>
+                                                </div>
+                                                <ul class="recipe-category-listing-action">
+                                                   <li class=""><span class="view-icon"></span></li> 
+                                                   <li class=""><span class="copy-icon"></span></li> 
+                                                   <li class=""><span class="edit-icon"></span></li> 
+                                                   <li class="close-icon"></li> 
+                                                </ul>
+                                            </li>
+                                            <li class="recipe-category-menu-listing">
+                                                <div class="recipe-category-listing-info">
+                                                    <span class="recipe-category-type"><span></span></span>
+                                                    <h4>Schezwan Fride Rice</h4>
+                                                </div>
+                                                <ul class="recipe-category-listing-action">
+                                                   <li class=""><span class="view-icon"></span></li> 
+                                                   <li class=""><span class="copy-icon"></span></li> 
+                                                   <li class=""><span class="edit-icon"></span></li> 
+                                                   <li class="close-icon"></li> 
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="card-foot">
+                                        <div class="form-field btn-block width-100 mar-b-15">
+                                            <button type="button" class="btn primary-btn" title="Add"><img src="/images/icons/add-icon.svg" alt=""> Add</button>
+                                            <button type="button" class="btn secondary-btn" title="Cancel"><img src="/images/icons/close-icon.svg" alt=""> Cancel</button>
+                                        </div>
+                                        <div class="form-field">
+                                            <button type="button" class="btn primary-btn btn-block flex-center" title="Save Order"><img src="/images/icons/save-icon.svg" alt=""> Save Order</button>
+                                        </div>
+                                    </div>
+
+                                </div>    
+                            </div>
+                        </div>
+
+                        <div class="card-box">
+                            <div class="card-pad">
+                                <div class="flex-space-between flex-align-top mar-b-15">
+                                    <div class="recipe-cat-holder">
+                                        <div class="recipe-cat-img"><img src="/images/recipe-category/breads.png" alt=""></div>
+                                        <h5 class="recipe-cat-name breads">Breads</h5>
+                                    </div>
+                                    <div class="dot-menu">
+                                        <span class="card-box-menu dot-menu-icon"></span>
+                                        <!-- <ul class="sub-menu">
+                                            <span class="cornor"></span>
+                                            <li><img src="/images/icons/circle-edit-icon.svg" alt=""> Edit</li>
+                                            <li><img src="/images/icons/circle-download-icon.svg" alt=""> Download</li>
+                                            <li class="close-link"><img src="/images/icons/def-close-icon-hover.svg" alt=""> Delete</li>
+                                        </ul> -->
+                                    </div>
+                                </div>
+                                <div class="card-foot btn-block">
+                                    <button type="button" class="btn" aria-colspan="Add New Item">Add New Item</button>
+                                    <button type="button" class="btn" title="Bulk Entry">Bulk Entry</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-box mar-r-0">
+                            <div class="card-pad">
+                                <div class="flex-space-between flex-align-top mar-b-15">
+                                    <div class="recipe-cat-holder">
+                                        <div class="recipe-cat-img"><img src="/images/recipe-category/pizzas.png" alt=""></div>
+                                        <h5 class="recipe-cat-name pizzas">Pizzas</h5>
+                                    </div>
+                                    <span class="card-box-menu dot-menu-icon"></span>
+                                </div>
+                                <div class="card-foot btn-block">
+                                    <button type="button" class="btn" aria-colspan="Add New Item">Add New Item</button>
+                                    <button type="button" class="btn" title="Bulk Entry">Bulk Entry</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-box">
+                            <div class="card-pad">
+                                <div class="flex-space-between flex-align-top mar-b-15">
+                                    <div class="recipe-cat-holder">
+                                        <div class="recipe-cat-img"><img src="/images/recipe-category/beverage.png" alt=""></div>
+                                        <h5 class="recipe-cat-name beverage">Beverage</h5>
+                                    </div>
+                                    <span class="card-box-menu dot-menu-icon"></span>
+                                </div>
+                                <div class="card-foot btn-block">
+                                    <button type="button" class="btn" aria-colspan="Add New Item">Add New Item</button>
+                                    <button type="button" class="btn" title="Bulk Entry">Bulk Entry</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-box">
+                            <div class="card-pad">
+                                <div class="flex-space-between flex-align-top mar-b-15">
+                                    <div class="recipe-cat-holder">
+                                        <div class="recipe-cat-img"><img src="/images/recipe-category/main-course-paneer.png" alt=""></div>
+                                        <h5 class="recipe-cat-name main-course-paneer">Main Course Paneer</h5>
+                                    </div>
+                                    <span class="card-box-menu dot-menu-icon"></span>
+                                </div>
+                                <div class="card-foot btn-block">
+                                    <button type="button" class="btn" aria-colspan="Add New Item">Add New Item</button>
+                                    <button type="button" class="btn" title="Bulk Entry">Bulk Entry</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-box mar-r-0">
+                            <div class="card-pad">
+                                <div class="flex-space-between flex-align-top mar-b-15">
+                                    <div class="recipe-cat-holder">
+                                        <div class="recipe-cat-img"><img src="/images/recipe-category/dassert.png" alt=""></div>
+                                        <h5 class="recipe-cat-name dassert">Dassert</h5>
+                                    </div>
+                                    <span class="card-box-menu dot-menu-icon"></span>
+                                </div>
+                                <div class="card-foot btn-block">
+                                    <button type="button" class="btn" aria-colspan="Add New Item">Add New Item</button>
+                                    <button type="button" class="btn" title="Bulk Entry">Bulk Entry</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-box mar-b-0">
+                            <div class="card-pad">
+                                <div class="flex-space-between flex-align-top mar-b-15">
+                                    <div class="recipe-cat-holder">
+                                        <div class="recipe-cat-img"><img src="/images/recipe-category/main-course-veg.png" alt=""></div>
+                                        <h5 class="recipe-cat-name main-course-veg">Main Course Veg</h5>
+                                    </div>
+                                    <span class="card-box-menu dot-menu-icon"></span>
+                                </div>
+                                <div class="card-foot btn-block">
+                                    <button type="button" class="btn" aria-colspan="Add New Item">Add New Item</button>
+                                    <button type="button" class="btn" title="Bulk Entry">Bulk Entry</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-box mar-b-0">
+                            <div class="card-pad">
+                                <div class="flex-space-between flex-align-top mar-b-15">
+                                    <div class="recipe-cat-holder">
+                                        <div class="recipe-cat-img"><img src="/images/recipe-category/starters.png" alt=""></div>
+                                        <h5 class="recipe-cat-name starters">Starters</h5>
+                                    </div>
+                                    <span class="card-box-menu dot-menu-icon"></span>
+                                </div>
+                                <div class="card-foot btn-block">
+                                    <button type="button" class="btn" aria-colspan="Add New Item">Add New Item</button>
+                                    <button type="button" class="btn" title="Bulk Entry">Bulk Entry</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-box default-card-box mar-r-0 mar-b-0">
+                            <div class="card-pad height-100">
+                                <div class="recipe-cat-holder height-100">
+                                    <div class="recipe-cat-img"><img src="/images/icons/add-category-icon.svg" alt=""></div>
+                                    <h5 class="recipe-cat-name">Add New Category</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="card-box mar-r-0 mar-b-0">
+                            <div class="card-pad">
+                                <div class="form-field mar-b-20">
+                                    <input type="text" class="form-control" placeholder="Type here" />
+                                </div>
+                                <div class="card-foot btn-block">
+                                    <button type="button" class="btn primary-btn" title="Add"><img src="/images/icons/add-icon.svg" alt=""> Add</button>
+                                    <button type="button" class="btn secondary-btn" title="Cancel"><img src="/images/icons/close-icon.svg" alt=""> Cancel</button>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>                       
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Food Category -->
+    <div class="custom-modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-icon"></span>
+                    <h3 class="modal-title">Edit Food Category</h3>
+                    <div class="form-group">
+                        <div class="form-field mar-b-20">
+                            <input type="text" class="form-control" placeholder="Type here"/>
+                        </div>
+                        <div class="form-field flex-align-right">
+                            <button type="button" class="btn primary-btn"><img src="/images/icons/refresh-icon.svg" alt="">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="custom-modal action-modal delete-modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="modal-info-icon"><img src="/images/icons/lg-delet-icon.png" alt=""></span>
+                    <h3 class="modal-title">Are you sure you want to delete this item?</h3>
+                    <span class="semi-cir-corner"></span>
+                    <div class="form-group">
+                        <div class="form-field flex-align-right">
+                            <span class="text-link mar-r-15">Cancel</span>
+                            <button type="button" class="btn secondary-btn"><img class="mar-r-10" src="/images/icons/wt-close-icon.svg" alt="">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download this category -->
+    <div class="custom-modal action-modal download-modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="modal-info-icon"><img src="/images/icons/lg-download-icon.png" alt=""></span>
+                    <h3 class="modal-title">Download this category</h3>
+                    <span class="semi-cir-corner"></span>
+                    <div class="form-group">
+                        <div class="form-field flex-align-right">
+                            <span class="text-link mar-r-15">Cancel</span>
+                            <button type="button" class="btn primary-btn"><img class="mar-r-10" src="/images/icons/download-icon.svg" alt="">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recipe Nutrition modal -->
+    <div class="custom-modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-icon"></span>
+                    <div class="modal-con-head">
+                        <img src="/images/recipe-category/paneer-chilly.png" alt="">
+                        <div class="modal-con-head-info">
+                            <h3 class="modal-title">Paneer Chilly</h3>
+                            <p>Lorem ipsum dollar amet sit, lorem is ju st simply dummy text for printing</p>
+                        </div>
+                    </div>
+                    <div class="modal-con-body">
+                        <div class="flex-align-right mar-b-5">
+                            <h6>% Daily Values*</h6>
+                        </div>
+                        <div class="recipe-nutrition-holder mar-b-20">
+                            <div class="recipe-nutrition-listig">
+                                <div class="flex-space-between">
+                                    <h4 class="mar-b-5"><strong>Total Fat-</strong><span> 0.7g</span></h4>
+                                    <strong class="recipe-nutrition-val">4%</strong>
+                                </div>
+                                <ul class="con-listing">
+                                    <li>
+                                        <h6>Saturated Fat 0.7g</h6>
+                                    </li>
+                                    <li>
+                                        <h6>Trans Fat 1.4g</h6>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="recipe-nutrition-listig">
+                                <div class="flex-space-between">
+                                    <h4 class="mar-b-5"><strong>Cholestreol- </strong><span> 60mg</span></h4>
+                                    <strong class="recipe-nutrition-val">20%</strong>
+                                </div>
+                            </div>
+                            <div class="recipe-nutrition-listig">
+                                <div class="flex-space-between">
+                                    <h4 class="mar-b-5"><strong>Sodium- </strong><span> 65mg</span></h4>
+                                    <strong class="recipe-nutrition-val">3%</strong>
+                                </div>
+                            </div>
+                            <div class="recipe-nutrition-listig">
+                                <div class="flex-space-between">
+                                    <h4 class="mar-b-5"><strong>Total Carbohydrate-</strong><span> 0g</span></h4>
+                                    <strong class="recipe-nutrition-val">0%</strong>
+                                </div>
+                                <ul class="con-listing">
+                                    <li>
+                                        <h6>Dietry Fiber 0g</h6>
+                                    </li>
+                                    <li>
+                                        <h6>Sugars 0g</h6>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="recipe-nutrition-listig">
+                                <div class="flex-space-between">
+                                    <h4 class="mar-b-5"><strong>Protein- </strong><span> 18g</span></h4>
+                                    <strong class="recipe-nutrition-val">36%</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-con-foot">
+                        <div class="form-field flex-align-right">
+                            <button type="button" class="btn primary-btn"><img src="/images/icons/print-icon.svg" alt="">Print</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print menu -->
+    <div class="custom-modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content" style="max-width: 830px; min-width: 830px;">
+                <div class="modal-body">
+                    <span class="close-icon"></span>
+                    <div class="modal-con-head bdr-none mar-b-0">
+                        <img src="/images/recipe-category/paneer-chilly.png" alt="">
+                        <div class="flex-space-between width-100">
+                            <div class="modal-con-head-info">
+                                <h2 class="lg-modal-title">Chinese</h2>
+                                <p>Lorem ipsum dollar amet sit lorem dollar sit amet</p>
+                            </div>
+                            <div class="form-field">
+                                <button type="button" class="btn primary-btn"><img src="/images/icons/print-icon.svg" alt="">Print</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-con-body">
+                        <div class="food-menu-listing-holder">
+                            <div class="food-menu-listing">
+                                <div class="flex-space-between">
+                                    <div class="food-info-dtl flex-space-between col-8">
+                                        <div class="food-thumbnail">
+                                            <img src="/images/recipe-category/temp-manchurian.png" alt="">
+                                        </div>
+                                        <div class="food-info">
+                                            <h3>Manchurian</h3>
+                                            <h5>Ingredients</h5>
+                                            <p>1 carrot (grated), 5 tbsp cabbage (shredded), 5 tbsp spring onion (chopped), ½ onion (finely chopped) ½ tsp ginger garlic paste</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex-space-between food-pricing-dtl col-4">
+                                        <div class="food-rate-field">
+                                            <h6>Rate</h6>
+                                            <h5>&#8377; 250</h5>
+                                        </div>
+                                        <div class="food-quantity-field">
+                                            <h6>Quantity</h6>
+                                            <h5>250 ml</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <div class="food-menu-listing">
+                                <div class="flex-space-between">
+                                    <div class="food-info-dtl flex-space-between col-8">
+                                        <div class="food-thumbnail">
+                                            <img src="/images/recipe-category/temp-manchurian.png" alt="">
+                                        </div>
+                                        <div class="food-info">
+                                            <h3>Manchurian</h3>
+                                            <h5>Ingredients</h5>
+                                            <p>1 carrot (grated), 5 tbsp cabbage (shredded), 5 tbsp spring onion (chopped), ½ onion (finely chopped) ½ tsp ginger garlic paste</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex-space-between food-pricing-dtl col-4">
+                                        <div class="food-rate-field">
+                                            <h6>Rate</h6>
+                                            <h5>&#8377; 250</h5>
+                                        </div>
+                                        <div class="food-quantity-field">
+                                            <h6>Quantity</h6>
+                                            <h5>250 ml</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <div class="food-menu-listing">
+                                <div class="flex-space-between">
+                                    <div class="food-info-dtl flex-space-between col-8">
+                                        <div class="food-thumbnail">
+                                            <img src="/images/recipe-category/temp-manchurian.png" alt="">
+                                        </div>
+                                        <div class="food-info">
+                                            <h3>Manchurian</h3>
+                                            <h5>Ingredients</h5>
+                                            <p>1 carrot (grated), 5 tbsp cabbage (shredded), 5 tbsp spring onion (chopped), ½ onion (finely chopped) ½ tsp ginger garlic paste</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex-space-between food-pricing-dtl col-4">
+                                        <div class="food-rate-field">
+                                            <h6>Rate</h6>
+                                            <h5>&#8377; 250</h5>
+                                        </div>
+                                        <div class="food-quantity-field">
+                                            <h6>Quantity</h6>
+                                            <h5>250 ml</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+
+                            <div class="food-menu-listing">
+                                <div class="flex-space-between">
+                                    <div class="food-info-dtl flex-space-between col-8">
+                                        <div class="food-thumbnail">
+                                            <img src="/images/recipe-category/temp-manchurian.png" alt="">
+                                        </div>
+                                        <div class="food-info">
+                                            <h3>Manchurian</h3>
+                                            <h5>Ingredients</h5>
+                                            <p>1 carrot (grated), 5 tbsp cabbage (shredded), 5 tbsp spring onion (chopped), ½ onion (finely chopped) ½ tsp ginger garlic paste</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex-space-between food-pricing-dtl col-4">
+                                        <div class="food-rate-field">
+                                            <h6>Rate</h6>
+                                            <h5>&#8377; 250</h5>
+                                        </div>
+                                        <div class="food-quantity-field">
+                                            <h6>Quantity</h6>
+                                            <h5>250 ml</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Select QR size to print -->
+    <div class="custom-modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-icon"></span>
+                    <h3 class="modal-title">Select QR size to print</h3>
+                    <div class="form-group">
+                        <div class="form-field mar-b-15">
+                            <select name="" id="" class="select">
+                                <option value="Medium">Medium</option>
+                            </select>
+                        </div>
+                        <div class="qr-block">
+                            <img src="/images/qrcode-img.png" alt="" />
+                            <span class="qr-scan-text">Scan to see Menu</span>
+                        </div>
+                        <div class="form-field flex-align-right">
+                            <button type="button" class="btn primary-btn"><img src="/images/icons/print-icon.svg" alt="">Print</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Select Category -->
+    <div class="custom-modal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-icon"></span>
+                    <h3 class="modal-title">Select Category</h3>
+                    <div class="form-group">
+                        <div class="form-field mar-b-15">
+                            <!-- Add active class next custom-select-holder-->
+                            <div class="custom-select-holder">
+                                <span class="custom-select-field select">Select Entity</span>
+                                <ul class="custom-select-menu">
+                                    <li>Grden</li>
+                                    <li>AC Bamquet</li>
+                                    <li>Non AC</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="form-field check-box-holder flex-align-right mar-b-15">
+                            <div class="check-box-list-item">
+                                <span class="check-box active"></span>
+                                <label>Select All</label>
+                            </div>
+                        </div>
+
+                        <div class="check-box-container mar-b-20">
+                            <ul class="check-box-holder">
+                                <li class="check-box-list-item">
+                                    <span class="check-box"></span>
+                                    <label>Chines</label>
+                                </li>
+                                <li class="check-box-list-item">
+                                    <span class="check-box"></span>
+                                    <label>Beverages</label>
+                                </li>
+                                <li class="check-box-list-item">
+                                    <span class="check-box"></span>
+                                    <label>Breads</label>
+                                </li>
+                                <li class="check-box-list-item">
+                                    <span class="check-box"></span>
+                                    <label>Main Course Paneer</label>
+                                </li>
+                                <li class="check-box-list-item">
+                                    <span class="check-box"></span>
+                                    <label>Starters</label>
+                                </li>
+                                <li class="check-box-list-item">
+                                    <span class="check-box"></span>
+                                    <label>Pizzas</label>
+                                </li>
+                                <li class="check-box-list-item">
+                                    <span class="check-box"></span>
+                                    <label>Main Course Veg</label>
+                                </li>
+                                <li class="check-box-list-item">
+                                    <span class="check-box"></span>
+                                    <label>Desert</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="form-field flex-align-right">
+                            <button type="button" class="btn primary-btn"><img src="/images/icons/qr-icon.svg" alt="">Generate QR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="fixd-overlay"></div> -->
+
+    <div class="warning-block" style="display: none;">
+        <div class="warning-bg">
+            <span class="warning-ico"></span>
+            <span class="x-icon"></span> 
+        </div>
+        <div class="warning-block-info">
+            <h3>Warning!</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <h4>Do you want to Quit?</h4>
+            <div class="btn-block">
+                <button type="button" class="btn yes">Yes</button>
+                <button type="button" class="btn no">No</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Tost message's-->
+    <div class="toast-msg info" style="display: none;">
+        <span class="toast-icon toast-info-icon"></span>
+        <h4>Info: User pending action</h4>
+        <span class="x-icon"></span> 
+    </div>
+
+    <div class="toast-msg warning" style="display: none;">
+        <span class="toast-icon toast-warning-icon"></span>
+        <h4>Warning: message</h4>
+        <span class="x-icon"></span> 
+    </div>
+
+    <div class="toast-msg toast-error" style="display: none;">
+        <span class="toast-icon toast-error-icon"></span>
+        <h4>Error: message</h4>
+        <span class="x-icon"></span> 
+    </div>
+
+    <div class="toast-msg toast-success" style="display: none;">
+        <span class="toast-icon toast-success-icon"></span>
+        <h4>Success: message</h4>
+        <span class="x-icon"></span> 
+    </div>
+
+
+</body>
+</html>

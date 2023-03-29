@@ -1,0 +1,114 @@
+<div ng-controller="downloadMenuCtrl">
+    <div class="custom-modal" ng-if="downloadMenu.currentDisplay == 'recipes'">
+        <div class="modal-dialog">
+            <div class="modal-content" style="max-width: 830px; min-width: 830px;">
+                <div class="modal-body">
+                    <span class="close-icon" ng-click="popOver.hide()"></span>
+                    <div class="modal-con-head bdr-none mar-b-0">
+                        <img ng-src="{{ pageView.userDetails }}" alt="">
+                        <div class="flex-space-between width-100">
+                            <div class="modal-con-head-info mar-0">
+                                <h2 class="lg-modal-title">{{ pageView.userDetails.name }}'s Menu</h2>
+                                <p>{{ pageView.userDetails.tagline }}</p>
+                            </div>
+                            <div class="form-field">
+                                <button type="button" class="btn primary-btn" ng-click="downloadMenu.print()">
+                                    <img src="/images/icons/print-icon.svg" alt=""> Print
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-con-body" id="printableWindow">
+                        <div ng-repeat="category in downloadMenu.menuDetails">
+                            <h3 class="lg-modal-title mar-b-10" ng-if="category.recipes.length > 0">{{ category.name }}</h3>
+                            <div class="food-menu-listing-holder mar-b-20" ng-if="category.recipes.length > 0">
+                                <div class="food-menu-listing" ng-repeat="recipe in category.recipes">
+                                    <div class="flex-space-between">
+                                        <div class="food-info-dtl flex-space-between col-8">
+                                            <div class="food-thumbnail">
+                                                <img ng-src="{{ recipe.recipe_images.length > 0 ? recipe.recipe_images[0] : '/ordering-system/images/food.png' }}" alt="">
+                                            </div>
+                                            <div class="food-info">
+                                                <h3>{{ recipe.name }}</h3>
+                                                <h5 ng-if="recipe.ingredientsStr">Ingredients</h5>
+                                                <p class="capitalize" ng-if="recipe.ingredientsStr">{{ recipe.ingredientsStr }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex-space-between food-pricing-dtl col-4">
+                                            <div class="food-rate-field">
+                                                <h6>Rate</h6>
+                                                <h5>{{ pageView.userDetails.currency }} {{ recipe.price ? recipe.price : "0" }}</h5>
+                                            </div>
+                                            <div class="food-quantity-field">
+                                                <h6>Quantity</h6>
+                                                <h5>{{ recipe.total_cooked_weight != null ? recipe.total_cooked_weight + " gm" : "NA" }}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-modal" ng-if="downloadMenu.currentDisplay == 'selection'">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <span class="close-icon" ng-click="popOver.hide()"></span>
+                    <h3 class="modal-title">Select Category</h3>
+                    <div class="form-group">
+                        <div class="form-field mar-b-15">
+                            <div class="custom-select-holder {{ downloadMenu.dto.showEntityDd ? 'active' : '' }}" ng-if="downloadMenu.entityList.length > 1" ng-click="downloadMenu.dto.showEntityDd = !downloadMenu.dto.showEntityDd">
+                                <span class="custom-select-field select">{{ downloadMenu.entity ? downloadMenu.entity.name : "Select Entity" }}</span>
+                                <ul class="custom-select-menu" ng-if="downloadMenu.dto.showEntityDd">
+                                    <li ng-click="downloadMenu.entity = en" ng-repeat="en in downloadMenu.entityList">{{ en.name }}</li>
+                                </ul>
+                            </div>
+                            <div style="color: black" ng-if="downloadMenu.entityList.length == 1">
+                                Selected Entity: <em> <u>{{ downloadMenu.entity.name }}</u></em>
+                            </div>
+                        </div>
+
+                        <div class="form-field mar-b-15">
+                            <div class="custom-select-holder {{ downloadMenu.dto.showLanDd ? 'active' : '' }}" ng-if="downloadMenu.languageList.length > 1" ng-click="downloadMenu.dto.showLanDd = !downloadMenu.dto.showLanDd">
+                                <span class="custom-select-field select">{{ downloadMenu.language ? downloadMenu.language.name : "Select Language" }}</span>
+                                <ul class="custom-select-menu" ng-if="downloadMenu.dto.showLanDd">
+                                    <li ng-click="downloadMenu.language = lan" ng-repeat="lan in downloadMenu.languageList">{{ lan.name }}</li>
+                                </ul>
+                            </div>
+                            <div style="color: black" ng-if="downloadMenu.languageList.length == 1">
+                                Selected Language: <em> <u>{{ downloadMenu.language.name }}</u></em>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-field check-box-holder flex-align-right mar-b-15">
+                            <div class="check-box-list-item {{ downloadMenu.dto.selectedIds.length == dashboard.categoryList.length ? 'active' : '' }}" ng-click="downloadMenu.selectAll()">
+                                <span class="check-box"></span>
+                                <label>{{ downloadMenu.dto.selectedIds.length == dashboard.categoryList.length ? 'Unselect All' : 'Select all'}}</label>
+                            </div>
+                        </div>
+
+                        <div class="check-box-container mar-b-20">
+                            <ul class="check-box-holder">
+                                <li class="check-box-list-item {{ downloadMenu.dto.selectedIds.indexOf(cat.id) !== -1 ? 'active' : '' }}" ng-repeat="cat in dashboard.categoryList" ng-if="cat.recipes_count > 0" ng-click="downloadMenu.alterCategory(cat)">
+                                    <span class="check-box"></span> <label>{{ cat.name }}</label>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="form-field flex-align-right">
+                            <button type="button" class="btn primary-btn {{ downloadMenu.dto.btnLoader ? 'btn-loader' : '' }}" ng-click="downloadMenu.getMenu()">
+                                <img src="/images/icons/qr-icon.svg" alt="">Get Menu
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

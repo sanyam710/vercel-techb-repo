@@ -1,0 +1,44 @@
+<div class="content">
+    <div class="header">
+        <div class="col-4">
+            <div class="form-field search-field">
+                <input type="search" ng-model="tables.search" class="form-control form-control-search" placeholder="Search Table"/>
+            </div>
+        </div>
+        <div class="refresh-table">
+            <div class="record-status-label">
+                <label>Last updated</label>
+                <strong>{{tables.loadedBack}}</strong>
+            </div>
+            <div class="refresh-icon-back" ng-click="tables.getStatus()">
+                <div class="refresh-icon {{tables.refresh ? 'rotating' : ''}}"></div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-center height-100" style="align-items: flex-start;">
+        <div class="container">
+            <div class="con-holder pad-20">
+                <div class="card-box-holder">
+                    <div class="card-box order-status {{table.status.ongoing_sub_order && !table.status.any_ongoing_order ? 'ongoing-sub-order' : '' }} {{!table.status.ongoing_sub_order &&table.status.any_ongoing_order ? 'ongoing-order' : ''}} {{table.status.ongoing_sub_order && table.status.any_ongoing_order ? 'ongoing-sub-order' : ''}}" style="height: fit-content" ng-repeat="table in tables.list | filter: tables.search">
+                        <div class="card-pad" ng-click="tables.tableOrders(table)">
+                            <div class="flex-space-between flex-align-top mar-b-15">
+                                <div class="recipe-cat-holder">
+                                    <div class="recipe-cat-img" style="padding: 10px; border-radius: 15px; background: whitesmoke">
+                                        <img src="/images/icons/table-dashboard-icon.svg">
+                                    </div>
+                                    <h5 class="recipe-cat-name" style="color: #333">{{ table.name }}</h5>
+                                </div>
+                            </div>
+                            <div class="ongoing-sub-order-text {{table.status.ongoing_sub_order ? 'active' : '' }} ">
+                                Pending
+                            </div>
+                            <div class="ongoing-order-text  {{table.status.any_ongoing_order && !table.status.ongoing_sub_order ? 'active' : ''}} {{ table.status.any_ongoing_order && table.status.ongoing_sub_order ? '' : ''}}">
+                                Inprogress
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

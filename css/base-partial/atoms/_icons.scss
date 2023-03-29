@@ -1,0 +1,178 @@
+.icon-center-prop{
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.dashboard-icon{
+    @extend.flex-center;
+    width: 20px;
+    height: 20px;
+    background: url('/images/icons/dashboard-icon.svg');
+    @extend.icon-center-prop;
+}
+.profile-icon{
+    @extend.flex-center;
+    width: 24px;
+    height: 24px;
+    background: url('/images/icons/profile-icon.svg');
+    @extend.icon-center-prop;
+}
+.table-icon {
+    @extend.flex-center;
+    width: 24px;
+    height: 24px;
+    background: url('/images/icons/table-icon.svg') center;
+    @extend.icon-center-prop;
+}
+.order-icon{
+    @extend.flex-center;
+    width: 22px;
+    height: 22px;
+    background: url('/images/icons/orders-icon.svg');
+    @extend.icon-center-prop;
+}
+.qr-icon{
+    @extend.flex-center;
+    width: 24px;
+    height: 24px;
+    background: url('/images/icons/qr-icon.svg');
+    @extend.icon-center-prop;
+}
+.download-icon{
+    @extend.flex-center;
+    width: 24px;
+    height: 24px;
+    background: url('/images/icons/download-icon.svg');
+    @extend.icon-center-prop;
+}
+.export-icon{
+    @extend.flex-center;
+    width: 17px;
+    min-width: 17px;
+    height: 22px;
+    background: url('/images/icons/export-icon.svg');
+    @extend.icon-center-prop;
+}
+.log-out-icon{
+    @extend.flex-center;
+    width: 24px;
+    height: 24px;
+    background: url('/images/icons/log-out-icon.svg');
+    @extend.icon-center-prop;
+}
+.search-icon{
+    @extend.flex-center;
+    width: 19px;
+    height: 19px;
+    background: url('/images/icons/search-icon.svg');
+    @extend.icon-center-prop;
+}
+.dot-menu-icon{
+    @extend.flex-center;
+    width: 10px;
+    height: 17px;
+    background: url('/images/icons/dot-menu-icon.svg') no-repeat;
+    @extend.icon-center-prop;
+}
+.view-icon{
+    @extend.flex-center;
+    width: 8px;
+    height: 12px;
+    background: url('/images/icons/view-icon.svg');
+    @extend.icon-center-prop;
+}
+.copy-icon{
+    @extend.flex-center;
+    width: 9px;
+    height: 10px;
+    background: url('/images/icons/copy-icon.svg');
+    @extend.icon-center-prop;
+}
+.edit-icon{
+    @extend.flex-center;
+    width: 8px;
+    height: 8px;
+    background: url('/images/icons/edit-icon.svg');
+    @extend.icon-center-prop;
+}
+.close-icon{
+    width: 18px;
+    height: 18px;
+    background: url('/images/icons/def-close-icon.svg');
+    &:hover{
+        background: url('/images/icons/def-close-icon-hover.svg');
+    }
+    cursor: pointer;
+}
+.refresh-icon{
+    width: 21px;
+    height: 19px;
+    background: url('/images/icons/refresh-icon.svg');
+    @extend.icon-center-prop;
+}
+.cal-icon{
+    width: 21px;
+    height: 21px;
+    @extend.icon-center-prop;
+}
+.cal-icon-hover{
+    @extend.cal-icon;
+}
+.back-arrow-icon{
+    width: 19px;
+    height: 14px;
+    background: url('/images/icons/def-back-arrow-icon.svg');
+    @extend.icon-center-prop;
+}
+.back-arrow-icon-hover{
+    @extend.back-arrow-icon;
+    background: url('/images/icons/back-arrow-icon.svg');
+}
+.admin-dashboard-icon{
+    @extend.flex-center;
+    width: 30px;
+    height: 30px;
+    background: url('/images/icons/admin-user-ico.svg') no-repeat center center; 
+    @extend.icon-center-prop;
+}
+.admin-interns-icon{
+    @extend.flex-center;
+    width: 30px;
+    height: 24px;
+    background: url('/images/icons/intern-icon.svg') no-repeat center center;
+    @extend.icon-center-prop;
+}
+.admin-leads-icon{
+    @extend.flex-center;
+    width: 30px;
+    height: 24px;
+    background: url('/images/icons/leads-icon.svg') no-repeat center center;
+    @extend.icon-center-prop;
+}
+.admin-entities-icon{
+    @extend.flex-center;
+    width: 30px;
+    height: 20px;
+    background: url('/images/icons/admin-entities-ico.svg') no-repeat center center;
+    @extend.icon-center-prop;
+}
+.admin-languages-icon{
+    @extend.flex-center;
+    width: 30px;
+    height: 24px;
+    background: url('/images/icons/admin-languages-ico.svg') no-repeat center center;
+    @extend.icon-center-prop;
+}   
+.admin-enquiry-icon{
+    @extend.flex-center;
+    width: 30px;
+    height: 24px;
+    background: url('/images/icons/admin-enquiry-ico.svg') no-repeat center center;
+    @extend.icon-center-prop;
+}
+.admin-change-password-icon{
+    @extend.flex-center;
+    width: 30px;
+    height: 22px;
+    background: url('/images/icons/admin-change-password-ico.svg') no-repeat center center;
+    @extend.icon-center-prop;
+}

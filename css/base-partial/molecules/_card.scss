@@ -1,0 +1,342 @@
+.card-box-holder{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    //height: 100%;
+    .card-box-row{
+        display: flex;
+    }
+}
+.card-box{
+    width: 31.1%;
+    margin: 0 1.725% 1.725% 0;
+    background: $white-col;
+    @include border-radius(10px);
+    cursor: pointer;
+    // max-height: 152px;
+    .card-pad{
+        padding: 15px;
+      &:hover {
+        box-shadow: 20px 20px 80px rgba(0, 0, 0, 0.1);
+      }
+    }
+    .card-foot{
+        border-top: 1px solid #EEEEEE;
+        padding-top: 15px;
+        .btn{
+            width: 100%;
+            font-weight: 700;
+            min-width: auto;
+            padding: 10px;
+            &.btn-block{
+                justify-content: center;
+            }
+        }
+    }
+    &.default-card-box{
+        background-color: $light-grey-col;
+        justify-content: center;
+        align-items: center;
+        .recipe-cat-holder{
+            align-items: center;
+            justify-content: center;
+            .recipe-cat-name{
+                color: $grey-col;
+                font-weight: 600;
+            }
+        }
+    }
+}
+.recipe-cat-holder{
+    @extend.flex-space-between;
+    align-items: center;
+    .recipe-cat-img{
+        margin-right: 13px;
+        img{
+            display: block;
+        }
+    }
+    .recipe-cat-name{
+        font-weight: 800;
+        &.chinese{
+            color: $blueberry-col;
+        }
+        &.breads{
+            color: #F6B507;
+        }
+        &.pizzas{
+            color: #FE7B31;
+        }
+        &.beverage{
+            color: #EE657A;
+        }
+        &.main-course-paneer{
+            color: #40A4D8;
+        }
+        &.dassert{
+            color: #FF84CB;
+        }
+        &.main-course-veg{
+            color: #B2C225;
+        }
+        &.starters{
+            color: #18DAA0;
+        }
+
+    }
+}
+.card-box-menu{
+    cursor: pointer;
+    &.dot-menu-icon{
+        @extend.flex-center;
+        width: 30px;
+        height: 30px;
+        background-position: center center;
+    }
+}
+
+.warning-block{
+    @extend.flex-center;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50% - 170px);
+    width: 285px;
+    height: 390px;
+    margin: 0 auto;
+    padding: 20px 0;
+    border-radius: 12px;
+    .warning-bg{
+        @extend.flex-center;
+        position: relative;
+        width: 100%;
+        height: 120px;
+        border-radius: 12px 12px 0 0;
+        background: linear-gradient(67.02deg, #CE2731 -0.01%, #D83C34 29.75%, #ED6839 98.25%);
+        background-size: cover;
+        .warning-ico{
+            display: block;
+            width: 94px;
+            height: 74px;
+            margin: 0 auto;
+            background: url('/images/icons/warning-ico.svg') no-repeat center center;
+        }
+    }
+    .warning-block-info{
+        @extend.flex-center;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 30px 30px;
+        border-radius: 0px 0px 12px 12px;
+        background: linear-gradient(0deg, #D6E8F5 0%, #FFFFFF 100%);
+        h3{
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 32px;
+            color: #ED6839;
+            margin-bottom: 10px;
+        }
+        p{
+            font-size: 10px;
+            line-height: 10px;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        h4{
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            color: #50372C;
+            margin-bottom: 15px;
+        }
+        .btn-block{
+            .btn{
+                @extend.flex-center;
+                font-weight: 700;
+                font-size: 12px;
+                line-height: 14px;
+                color: #CE2731;
+                min-width: 88px;
+                height: 30px;
+                border-radius: 30px;
+                background: linear-gradient(90deg, #ED6839 0.09%, #E85D38 7.29%, #DD4635 27.37%, #D43433 48.64%, #D02A31 71.73%, #CE2731 99.93%);
+                &.yes{
+                    background: $white-col;
+                    color: #CE2731;
+                    &:hover{
+                        color: $white-col;
+                        background: linear-gradient(90deg, #ED6839 0.09%, #E85D38 7.29%, #DD4635 27.37%, #D43433 48.64%, #D02A31 71.73%, #CE2731 99.93%);
+                    }
+                }
+                &.no{
+                    color: $white-col;
+                    &:hover{
+                        background: $white-col;
+                        color: #CE2731;
+                    }
+                }
+            }
+        }
+    }
+}
+.x-icon{
+    @extend.flex-center;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: $white-col;
+    background: $white-col url('/images/icons/x-icon.svg') no-repeat center center;
+
+}
+.toast-msg{
+    @extend.flex-center;
+    justify-content: flex-start;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 370px;
+    height: 75px;
+    padding: 20px 30px;
+    border-radius: 8px;
+    overflow: visible;
+    z-index: 9999;
+    .x-icon{
+        width: 16px;
+        height: 16px;
+        right: -5px;
+        top: -8px;
+        background-color: transparent;
+        border-radius: 0;
+        background-size: cover;
+    }
+    h4{
+        font-weight: 400;
+    }
+    &.info{
+        background-color: #C5E9F5;
+        h4{
+            color: #0056A3;
+        }
+        .x-icon{
+            background: transparent url('/images/icons/info-x-icon.svg') no-repeat center center;
+            background-size: cover;
+        }
+    }
+    &.warning{
+        background-color: #F9F3D3;
+        h4{
+            color: #95712E;
+        }
+        .x-icon{
+            background: transparent url('/images/icons/warning-x-icon.svg') no-repeat center center;
+            background-size: cover;
+        }
+    }
+    &.success{
+        background-color: #D9F3D3;
+        h4{
+            color: #526C4C;
+        }
+        .x-icon{
+            background: transparent url('/images/icons/toast-success-x-icon.svg') no-repeat center center;
+            background-size: cover;
+        }
+    }
+    &.error{
+        background-color: #F2C6C3;
+        h4{
+            color: #B81E27;
+        }
+        .x-icon{
+            background: transparent url('/images/icons/toast-error-x-icon.svg') no-repeat center center;
+            background-size: cover;
+        }
+    }
+    .toast-icon{
+        display: block;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        margin-right: 42px;
+        &.toast-info-icon{
+            background: url('/images/icons/toast-info-icon.svg') no-repeat center center;
+        }
+        &.toast-warning-icon{
+            background: url('/images/icons/toast-warning-icon.svg') no-repeat center center;
+        }
+        &.toast-error-icon{
+            background: url('/images/icons/toast-error-icon.svg') no-repeat center center;
+        }
+        &.toast-success-icon{
+            background: url('/images/icons/toast-success-icon.svg') no-repeat center center;
+        }
+    }
+}
+.ingredients-listing{
+    height: 130px;
+    margin-bottom: 40px;
+    overflow-y: auto;
+    li{
+        @extend.flex-center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        span{
+            @extend.flex-center;
+            .ingredients-divider{
+                height: 18px;
+                width: 1px;
+                border-right: 1px solid $default-col;
+            }
+            &.edit-link{
+                cursor: pointer;
+                img{
+                    margin-right: 10px;
+                }
+                color: #18DAA0;
+            }
+            &.delete-link{
+                cursor: pointer;
+                img{
+                    margin-right: 10px;
+                }
+                color: #FF4242;
+            }
+        }
+        .ingredients-listing-block{
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #F3F3F3;
+            padding: 5px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            &:hover {
+                background-color: #ebe7e7;
+            }
+            .ingredients-name, .ingredients-quantity{
+                color: $default-col;
+            }
+        }
+    }
+
+}
+
+.default-box {
+    height: auto;
+    padding: 20px;
+    margin-bottom: 20px;
+    span {
+        color: #333;
+        font-weight: 700;
+    }
+}

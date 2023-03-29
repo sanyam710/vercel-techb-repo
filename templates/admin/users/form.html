@@ -1,0 +1,262 @@
+<div class="content">
+    <div class="container height-100 flex-center">
+        <div class="loader loader-1" ng-if="userForm.pageLoader">
+            <div class="loader-outer"></div>
+            <div class="loader-inner"></div>
+        </div>
+        <div class="con-holder" ng-if="!userForm.pageLoader">
+            <div class="column-list flex-direction-column overflow-auto pad-20">
+                <div class="column-list-holder flex-space-between flex-align-top mar-b-30" ng-if="userForm.info.id">
+                    <div class="col-6 mar-r-10">
+                        <div class="form-section">
+                            <div class="form-group-head">
+                                <h3>User Entities</h3>
+                            </div>
+                            <div class="form-group-body">
+                                <form action="">
+                                    <div class="form-group">
+                                        <div class="form-field-holder">
+                                            <div class="form-field width-100 selected">
+                                                <div class="custom-select-holder mar-b-10" ng-repeat="en in userForm.info.user_entities">
+                                                    <span class="custom-select-field select">{{ en.name }}</span>
+                                                    <span class="close-icon" ng-click="entities.remove(en)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-field-holder">
+                                            <div class="form-field width-100">
+                                                <label class="field-label">Add User Entity</label>
+                                                <div class="custom-select-holder {{ userForm.info.dto.entityDd ? 'active' : '' }}" ng-click="userForm.info.dto.entityDd = !userForm.info.dto.entityDd">
+                                                    <span class="custom-select-field select">Select Entity</span>
+                                                    <span class="close-icon"></span>
+                                                    <ul class="custom-select-menu">
+                                                        <li ng-repeat="entity in constants.utility.dataStorage.get('masters').masters_entities track by $index" ng-click="entities.add(entity)">{{ entity.name }}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 mar-l-10">
+                        <div class="form-section">
+                            <div class="form-group-head">
+                                <h3>User Languages</h3>
+                            </div>
+                            <div class="form-group-body">
+                                <form action="">
+                                    <div class="form-group">
+                                        <div class="form-field-holder">
+                                            <div class="form-field width-100 selected">
+                                                <div class="custom-select-holder mar-b-10" ng-repeat="lang in userForm.info.user_languages">
+                                                    <span class="custom-select-field select">{{ lang.name }}</span>
+                                                    <span class="close-icon" ng-click="languages.remove(lang)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-field-holder">
+                                            <div class="form-field width-100">
+                                                <label class="field-label">Add User Language</label>
+                                                <div class="custom-select-holder {{ userForm.info.dto.languageDd ? 'active' : '' }}" ng-click="userForm.info.dto.languageDd = !userForm.info.dto.languageDd">
+                                                    <span class="custom-select-field select">Select Language</span>
+                                                    <span class="close-icon"></span>
+                                                    <ul class="custom-select-menu">
+                                                        <li ng-repeat="language in constants.utility.dataStorage.get('masters').masters_languages track by $index" ng-click="languages.add(language)">{{ language.name }}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 mar-b-20">
+                    <div class="form-section">
+                        <div class="form-group-head">
+                            <h3> {{ userForm.info.id ? 'Update User' : 'Add New User' }} </h3>
+                        </div>
+                        <div class="form-group-body">
+                            <form novalidate>
+                                <div class="form-group">
+                                    <div class="form-field-holder">
+                                        <div class="form-field">
+                                            <label class="field-label field-user">Restaurant Name</label>
+                                            <input type="text" name="restaurantName" ng-model="userForm.info.name" class="form-control" placeholder="Enter Restaurant name" required/>
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="field-label field-user">Tag Line</label>
+                                            <input type="text" name="tagline" ng-model="userForm.info.tagline" class="form-control" placeholder="Enter Tagline"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-field-holder">
+                                        <div class="form-field">
+                                            <label class="field-label field-user">City</label>
+                                            <input type="text" name="city" ng-model="userForm.info.city" class="form-control" placeholder="Enter city name" required/>
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="field-label field-user">State</label>
+                                            <input type="text" name="state" ng-model="userForm.info.state" class="form-control" placeholder="Enter state name" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-field-holder">
+                                        <div class="form-field">
+                                            <label class="field-label field-user">Address</label>
+                                            <textarea class="form-control" name="address" ng-model="userForm.info.address" placeholder="Enter address"></textarea>
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="field-label field-user">Description</label>
+                                            <textarea class="form-control" name="description" ng-model="userForm.info.description" placeholder="Description is displayed on ordering system"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-field-holder">
+                                        <div class="form-field">
+                                            <label class="field-label field-user">Pincode</label>
+                                            <input type="text" name="pincode" ng-model="userForm.info.pincode" class="form-control" placeholder="Enter Pincode" required/>
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="field-label field-user">Tax</label>
+                                            <input type="number" name="tax" ng-model="userForm.info.tax" class="form-control" placeholder="Enter Tax" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-field-holder">
+                                        <div class="form-field">
+                                            <label class="field-label">Country</label>
+                                            <div class="custom-select-holder {{ userForm.info.dao.countryDd ? 'active' : '' }}" ng-click="userForm.info.dao.countryDd = !userForm.info.dao.countryDd">
+                                                <span class="custom-select-field select">{{ constants.COUNTRIES[userForm.info.country] }}</span>
+                                                <ul class="custom-select-menu" ng-if="userForm.info.dao.countryDd">
+                                                    <li ng-repeat="(id, country) in constants.COUNTRIES" ng-click="userForm.info.country = id;">{{ country }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="field-label">Currency</label>
+                                            <div class="custom-select-holder {{ userForm.info.dao.currencyDd ? 'active' : '' }}" ng-click="userForm.info.dao.currencyDd = !userForm.info.dao.currencyDd">
+                                                <span class="custom-select-field select">{{ constants.CURRENCY[userForm.info.currency] }}</span>
+                                                <ul class="custom-select-menu" ng-if="userForm.info.dao.currencyDd">
+                                                    <li ng-repeat="(id, currency) in constants.CURRENCY" ng-click="userForm.info.currency = id;">{{ currency }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-field-holder">
+                                        <div class="form-field">
+                                            <label class="field-label field-user">Manager Name</label>
+                                            <input type="text" name="managerName" ng-model="userForm.info.manager_name" class="form-control" placeholder="Enter Manager name" required/>
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="field-label field-user">User Name</label>
+                                            <input type="text" name="userName" ng-model="userForm.info.username" class="form-control" placeholder="Enter User name" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-field-holder">
+                                        <div class="form-field">
+                                            <label class="field-label field-user">Email</label>
+                                            <input type="email" name="email" class="form-control" ng-model="userForm.info.email" placeholder="Enter email" required/>
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="field-label field-user">Mobile</label>
+                                            <input type="number" name="mobile" class="form-control" ng-model="userForm.info.mobile_no" placeholder="Enter mobile" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-field-holder">
+                                        <div class="form-field">
+                                            <label class="field-label">Start Date</label>
+                                            <input type="date" ng-model="userForm.info.start_date" name="startDate" class="form-control date-picker" placeholder="07/12/2021" required/>
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="field-label">End Date</label>
+                                            <input type="date" ng-model="userForm.info.end_date" name="endDate" class="form-control date-picker" placeholder="07/12/2021" required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-field-holder">
+                                        <div class="form-field">
+                                            <label class="field-label">Website URL</label>
+                                            <input type="text" ng-model="userForm.info.website" class="form-control" placeholder="Enter website link"/>
+                                        </div>
+                                        <div class="form-field">
+                                            <label class="field-label">Status</label>
+                                            <div class="custom-select-holder {{ userForm.info.dto.statusDd ? 'active' : '' }}" ng-click="userForm.info.dto.statusDd = !userForm.info.dto.statusDd">
+                                                <span class="custom-select-field select">{{ userForm.info.status_id == 1 ? "Active" : "Inactive" }}</span>
+                                                <ul class="custom-select-menu" ng-if="userForm.info.dto.statusDd">
+                                                    <li ng-click="userForm.info.status_id = 1;">Active</li>
+                                                    <li ng-click="userForm.info.status_id = 2;">Inactive</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-field-holder">
+                                        <div class="form-field" ng-if="userForm.id">
+                                            <label class="field-label">Default Language</label>
+                                            <div class="custom-select-holder {{ userForm.info.dto.languageDd ? 'active' : '' }}" ng-click="userForm.info.dto.languageDd = !userForm.info.dto.languageDd">
+                                                <span class="custom-select-field select">{{ (userForm.info.default_language_id && languages.map[userForm.info.default_language_id]) ? languages.map[userForm.info.default_language_id].name : 'Select default language' }}</span>
+                                                <ul class="custom-select-menu" ng-if="userForm.info.dto.languageDd">
+                                                    <li ng-click="userForm.info.default_language_id = lan.language_id" ng-repeat="lan in userForm.info.user_languages">{{ lan.name }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-field">
+                                            <label class="field-label">Number of tables</label>
+                                            <input type="number" class="form-control" name="mobile" ng-model="userForm.info.no_of_tables" autocomplete="off" placeholder="Number of tables at your place.." required/>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-field-holder">
+                                        <div class="form-field" ng-if="userForm.id">
+                                            <label class="field-label">Enable Access</label>
+                                            <div class="custom-select-holder {{ userForm.info.dto.aStatusDd ? 'active' : '' }}" ng-click="userForm.info.dto.aStatusDd = !userForm.info.dto.aStatusDd">
+                                                <span class="custom-select-field select">{{ constants.ACCOUNT_STATE_MAP[userForm.info.enable_access_state].text }}</span>
+                                                <ul class="custom-select-menu" ng-if="userForm.info.dto.aStatusDd">
+                                                    <li ng-click="userForm.info.enable_access_state = aStatus.id" ng-repeat="aStatus in constants.ACCOUNT_STATE">{{ aStatus.text }}</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-field check-box-holder">
+                                            <div class="check-box-list-item {{ userForm.info.take_away ? 'active' : '' }}" ng-if="userForm.id" ng-click="userForm.info.take_away = !userForm.info.take_away">
+                                                <span class="check-box"></span> <label>Takeaway</label>
+                                            </div>
+                                            <div class="check-box-list-item {{userForm.id ? 'mar-l-25' : ''}} {{ userForm.info.password ? 'active' : '' }}" ng-click="userForm.info.password = !userForm.info.password">
+                                                <span class="check-box"></span>
+                                                <label>Set default password as 123456</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex-align-right btn-block">
+                                    <button type="button" class="btn treasury-btn" title="Back" ng-click="goTo('/dashboard/admin')">
+                                        <span class="back-arrow-icon"></span> Back
+                                    </button>
+                                    <button type="button" class="btn primary-btn {{ userForm.btnLoader ? 'btn-loader' : '' }}" ng-click="userForm.updateUser()" title="Update" ng-if="userForm.info.id">
+                                        <img src="/images/icons/refresh-icon.svg" alt=""> Update
+                                    </button>
+
+                                    <button type="button" class="btn primary-btn {{ userForm.btnLoader ? 'btn-loader' : '' }}" ng-click="userForm.saveUser()" title="Save" ng-if="!userForm.info.id">
+                                        <img src="/images/icons/refresh-icon.svg" alt=""> Save
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

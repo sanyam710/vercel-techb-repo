@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Foo Bar</title>
+    <link rel="stylesheet" href="/landing-screen/css/base.css">
+
+    <script src="/lib/angular/angular.js"></script>
+
+    <script src="/env/vars.js"></script>
+    <style>
+        .container {
+            width: 1024px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .main-wrap {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 25px;
+        }
+
+        .ing-meta-info {
+            display: flex;
+            width: 100%;
+            align-items: flex-start;
+            justify-content: space-around;
+            margin-bottom: 25px;
+        }
+
+        .ing-meta-info .item-block {
+            background: whitesmoke;
+            padding: 20px 40px;
+            border-radius: 15px;
+            border: 2px solid;
+            width: 50%;
+            margin-right: 20px;
+        }
+
+        .ing-meta-info .item-block .modal-con-head-info {
+            margin: 0 20px 26px 0;
+        }
+
+        .form-field-holder {
+            width: 100%;
+            margin: 25px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .custom-select-menu {
+            position: absolute;
+            width: 350px;
+            background: #e3e1e1;
+            border: 1px solid #e3e1e1;
+            border-radius: 3px;
+        }
+
+        .custom-select-menu li {
+            padding: 5px 10px;
+        }
+
+        .custom-select-menu li:hover {
+            background: whitesmoke;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        angular.module("fooBarApp", []).controller("fooBarAppCtrl", function ($scope, $http) {
+            $scope.ingredients = {
+                search: "",
+                selected: null,
+                all: [],
+                list: [],
+                dto: {},
+                nutrientInfo: {},
+                onChange: function () {
+                    if (!this.search) {
+                        return;
+                    }
+
+                    $scope.http.post("/restaurant/search_ingredient", {query: this.search}, (error, data) => {
+                        if (error) {
+                            return;
+                        }
+
+                        this.list = data;
+                    })
+                },
+                onSelect: function (ingredient) {
+                    this.list = [];
+                    this.search = ingredient.name;
+                    this.dto['viewMode'] = 'addNew';
+                    this.selected = ingredient;
+                },
+                getInformation: function () {
+                    let ing = this.selected;
+                    $scope.http.post("/restaurant/get_ingredient_meta_information", {
+                        ingredient_id: ing.id,
+                        serving_unit: ing.servingUnit,
+                        quantity: ing.quantity
+                    }, (error, data) => {
+                        if (error) {
+                            return;
+                        }
+
+                        this.selected = {
+                            ...ing,
+                            ...data,
+                            possibleUnits: data.possibleUnits
+                        };
+
+                        this.all.push(this.selected);
+                        this.updateNutInfo();
+                        this.selected = null;
+                        this.dto['viewMode'] = null;
+                        this.search = "";
+                    })
+                },
+                remove: function (ing) {
+                    let index = this.all.findIndex(el => el.id === ing.id);
+                    if (index !== -1) {
+                        this.all.splice(index, 1);
+                        this.updateNutInfo();
+                    }
+                },
+                updateNutInfo: function () {
+                    let info = {};
+                    for (let ing of this.all) {
+                        for (let nut of ing.nutrition.nutrients) {
+                            if (info[nut.name] == undefined) {
+                                info[nut.name] = {name: nut.name, value: 0, unit: nut.unit};
+                            }
+                            info[nut.name].value += nut.amount;
+                        }
+                    }
+                    this.nutrientInfo = Object.values(info);
+                }
+            }
+
+            $scope.http = {
+                post: function (url, params, callback) {
+                    params["api_key"] = "Zc9tVuWVt19c4mivtDhgsdMEjcAGQdcQ";
+                    $http.post(BASE_URL + url, params, {}).then(function (result) {
+                        if (result.data.status === "error") {
+                            callback(result.data.message, null);
+                        } else if (result.data.status === "success") {
+                            callback(null, result.data.contents);
+                        } else {
+                            callback("Unknown error occurred!");
+                        }
+                    }, function () {
+                        callback("Unknown error occurred!");
+                    });
+                }
+            }
+        })
+    </script>
+</head>
+<body ng-app="fooBarApp" ng-controller="fooBarAppCtrl">
+<div class="container">
+    <div class="main-wrap">
+        <form>
+            <div class="form-field-holder" style="margin: 25px auto">
+                <div class="form-field mar-r-20">
+                    <input type="text" class="form-control" style="width: 350px; position: relative" ng-model="ingredients.search" ng-keyup="ingredients.onChange()" placeholder="Enter ingredient name"/>
+                    <ul class="custom-select-menu" ng-if="ingredients.list.length > 0 && ingredients.search.length > 0">
+                        <li ng-repeat="ing in ingredients.list" ng-click="ingredients.onSelect(ing)">{{ ing.name }}</li>
+                    </ul>
+                </div>
+                <div class="form-field mar-r-20" ng-if="ingredients.dto.viewMode">
+                    <input type="number" class="form-control  form-control-search" style="width: 150px" ng-model="ingredients.selected.quantity" placeholder="Enter quantity"/>
+                </div>
+                <div class="form-field mar-r-20" style="width: 100%" ng-if="ingredients.dto.viewMode">
+                    <div class="custom-select-holder">
+                        <select class="form-control" style="width: 250px" ng-model="ingredients.selected.servingUnit">
+                            <option ng-repeat="serving in ingredients.selected.possibleUnits">{{ serving }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-field" ng-if="ingredients.selected.servingUnit">
+                    <button type="button" class="btn primary-btn {{ ingredients.dto.btnLoader ? 'btn-loader' : '' }}" ng-click="ingredients.getInformation()">
+                        Add
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="ing-meta-info" ng-if="ingredients.nutrientInfo.length > 0">
+        <div class="item-block">
+            <div class="modal-con-head">
+                <div class="modal-con-head-info">
+                    <h3 class="modal-title">Ingredients List</h3>
+                </div>
+            </div>
+            <div class="modal-con-body">
+                <div class="recipe-nutrition-listing" ng-repeat="ing in ingredients.all">
+                    <div class="flex-space-between">
+                        <h4>{{ ing.name }}</h4>
+                        <strong>x{{ ing.quantity }}</strong>
+                        <strong style="cursor: pointer" ng-click="ingredients.remove(ing)"><img src="images/icons/x-icon.svg"></img></strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item-block">
+            <div class="modal-con-head">
+                <div class="modal-con-head-info">
+                    <h3 class="modal-title">Total Values</h3>
+                </div>
+            </div>
+            <div class="modal-con-body">
+                <div class="flex-align-right mar-b-5">
+                    <h6>Values</h6>
+                </div>
+                <div class="recipe-nutrition-holder mar-b-20">
+                    <div class="recipe-nutrition-listing" ng-repeat="nut in ingredients.nutrientInfo | orderBy: '-amount'" ng-if="nut.value > 0">
+                        <div class="flex-space-between">
+                            <h4 class="mar-b-5"><strong>{{ nut.name }} </strong></h4>
+                            <strong class="recipe-nutrition-val"> {{ nut.value }} {{ nut.unit }}</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>

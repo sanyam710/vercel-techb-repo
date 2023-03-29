@@ -1,0 +1,169 @@
+#invoice-POS{
+    box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+    padding:2mm;
+    margin: 0 auto;
+    width: 44mm;
+    background: #FFF;
+}
+
+
+::selection {background: #f31544; color: #FFF;}
+::moz-selection {background: #f31544; color: #FFF;}
+h1{
+    font-size: 1.5em;
+    color: #222;
+}
+h2{
+    /* font-size: .9em; */
+    font-size: 9px;
+    font-weight: 900;
+    /* line-height: 2em; */
+    line-height: normal;
+    margin-bottom: 3px;
+}
+h3{
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 2em;
+}
+p{
+    /* font-size: .7em; */
+    /* color: #666; */
+    color: #333;
+    line-height: 1.2em;
+    margin-bottom: 3px;
+    font-weight: 900;
+}
+#bot{ min-height: 50px;}
+.clientlogo{
+    float: left;
+    height: 60px;
+    width: 60px;
+    background: url(http://michaeltruong.ca/images/client.jpg) no-repeat;
+    background-size: 60px 60px;
+    border-radius: 50px;
+}
+#top {
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+}
+.bdr-bottom {
+    border-bottom: 1px dashed black;
+    margin-bottom: 5px;
+}
+.bdr-top {
+    border-top: 1px dashed black;
+    /* margin-top: 5px; */
+}
+.info{
+    display: block;
+    margin-left: 0;
+}
+.address{
+    font-size: 6px;
+}
+.pay-total {
+    font-size: 0.6em;
+    line-height: 1em;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+.info p {
+    font-size: 8px;
+    font-weight: 900;
+    /* margin-bottom: 3px; */
+    margin-top: 1px;
+}
+.title{
+    float: right;
+}
+.title p{text-align: right;} 
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.tabletitle{
+    font-size: 10px;
+    font-weight: 800;
+    /* background: #EEE; */
+}
+/* .service{border-bottom: 1px solid #EEE;} */
+/* .item{width: 24mm;} */
+.item{width: 16mm;}
+.itemtext{font-size: 8px; font-weight: 800;}
+
+#legalcopy{
+    margin-top: 5mm;
+}
+tr td {
+    padding: 0 5px;
+}
+tr td:first-child {
+    padding-left: 0px;
+}
+tr td:last-child {
+    padding-right: 0px;
+}
+.amount-calc h2{
+    line-height: 1.6em;
+    margin-bottom: 2px;
+}
+/* .service:last-child td {
+    padding-bottom: 3px;
+} */
+.payment-details p{
+    padding-bottom: 4px;
+}
+.thanks-sec h2 {
+    font-size: 8px;
+    line-height: normal;
+}
+strong {
+    font-weight: 900;
+}
+.item.kot {
+    width: 20mm;
+}
+body.body { 
+    margin-left: 10px;
+    margin-right: 10px;
+} 
+.itemtext {
+    margin: 2px 0;
+ }
+ .print-btn {
+    outline: none;
+    border: none;
+    background: #18DAA0;
+    margin-top: 15px;
+    padding: 6px 19px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 3px;
+}
+@media print {
+     /* p.bodyText {font-family:georgia, times, serif;color: red;} */
+     .hidden-print {
+        display: none !important;
+     }
+     .print-btn {
+        display: none;
+     }
+     .info h4{
+        margin-bottom: 5px;
+     }
+     #invoice-POS {
+        box-shadow: none;
+     }
+    
+     .custom-modal .modal-content {
+        box-shadow:none;
+        border-radius:none;
+        -webkit-border-radius:none;
+        min-width:80mm;
+        max-height: unset;
+        background: unset;
+     }
+   
+  }

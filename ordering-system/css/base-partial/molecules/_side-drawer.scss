@@ -1,0 +1,77 @@
+.side-drawer {
+  position: fixed;
+  top: 0;
+  width: 320px;
+  height: 100%;
+  left: 0;
+  background: #ffffff;
+  box-shadow: 0 0 15px 0 rgba(90, 96, 112, 0.5);
+  z-index: 12;
+  @include flexbox;
+  @include flex-direction(column);
+  overflow: hidden;
+  overflow-y: auto;
+  margin-left: -25px;
+  padding-left: 25px;
+  @media screen and (max-width: 320px) {
+    width: 270px;
+    margin-left: -20px;
+    padding-left: 20px;
+  }
+  .side-drawer-pad {
+    padding: 25px;
+  }
+  .act-program {
+    background: #ffffff;
+    background: linear-gradient(82.39deg, #42b4bd -3.5%, #39c7af 107.53%);
+    box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.07);
+    border-radius: 12px;
+    padding: 20px;
+    strong {
+      font-weight: 500;
+      font-size: 16px;
+      color: $white-col;
+      letter-spacing: 0.23px;
+      display: block;
+    }
+    h6 {
+      color: $white-col;
+    }
+  }
+  .article-list {
+    .article-title {
+      font-weight: 400;
+    }
+  }
+
+  .article-list {
+    margin: 15px 25px;
+    padding-bottom: 10px;
+  }
+}
+.side-drawer-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+}
+
+.cust-info {
+  strong {
+    font-weight: 400;
+    font-size: 16px;
+    color: #2d3142;
+    letter-spacing: 0.23px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .text-link {
+    text-align: left;
+  }
+  border-bottom: 1px solid #edeff0;
+}
+.app-ver-text {
+  color: #2d3142;
+}

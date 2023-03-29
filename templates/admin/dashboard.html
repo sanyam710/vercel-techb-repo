@@ -1,0 +1,87 @@
+<!-- <div class="content order-screen">
+    <div class="container height-100 flex-center">
+        <div class="loader loader-1" ng-if="users.pageLoader">
+            <div class="loader-outer"></div>
+            <div class="loader-inner"></div>
+        </div>
+        <div class="con-holder pad-20" ng-if="!users.pageLoader">
+            <div class="order-detail-head">
+                <div class="flex-space-between flex-align-center">
+                    <h3>Users</h3>
+                    <div class="form-group flex-space-between flex-align-center inline-form">
+                        <div class="form-field search-field">
+                            <input type="search" ng-model="users.userText" class="form-control form-control-search" placeholder="Search for name, order status or something...">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-field">
+                                <button type="button" class="btn primary-btn mar-l-15" ng-click="users.addNewUser()">
+                                    <img src="/images/icons/add-user-icon.svg" alt=""> Add New User
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-detail-body">
+                <div class="content-body table-holder h-line-scroll">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>
+                                <div class="row-name-field">Name</div>
+                            </th>
+                            <th>
+                                <div class="row-email-field">Email</div>
+                            </th>
+                            <th>
+                                <div class="row-count-field">Categories Count</div>
+                            </th>
+                            <th>
+                                <div class="row-count-field">Recipes Count</div>
+                            </th>
+                            <th>
+                                <div class="row-state-field">Access State</div>
+                            </th>
+                            <th>
+                                <div class="row-status-field">Status</div>
+                            </th>
+                            <th>
+                                <div class="row-action-field">Action</div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="user in users.list | filter: users.userText | orderBy: '+id'">
+                            <td>
+                                <div class="row-name-field">{{ user.name }}</div>
+                            </td>
+                            <td>
+                                <div class="row-email-field">
+                                    <a href="mailto: {{ user.email }}">{{ user.email }}</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row-count-field">{{ user.category_count }}</div>
+                            </td>
+                            <td>
+                                <div class="row-count-field">{{ user.recipe_count }}</div>
+                            </td>
+                            <td>
+                                <div class="row-State-field">{{ constants.ACCOUNT_STATE_MAP[user.enable_access_state].text }}</div>
+                            </td>
+                            <td>
+                                <div class="row-status-field status-btn active">{{ user.status_id == 1 ? "Active" : "InActive" }}</div>
+                            </td>
+                            <td>
+                                <div class="row-action-field" ng-click="users.editUser(user)">
+                                    <img src="/images/icons/circle-edit-icon.svg" alt="">Edit
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

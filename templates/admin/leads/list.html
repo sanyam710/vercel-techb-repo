@@ -1,0 +1,117 @@
+<div class="content order-screen">
+    <div class="container height-100 flex-center">
+        <div class="loader loader-1" ng-if="leads.pageLoader">
+            <div class="loader-outer"></div>
+            <div class="loader-inner"></div>
+        </div>
+        <div class="con-holder pad-20" ng-if="!leads.pageLoader">
+            <div class="order-detail-head">
+                <div class="flex-space-between flex-align-center">
+                    <div class="form-field search-field">
+                        <input type="search" ng-model="leads.userText" class="form-control form-control-search" placeholder="Search for lead name...">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-field-holder mar-b-0">
+                            <div class="form-field">
+                                <div class="custom-select-holder {{ orders.dto.internName ? 'active' : '' }}" ng-click="orders.dto.internName = !orders.dto.internName">
+                                    <span class="custom-select-field select" style="width: 150px">{{ filters.params.internName ? filters.params.internName : "All" }}</span>
+                                    <ul class="custom-select-menu" ng-if="orders.dto.internName">
+                                        <li ng-click="filters.params.internName = null;">All</li>
+                                        <li ng-click="filters.params.internName = intern.name;" ng-repeat="(name, intern) in leads.internsObj">{{ intern.name }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-detail-body">
+                <div class="content-body table-holder h-line-scroll leads-table">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>
+                                <div class="row-name-field">Name</div>
+                            </th>
+                            <th>
+                                <div class="row-email-field">Email</div>
+                            </th>
+                            <th>
+                                <div class="row-email-field">Mobile No</div>
+                            </th>
+                            <th>
+                                <div class="row-email-field">By</div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="lead in leads.list | filter: leads.userText" ng-if="filters.isVisible(lead)" ng-click="popOver.show('leadInformation', lead)">
+                            <td>
+                                <div class="row-name-field">{{ lead.restaurant_name }}</div>
+                            </td>
+                            <td>
+                                <div class="row-email-field">
+                                    <a href="mailto: {{ lead.email }}">{{ lead.email }}</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row-email-field">
+                                    <a>{{ lead.mobile_no }}</a>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="row-email-field">
+                                    <a>{{ lead.intern.name }}</a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="custom-modal" ng-if="popOver.current == 'leadInformation'">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="close-icon" ng-click="popOver.hide()"></span>
+                <div class="modal-con-head">
+                    <div class="modal-con-head-info">
+                        <h3 class="modal-title">{{ popOver.data.restaurant_name }}</h3>
+                    </div>
+                </div>
+                <div class="modal-con-body">
+                    <div class="info-list">
+                        <div class="info-item">
+                            <h4>By Intern</h4>
+                            <span>{{ popOver.data.intern.name }}</span>
+                        </div>
+                        <div class="info-item">
+                            <h4>Manager Name</h4>
+                            <span>{{ popOver.data.manager_name }}</span>
+                        </div>
+                        <div class="info-item">
+                            <h4>Email</h4>
+                            <span><a href="mailto: {{ popOver.data.email }}">{{ popOver.data.email }}</a></span>
+                        </div>
+                        <div class="info-item">
+                            <h4>Mobile</h4>
+                            <span>{{ popOver.data.mobile_no }}</span>
+                        </div>
+                        <div class="info-item">
+                            <h4>Comments</h4>
+                            <span>{{ popOver.data.comment ? popOver.data.comment : 'NA' }}</span>
+                        </div>
+                        <div class="info-item">
+                            <h4>Created at</h4>
+                            <span>{{ popOver.data.created_at | date: 'EEE, dd MMM yyyy' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,413 @@
+<div class="main-wrap">
+    <div class="content flex-center">
+        <div class="loader loader-1" ng-if="profile.loader">
+            <div class="loader-outer"></div>
+            <div class="loader-inner"></div>
+        </div>
+        <div ng-if="!profile.loader" class="container height-100">
+            <div class="con-holder">
+                <div class="column-list overflow-auto pad-20">
+                    <div class="col-9 mar-r-20">
+                        <div class="form-section mar-b-40">
+                            <div class="form-group-head">
+                                <h3>Account Details</h3>
+                            </div>
+                            <div class="form-group-body">
+                                <form name="profile.dto.profileForm" ng-submit="profile.update()" novalidate>
+                                    <div class="form-group">
+                                        <div class="form-field-holder">
+                                            <div class="form-field {{ ((profileForm.$submitted || profileForm.name.$touched) && profileForm.name.$invalid) ? 'error' : 'success' }}">
+                                                <label class="field-label field-user">Name</label>
+                                                <input type="text" name="name" class="form-control field-user" ng-model="profile.info.name" autocomplete="off" placeholder="Restaurant name" required/>
+                                            </div>
+                                            <div class="form-field {{ ((profileForm.$submitted || profileForm.username.$touched) && profileForm.username.$invalid) ? 'error' : 'success' }}">
+                                                <label class="field-label">User Name</label>
+                                                <input type="text" class="form-control field-user" name="username" ng-model="profile.info.username" autocomplete="off" placeholder="User name" ng-readonly="profile.info.username" required/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-field-holder">
+                                            <div class="form-field {{ ((profileForm.$submitted || profileForm.email.$touched) && profileForm.email.$invalid) ? 'error' : 'success'  }}">
+                                                <label class="field-label">Email</label>
+                                                <input type="email" class="form-control field-email" name="email" ng-model="profile.info.email" autocomplete="off" placeholder="Email address" required/>
+                                            </div>
+                                            <div class="form-field {{ !profile.info.currency ? 'error' : 'success'  }}">
+                                                <label class="field-label">Currency</label>
+                                                <div class="custom-select-holder {{ profile.info.dto.currencyDrawer ? 'active' : '' }}" ng-click="profile.info.dto.currencyDrawer = !profile.info.dto.currencyDrawer">
+                                                    <span class="custom-select-field select">{{ constants.CURRENCY[profile.info.currency] }}</span>
+                                                    <ul class="custom-select-menu" ng-if="profile.info.dto.currencyDrawer">
+                                                        <li ng-repeat="(id, currency) in constants.CURRENCY" ng-click="profile.info.currency  = id;">{{ currency }}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-field-holder">
+                                            <div class="form-field {{ ((profileForm.$submitted || profileForm.mobile.$touched) && profileForm.mobile.$invalid) ? 'error' : 'success'  }}">
+                                                <label class="field-label">Contact Number</label>
+                                                <input type="text" onkeypress="RestrictFirstZero(event)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="10" class="form-control field-call" name="mobile" ng-model="profile.info.mobile_no" autocomplete="off" placeholder="Contact Number" required/>
+                                            </div>
+                                            <div class="form-field {{ ((profileForm.$submitted || profileForm.websiteUrl.$touched) && profileForm.websiteUrl.$invalid) ? 'error' : 'success'  }}">
+                                                <label class="field-label">Website URL</label>
+                                                <input type="text" class="form-control field-website" name="websiteUrl" ng-model="profile.info.website" autocomplete="off" placeholder="Website URL" required/>
+                                            </div>
+                                        </div>
+<!-- 
+                                        <div class="form-field-holder">
+                                            <div class="form-field {{ ((profileForm.$submitted || profileForm.opening_time.$touched) && profileForm.opening_time.$invalid) ? 'error' : 'success'  }}">
+                                                <label class="field-label">Opening Time</label>
+                                                <input type="time" class="form-control field-clock" name="mobile" ng-model="profile.info.opening_time" autocomplete="off" placeholder="Opening Time" required/>
+                                            </div>
+                                            <div class="form-field {{ ((profileForm.$submitted || profileForm.closing_time.$touched) && profileForm.closing_time.$invalid) ? 'error' : 'success'  }}">
+                                                <label class="field-label">Closing Time</label>
+                                                <input type="time" class="form-control field-clock" name="websiteUrl" ng-model="profile.info.closing_time" autocomplete="off" placeholder="Closing Time" required/>
+                                            </div>
+                                        </div> -->
+
+                                        <div class="form-field-holder">
+                                            <div class="form-field {{ ((profileForm.$submitted || profileForm.no_of_tables.$touched) && profileForm.no_of_tables.$invalid) ? 'error' : 'success' }}">
+                                                <label class="field-label">Number of tables</label>
+                                                <input type="number" name="no_of_tables" class="form-control" ng-model="profile.info.no_of_tables" autocomplete="off" placeholder="Number of tables at your place." required/>
+                                            </div>
+                                            <div class="form-field {{ ((profileForm.$submitted || profileForm.fssai.$touched) && profileForm.fssai.$invalid) ? 'error' : 'success' }}">
+                                                <label class="field-label">fssai</label>
+                                                <input type="text" class="form-control" name="fssai" ng-model="profile.info.fssai" autocomplete="off" placeholder="fssai" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-field-holder">
+                                            <div class="form-field {{ ((profileForm.$submitted || profileForm.gst_number.$touched) && profileForm.gst_number.$invalid) ? 'error' : 'success' }}">
+                                                <label class="field-label">Gst No</label>
+                                                <input type="text" name="gst_number" class="form-control" ng-model="profile.info.gst_number" autocomplete="off" placeholder="Gst No" required/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-field-holder">
+                                            <div class="form-field {{ ((profileForm.$submitted || profileForm.google_reviews.$touched) && profileForm.google_reviews.$invalid) ? 'error' : 'success' }}">
+                                                <label class="field-label">Google Review Link</label>
+                                                <input type="text" name="google_reviews" class="form-control" ng-model="profile.info.google_reviews" autocomplete="off" placeholder="Google Review Link" required/>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-field-holder mar-b-0">
+                                            <div class="form-field">&nbsp;</div>
+                                            <div class="form-field flex-align-center">
+                                                <button type="submit" class="btn primary-btn block-btn {{ profile.dto.profileBtnLoader ? 'btn-loader' : '' }}">
+                                                    <img src="/images/icons/save-icon.svg" alt="">Save Changes
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="form-section pad-b-20">
+                            <div class="form-group-head">
+                                <h3>Change Password</h3>
+                            </div>
+                            <div class="form-group-body">
+                                <form name="profile.dto.passwordResetForm" novalidate ng-submit="profile.updatePassword()">
+                                    <div class="form-group">
+                                        <div class="form-field-holder width-100">
+                                            <div class="form-field width-100 {{ (profile.dto.passwordResetForm.oldPassword.$touched || profile.dto.passwordResetForm.$submitted) && profile.dto.passwordResetForm.oldPassword.$invalid ? 'error' : '' }}">
+                                                <label class="field-label">Old Password</label>
+                                                <input type="{{ profile.dto.oldPasswordType ? 'text' : 'password'}}" class="form-control field-lock" name="oldPassword" ng-model="profile.info.oldPassword" placeholder="Enter your old password" required/>
+                                                <span class="field-pass-show-hide {{ profile.dto.oldPasswordType ? 'hide' : 'show' }}" ng-if="profile.dto.passwordResetForm.oldPassword.$valid" ng-click="profile.dto.oldPasswordType = !profile.dto.oldPasswordType"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-field-holder">
+                                            <div class="form-field  {{ (profile.dto.passwordResetForm.newPassword.$touched || profile.dto.passwordResetForm.$submitted) && profile.dto.passwordResetForm.newPassword.$invalid ? 'error' : '' }}">
+                                                <label class="field-label">New Password</label>
+                                                <input type="{{ profile.dto.newPasswordType ? 'text' : 'password'}}" class="form-control field-lock" name="newPassword" ng-model="profile.info.newPassword" placeholder="Enter new password" required/>
+                                                <span class="field-pass-show-hide {{ profile.dto.newPasswordType ? 'hide' : 'show' }}" ng-if="profile.dto.passwordResetForm.newPassword.$valid" ng-click="profile.dto.newPasswordType = !profile.dto.newPasswordType"></span>
+                                            </div>
+
+                                            <div class="form-field {{ (profile.dto.passwordResetForm.retypedPassword.$touched || profile.dto.passwordResetForm.$submitted) && profile.dto.passwordResetForm.retypedPassword.$invalid ? 'error' : '' }}">
+                                                <label class="field-label">Confirm Password</label>
+                                                <input type="{{ profile.dto.retypedPasswordType ? 'text' : 'password'}}" class="form-control field-lock" name="retypedPassword" ng-model="profile.info.retypedPassword" placeholder="Enter confirm password" required/>
+                                                <span class="field-pass-show-hide {{ profile.dto.retypedPasswordType ? 'hide' : 'show' }}" ng-if="profile.dto.passwordResetForm.retypedPassword.$valid" ng-click="profile.dto.retypedPasswordType = !profile.dto.retypedPasswordType"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-field-holder">
+                                            <div class="form-field">&nbsp;</div>
+                                            <div class="form-field flex-align-right">
+                                                <button type="submit" class="btn primary-btn flex-center  {{ profile.dto.resetPasswordBtnLoader ? 'btn-loader' : '' }}">
+                                                    <img src="/images/icons/save-icon.svg" alt="">Save Changes
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-section pad-b-20">
+                            <div class="con-holder pad-20" style="padding:0px" >
+                                <div class="order-detail-head">
+                                    <div class="flex-space-between flex-align-center inline-form">
+                                        <h3>Children</h3>
+                                        <div class="form-group flex-space-between flex-align-center">
+                                            <div class="form-field search-field">
+                                                <input type="search" ng-model="profile.searchText" class="form-control form-control-search" placeholder="Search for name...">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="form-field">
+                                                    <button type="button" class="btn primary-btn mar-l-15" ng-click="popOver.show('childAdd', {})"> + Add New Children</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-detail-body">
+                                    <div class="content-body table-holder h-line-scroll">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <div class="row-name-field">Name</div>
+                                                </th>
+                                                <th>
+                                                    <div class="row-status-field">Status</div>
+                                                </th>
+                                                <th>
+                                                    <div class="row-action-field flex-align-right" style="margin-right: 20px;">Action</div>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="child in profile.list | filter: profile.searchText">
+                                                <td>
+                                                    <div class="row-name-field">{{ child.name }}</div>
+                                                </td>
+                                                <td>
+                                                    <div class="row-status-field status-btn {{ constants.CONTENT_STATUS_MAP[child.status_id].className }}">{{ constants.CONTENT_STATUS_MAP[child.status_id].text }}</div>
+                                                </td>
+                                                <td>
+                                                    <div class="masterchild-action">
+                                                        <div class="" ng-click="popOver.show('childAdd', child)" style="cursor: pointer;">
+                                                            <img src="/images/icons/circle-edit-icon.svg" alt=""> Edit
+                                                        </div>
+                                                    </div>                              
+                                                </td>
+                                            </tr>
+                    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div> -->
+                    </div>
+
+                    <!-- <div class="col-3">
+                        <!--Logo-->
+                        <div class="form-section">
+                            <!-- <div class="form-group-head">
+                                <h3>Logo</h3>
+                            </div> -->
+                            <!-- <div class="form-group-body">
+                                <form action="">
+                                    <div class="form-group">
+                                        <div class="form-field mar-b-20">
+                                            <div class="file-upload-block">
+                                                <div class="file-upload-field" ng-if="constants.utility.ObjectUtility.isEmpty(images.info.logo)" ng-click="images.openImagePicker('logoImage', constants.ENTITY_IMAGE_RESTAURANT_LOGO)">
+                                                    <h4>Select image file</h4>
+                                                    <input type="file" id="logoImage" ng-model="images.model[constants.ENTITY_IMAGE_RESTAURANT_LOGO]" hidden/>
+                                                    <img src="/images/icons/file-upload-icon.svg" alt="">
+                                                    <h6>Choose a file</h6>
+                                                </div>
+                                                <div class="file-upload-result" ng-if="!constants.utility.ObjectUtility.isEmpty(images.info.logo)" ng-click="images.open(images.info.logo.url)">
+                                                    <img ng-src="{{ images.info.logo.url }}" alt="">
+                                                    <div class="close-btn" ng-click="popOver.show('deleteImgPopOver', images.info.logo)">
+                                                        <img src="/images/icons/def-close-icon-hover.svg" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-field">
+                                            <button type="button" class="btn primary-btn block-btn {{ images.dto[constants.ENTITY_IMAGE_RESTAURANT_LOGO] ? 'btn-loader' : '' }}" ng-click="images.upload(constants.ENTITY_IMAGE_RESTAURANT_LOGO)">
+                                                <img src="/images/icons/refresh-icon.svg" alt=""> Update Logo
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div> -->
+                        </div>
+
+                        <!--Hidden as of not used-->
+                        <!--Horizontal Logo-->
+                        <div class="form-section" ng-if="">
+                            <!-- <div class="form-group-head bdr-radius">
+                                <h3>Horizontal Logo</h3>
+                            </div> -->
+                            <div class="form-group-body">
+                                <form action="">
+                                    <div class="form-group">
+                                        <div class="form-field mar-b-20">
+                                            <div class="file-upload-block">
+                                                <div class="file-upload-field" ng-if="constants.utility.ObjectUtility.isEmpty(images.info.hr_logo)" ng-click="images.openImagePicker('hLogoImage', constants.ENTITY_IMAGE_RESTAURANT_HORIZONTAL_LOGO)">
+                                                    <h4>Select image file</h4>
+                                                    <input type="file" id="hLogoImage" ng-model="images.model[constants.ENTITY_IMAGE_RESTAURANT_HORIZONTAL_LOGO]" hidden/>
+                                                    <img src="/images/icons/file-upload-icon.svg" alt="">
+                                                    <h6>Choose a file</h6>
+                                                </div>
+                                                <div class="file-upload-result" ng-if="!constants.utility.ObjectUtility.isEmpty(images.info.hr_logo)">
+                                                    <img ng-src="{{ images.info.hr_logo.url }}" alt="">
+                                                    <div class="close-btn" ng-click="popOver.show('deleteImgPopOver', images.info.hr_logo)">
+                                                        <img src="/images/icons/def-close-icon-hover.svg" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-field">
+                                            <button type="button" class="btn primary-btn block-btn {{ images.dto[constants.ENTITY_IMAGE_RESTAURANT_HORIZONTAL_LOGO] ? 'btn-loader' : '' }}" ng-click="images.upload(constants.ENTITY_IMAGE_RESTAURANT_HORIZONTAL_LOGO)">
+                                                <img src="/images/icons/refresh-icon.svg" alt=""> Update Horizontal Logo
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!--Banner Images-->
+                        <!-- <div class="form-section">
+                            <div class="form-group-head bdr-radius">
+                                <h3>Banner Images</h3>
+                            </div>
+                            <div class="form-group-body">
+                                <form action="">
+                                    <div class="form-group">
+                                        <div class="form-field mar-b-20">
+                                            <div class="file-upload-block">
+                                                <div class="file-upload-result" style="min-height: 0">
+                                                    <div class="owl-carousel owl-theme banner-carousel">
+                                                        <div class="item" ng-repeat="image in images.info.banner_images">
+                                                            <img ng-src="{{ image.url }}">
+                                                            <div class="close-btn" style="top: 0" ng-click="popOver.show('deleteImgPopOver', image)">
+                                                                <img src="/images/icons/def-close-icon-hover.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="file-upload-field pad-0 mar-t-10" style="justify-content: space-around; flex-direction: row" ng-click="images.openImagePicker('sliderImages', constants.ENTITY_IMAGE_RESTAURANT_SLIDER_IMAGE)">
+                                                    <input type="file" id="sliderImages" ng-model="images.model[constants.ENTITY_IMAGE_RESTAURANT_SLIDER_IMAGE]" hidden/>
+                                                    <img src="/images/icons/file-upload-icon.svg" alt="">
+                                                    <h6>Click to select image</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-field">
+                                            <button type="button" class="btn primary-btn block-btn {{ images.dto[constants.ENTITY_IMAGE_RESTAURANT_SLIDER_IMAGE] ? 'btn-loader' : '' }}" ng-click="images.upload(constants.ENTITY_IMAGE_RESTAURANT_SLIDER_IMAGE)">
+                                                <img src="/images/icons/refresh-icon.svg" alt=""> Upload Image
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div> -->
+
+                        <!--Gallery Images-->
+                        <!-- <div class="form-section">
+                            <div class="form-group-head bdr-radius">
+                                <h3>Gallery Images</h3>
+                            </div>
+                            <div class="form-group-body">
+                                <form action="">
+                                    <div class="form-group">
+                                        <div class="form-field mar-b-20">
+                                            <div class="file-upload-block">
+                                                <div class="file-upload-result" style="min-height: 0">
+                                                    <div class="owl-carousel owl-theme banner-carousel">
+                                                        <div class="item" ng-repeat="image in images.info.gallery_images">
+                                                            <img ng-src="{{ image.url }}">
+                                                            <div class="close-btn" style="top: 0; right: 0px" ng-click="popOver.show('deleteImgPopOver', image)">
+                                                                <img src="/images/icons/def-close-icon-hover.svg" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="file-upload-field pad-0 mar-t-10" style="justify-content: space-around; flex-direction: row" ng-click="images.openImagePicker('sliderImages', constants.ENTITY_IMAGE_RESTAURANT_GALLERY_IMAGE)">
+                                                    <input type="file" id="galleryImages" ng-model="images.model[constants.ENTITY_IMAGE_RESTAURANT_GALLERY_IMAGE]" hidden/>
+                                                    <img src="/images/icons/file-upload-icon.svg" alt="">
+                                                    <h6>Click to select image</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-field">
+                                            <button type="button" class="btn primary-btn block-btn {{ images.dto[constants.ENTITY_IMAGE_RESTAURANT_GALLERY_IMAGE] ? 'btn-loader' : '' }}" ng-click="images.upload(constants.ENTITY_IMAGE_RESTAURANT_GALLERY_IMAGE)">
+                                                <img src="/images/icons/refresh-icon.svg" alt=""> Upload Image
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div> -->
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Image Modal -->
+<!-- <div class="custom-modal action-modal delete-modal" ng-if="popOver.current == 'deleteImgPopOver'">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="modal-info-icon"><img src="/images/icons/lg-delete-icon.png" alt=""></span>
+                <h3 class="modal-title">Are you sure you want to delete the suborder</h3>
+                <span class="semi-cir-corner"></span>
+                <div class="form-group">
+                    <div class="form-field flex-align-right">
+                        <span class="text-link mar-r-15" ng-click="popOver.hide()">Cancel</span>
+                        <button type="button" class="btn secondary-btn {{ images.dto.imageDeleteLoader ? 'btn-loader' : '' }}" ng-click="images.delete()">
+                            <img class="mar-r-10" src="/images/icons/wt-close-icon.svg" alt="">Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+<div class="custom-modal" ng-if="popOver.current == 'childAdd'">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="close-icon" ng-click="popOver.hide()"></span>
+                <h3 class="modal-title mar-b-30">{{ popOver.data.id ? "Update" : "New" }} Restaurant Children</h3>
+                <div class="form-group">
+                    <div class="form-field-holder">
+                        <div class="form-field width-100">
+                            <label class="field-label">Master Children Name</label>
+                            <input type="text" name="ebtity" class="form-control" ng-model="popOver.data.name" placeholder="Enter name" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-field-holder">
+                        <div class="form-field width-100">
+                            <label class="field-label">Status</label>
+                            <div class="custom-select-holder {{ popOver.data.dto.statusDd ? 'active' : '' }}" ng-click="popOver.data.dto.statusDd = !popOver.data.dto.statusDd">
+                                <span class="custom-select-field select">{{ popOver.data.status_id ? constants.CONTENT_STATUS_MAP[popOver.data.status_id].text : 'Select status' }}</span>
+                                <ul class="custom-select-menu">
+                                    <li ng-repeat="status in constants.CONTENT_STATUS" ng-click="popOver.data.status_id = status.id; ">{{ status.text }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-field flex-align-right">
+                        <button type="button" class="btn primary-btn" ng-click="profile.saveRestaurantChild()">
+                            <img src="/images/icons/refresh-icon.svg" alt=""> {{ popOver.data.id ? 'Update' : 'Save' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
